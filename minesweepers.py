@@ -6,9 +6,9 @@ import time
 FULL_MAP = []
 # Map of GUI_MAP revealed and HIDDEN
 GUI_MAP = []
-WIDTH = 16
-HEIGHT = 16
-MINES = 40
+WIDTH = 8
+HEIGHT = 8
+MINES = 10
 HIDDEN = WIDTH * HEIGHT
 GAME_OVER = False
 MAX_ITER = 100
@@ -306,8 +306,8 @@ def PredictEdge(Width, Height):
 def SolveAlg(Width, Height):
     # CPU time capped by maximum iteration count 
     for iter in range(MAX_ITER):
-        # Just for visualization 
-        time.sleep(.1)
+        # Just for visualization
+        # time.sleep(.1)
         if GAME_OVER:
             break
         # Pick random coordinates until at least 10% of the map is revealed 
@@ -326,5 +326,18 @@ STATUS = Label(MASTER, text="")
 SOLVER = Button(MASTER, command=lambda Width=WIDTH, Height=HEIGHT: SolveAlg(Width, Height), text="Solver")
 RESET = Button(MASTER, command=lambda Width=WIDTH, Height=HEIGHT, Mines=MINES: ResetMap(Width, Height, Mines),
                text="Reset")
-ResetMap(WIDTH, HEIGHT, MINES)
+SUCCESS = 0
+TOTAL = 0
+for a in range(16):
+    MINES = a + 3
+    ResetMap(WIDTH, HEIGHT, MINES)
+    for b in range(200):
+        TOTAL += 1
+        SolveAlg(WIDTH, HEIGHT)
+        if STATUS["text"] == "You won!":
+            SUCCESS += 1
+        ResetMap(WIDTH, HEIGHT, MINES)
+    print("Mines: " + str(MINES) + " " + "Rate: " + str(SUCCESS / TOTAL))
+    SUCCESS = 0
+    TOTAL = 0
 mainloop()
