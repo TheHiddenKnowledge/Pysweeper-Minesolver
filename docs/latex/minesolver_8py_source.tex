@@ -1,0 +1,185 @@
+\doxysection{minesolver.\+py}
+\hypertarget{minesolver_8py_source}{}\label{minesolver_8py_source}\mbox{\hyperlink{minesolver_8py}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00004}00004\ \textcolor{keyword}{import}\ random\ \textcolor{keyword}{as}\ rnd}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00005}00005\ \textcolor{keyword}{import}\ time\ \textcolor{keyword}{as}\ t}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00009}\mbox{\hyperlink{classminesolver_1_1_mine_solver}{00009}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classminesolver_1_1_mine_solver}{MineSolver}}:}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00010}00010\ \ \ \ \ \textcolor{keyword}{def\ }\_\_init\_\_(self,\ game):}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00011}00011\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00013}\mbox{\hyperlink{classminesolver_1_1_mine_solver_a72cfdd40df527d974505288cae60653a}{00013}}\ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classminesolver_1_1_mine_solver_a72cfdd40df527d974505288cae60653a}{\_\_game}}\ =\ game}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00014}00014\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00016}\mbox{\hyperlink{classminesolver_1_1_mine_solver_a07c9c15740844f3f06a4375fe64c2f76}{00016}}\ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classminesolver_1_1_mine_solver_a07c9c15740844f3f06a4375fe64c2f76}{\_\_max\_iter}}\ =\ 100}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00018}00018\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00024}\mbox{\hyperlink{classminesolver_1_1_mine_solver_aa27c311a1c5c022254bfaac68bc6b69c}{00024}}\ \ \ \ \ \textcolor{keyword}{def\ }\mbox{\hyperlink{classminesolver_1_1_mine_solver_aa27c311a1c5c022254bfaac68bc6b69c}{\_\_pick\_random}}(self,\ x0,\ y0,\ x1,\ y1):}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00025}00025\ \ \ \ \ \ \ \ \ x\ =\ rnd.randint(x0,\ x1)}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00026}00026\ \ \ \ \ \ \ \ \ y\ =\ rnd.randint(y0,\ y1)}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00027}00027\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ 0\ >\ x\ >=\ self.\mbox{\hyperlink{classminesolver_1_1_mine_solver_a72cfdd40df527d974505288cae60653a}{\_\_game}}.width\ \textcolor{keywordflow}{or}\ 0\ >\ y\ >=\ self.\mbox{\hyperlink{classminesolver_1_1_mine_solver_a72cfdd40df527d974505288cae60653a}{\_\_game}}.height:}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00028}00028\ \ \ \ \ \ \ \ \ \ \ \ \ x\ =\ rnd.randint(x0,\ x1)}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00029}00029\ \ \ \ \ \ \ \ \ \ \ \ \ y\ =\ rnd.randint(y0,\ y1)}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00030}00030\ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classminesolver_1_1_mine_solver_a72cfdd40df527d974505288cae60653a}{\_\_game}}.gui\_map[y][x].update()}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00031}00031\ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classminesolver_1_1_mine_solver_a72cfdd40df527d974505288cae60653a}{\_\_game}}.gui\_map[y][x].event\_generate(\textcolor{stringliteral}{"{}<Button-\/1>"{}})}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00033}00033\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00034}\mbox{\hyperlink{classminesolver_1_1_mine_solver_a2798998c5fde8ed76e4fb09eedda236b}{00034}}\ \ \ \ \ \textcolor{keyword}{def\ }\mbox{\hyperlink{classminesolver_1_1_mine_solver_a2798998c5fde8ed76e4fb09eedda236b}{\_\_flag\_edges}}(self):}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00035}00035\ \ \ \ \ \ \ \ \ flag\_count\ =\ 0}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00036}00036\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ x\ \textcolor{keywordflow}{in}\ range(self.\mbox{\hyperlink{classminesolver_1_1_mine_solver_a72cfdd40df527d974505288cae60653a}{\_\_game}}.width):}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00037}00037\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ y\ \textcolor{keywordflow}{in}\ range(self.\mbox{\hyperlink{classminesolver_1_1_mine_solver_a72cfdd40df527d974505288cae60653a}{\_\_game}}.height):}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00038}00038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gui\_cell\ =\ self.\mbox{\hyperlink{classminesolver_1_1_mine_solver_a72cfdd40df527d974505288cae60653a}{\_\_game}}.gui\_map[y][x]}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00039}00039\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ gui\_cell[\textcolor{stringliteral}{"{}text"{}}]\ !=\ \textcolor{stringliteral}{"{}\ "{}}\ \textcolor{keywordflow}{and}\ gui\_cell[\textcolor{stringliteral}{"{}text"{}}]\ !=\ \textcolor{stringliteral}{"{}⚑"{}}:}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00040}00040\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Coordinates\ that\ are\ hidden}}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00041}00041\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ hidden\_cells\ =\ []}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00042}00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Coordinates\ that\ are\ flagged\ }}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00043}00043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ flagged\_cells\ =\ []}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00044}00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rots\ =\ [[0,\ 1],\ [0,\ -\/1],\ [1,\ 0],\ [-\/1,\ 0],}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00045}00045\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ [1,\ 1],\ [-\/1,\ -\/1],\ [1,\ -\/1],\ [-\/1,\ 1]]}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00046}00046\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ rot\ \textcolor{keywordflow}{in}\ rots:}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00047}00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ x\_dir\ =\ x\ +\ rot[0]}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00048}00048\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ y\_dir\ =\ y\ +\ rot[1]}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00049}00049\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ adjacent\_cell\ =\ self.\mbox{\hyperlink{classminesolver_1_1_mine_solver_a72cfdd40df527d974505288cae60653a}{\_\_game}}.gui\_map[y\_dir][x\_dir]}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00050}00050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (0\ <=\ x\_dir\ <\ self.\mbox{\hyperlink{classminesolver_1_1_mine_solver_a72cfdd40df527d974505288cae60653a}{\_\_game}}.width}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00051}00051\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{and}\ 0\ <=\ y\_dir\ <\ self.\mbox{\hyperlink{classminesolver_1_1_mine_solver_a72cfdd40df527d974505288cae60653a}{\_\_game}}.height):}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ adjacent\_cell[\textcolor{stringliteral}{"{}bg"{}}]\ ==\ \textcolor{stringliteral}{"{}grey"{}}:}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00053}00053\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Marks\ hidden\ and\ flagged\ coordinates}}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ adjacent\_cell[\textcolor{stringliteral}{"{}text"{}}]\ !=\ \textcolor{stringliteral}{"{}⚑"{}}:}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ hidden\_cells.append(}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ adjacent\_cell)}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00057}00057\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ flagged\_cells.append(}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ adjacent\_cell)}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Flags\ hidden\ coordinates\ only\ if\ the\ hidden\ coordinate}}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00061}00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ count\ matches\ the\ number\ on\ the\ map}}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ len(hidden\_cells)\ +\ len(flagged\_cells)\ ==\ int(}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gui\_cell[\textcolor{stringliteral}{"{}text"{}}]):}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ len(flagged\_cells)\ !=\ int(gui\_cell[\textcolor{stringliteral}{"{}text"{}}]):}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00065}00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ hidden\_cell\ \textcolor{keywordflow}{in}\ hidden\_cells:}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00066}00066\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ hidden\_cell[\textcolor{stringliteral}{"{}text"{}}]\ !=\ \textcolor{stringliteral}{"{}⚑"{}}:}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00067}00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ hidden\_cell.update()}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ hidden\_cell.event\_generate(\textcolor{stringliteral}{"{}<Button-\/3>"{}})}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00069}00069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ flag\_count\ +=\ 1}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00070}00070\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Does\ not\ keep\ flagging\ edges\ if\ no\ more\ edges\ qualify}}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00071}00071\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ flag\_count\ >\ 0:}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00072}00072\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{True}}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00073}00073\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00074}00074\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{False}}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00075}00075\ }
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00076}00076\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00079}\mbox{\hyperlink{classminesolver_1_1_mine_solver_af006679c02032d5c1136bb1f66b44f52}{00079}}\ \ \ \ \ \textcolor{keyword}{def\ }\mbox{\hyperlink{classminesolver_1_1_mine_solver_af006679c02032d5c1136bb1f66b44f52}{\_\_clear\_square}}(self,\ x,\ y):}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00080}00080\ \ \ \ \ \ \ \ \ reveal\_count\ =\ 0}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00081}00081\ \ \ \ \ \ \ \ \ rots\ =\ [[0,\ 1],\ [0,\ -\/1],\ [1,\ 0],\ [-\/1,\ 0],}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00082}00082\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ [1,\ 1],\ [-\/1,\ -\/1],\ [1,\ -\/1],\ [-\/1,\ 1]]}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00083}00083\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ rot\ \textcolor{keywordflow}{in}\ rots:}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00084}00084\ \ \ \ \ \ \ \ \ \ \ \ \ x\_dir\ =\ x\ +\ rot[0]}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00085}00085\ \ \ \ \ \ \ \ \ \ \ \ \ y\_dir\ =\ y\ +\ rot[1]}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (0\ <=\ x\_dir\ <\ self.\mbox{\hyperlink{classminesolver_1_1_mine_solver_a72cfdd40df527d974505288cae60653a}{\_\_game}}.width\ \textcolor{keywordflow}{and}}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00087}00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0\ <=\ y\_dir\ <\ self.\mbox{\hyperlink{classminesolver_1_1_mine_solver_a72cfdd40df527d974505288cae60653a}{\_\_game}}.height):}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00088}00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ adjacent\_cell\ =\ self.\mbox{\hyperlink{classminesolver_1_1_mine_solver_a72cfdd40df527d974505288cae60653a}{\_\_game}}.gui\_map[y\_dir][x\_dir]}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00089}00089\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Only\ clears\ hidden\ and\ non-\/flagged\ coordinates}}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00090}00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (adjacent\_cell[\textcolor{stringliteral}{"{}bg"{}}]\ ==\ \textcolor{stringliteral}{"{}grey"{}}}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00091}00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{and}\ adjacent\_cell[\textcolor{stringliteral}{"{}text"{}}]\ !=\ \textcolor{stringliteral}{"{}⚑"{}}):}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00092}00092\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ adjacent\_cell.update()}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00093}00093\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ adjacent\_cell.event\_generate(\textcolor{stringliteral}{"{}<Button-\/1>"{}})}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00094}00094\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ reveal\_count\ +=\ 1}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00095}00095\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ reveal\_count\ >\ 0:}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00096}00096\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{True}}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00097}00097\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00098}00098\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{False}}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00099}00099\ }
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00100}00100\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00104}\mbox{\hyperlink{classminesolver_1_1_mine_solver_ad88c1f4dbf4b7236e34f251208eb6197}{00104}}\ \ \ \ \ \textcolor{keyword}{def\ }\mbox{\hyperlink{classminesolver_1_1_mine_solver_ad88c1f4dbf4b7236e34f251208eb6197}{\_\_check\_square}}(self,\ x,\ y):}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00105}00105\ \ \ \ \ \ \ \ \ flag\_count\ =\ 0}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00106}00106\ \ \ \ \ \ \ \ \ gui\_cell\ =\ self.\mbox{\hyperlink{classminesolver_1_1_mine_solver_a72cfdd40df527d974505288cae60653a}{\_\_game}}.gui\_map[y][x]}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00107}00107\ \ \ \ \ \ \ \ \ rots\ =\ [[0,\ 1],\ [0,\ -\/1],\ [1,\ 0],\ [-\/1,\ 0],}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00108}00108\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ [1,\ 1],\ [-\/1,\ -\/1],\ [1,\ -\/1],\ [-\/1,\ 1]]}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00109}00109\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ rot\ \textcolor{keywordflow}{in}\ rots:}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00110}00110\ \ \ \ \ \ \ \ \ \ \ \ \ x\_dir\ =\ x\ +\ rot[0]}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00111}00111\ \ \ \ \ \ \ \ \ \ \ \ \ y\_dir\ =\ y\ +\ rot[1]}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00112}00112\ \ \ \ \ \ \ \ \ \ \ \ \ adjacent\_cell\ =\ self.\mbox{\hyperlink{classminesolver_1_1_mine_solver_a72cfdd40df527d974505288cae60653a}{\_\_game}}.gui\_map[y\_dir][x\_dir]}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00113}00113\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (0\ <=\ x\_dir\ <\ self.\mbox{\hyperlink{classminesolver_1_1_mine_solver_a72cfdd40df527d974505288cae60653a}{\_\_game}}.width}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00114}00114\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{and}\ 0\ <=\ y\_dir\ <\ self.\mbox{\hyperlink{classminesolver_1_1_mine_solver_a72cfdd40df527d974505288cae60653a}{\_\_game}}.height):}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00115}00115\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Adds\ surrounding\ flags\ to\ flag\ count}}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00116}00116\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ adjacent\_cell[\textcolor{stringliteral}{"{}text"{}}]\ ==\ \textcolor{stringliteral}{"{}⚑"{}}:}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00117}00117\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ flag\_count\ +=\ 1}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00118}00118\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ flag\_count\ ==\ int(gui\_cell[\textcolor{stringliteral}{"{}text"{}}]):}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00119}00119\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{True}}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00120}00120\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00121}00121\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{False}}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00122}00122\ }
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00123}00123\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00124}\mbox{\hyperlink{classminesolver_1_1_mine_solver_a87cf1a03d7d85b3a0f09927084e3e0d8}{00124}}\ \ \ \ \ \textcolor{keyword}{def\ }\mbox{\hyperlink{classminesolver_1_1_mine_solver_a87cf1a03d7d85b3a0f09927084e3e0d8}{\_\_eliminate\_edge}}(self):}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00125}00125\ \ \ \ \ \ \ \ \ elim\_count\ =\ 0}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00126}00126\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ x\ \textcolor{keywordflow}{in}\ range(self.\mbox{\hyperlink{classminesolver_1_1_mine_solver_a72cfdd40df527d974505288cae60653a}{\_\_game}}.width):}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00127}00127\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ y\ \textcolor{keywordflow}{in}\ range(self.\mbox{\hyperlink{classminesolver_1_1_mine_solver_a72cfdd40df527d974505288cae60653a}{\_\_game}}.height):}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00128}00128\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gui\_cell\ =\ self.\mbox{\hyperlink{classminesolver_1_1_mine_solver_a72cfdd40df527d974505288cae60653a}{\_\_game}}.gui\_map[y][x]}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00129}00129\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Checks\ revealed\ coordinates\ with\ numbers}}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00130}00130\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ gui\_cell[\textcolor{stringliteral}{"{}text"{}}]\ !=\ \textcolor{stringliteral}{"{}\ "{}}\ \textcolor{keywordflow}{and}\ gui\_cell[\textcolor{stringliteral}{"{}text"{}}]\ !=\ \textcolor{stringliteral}{"{}⚑"{}}:}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00131}00131\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Clear\ 3x3\ square\ if\ the\ coordinate\ qualifies}}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00132}00132\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ self.\mbox{\hyperlink{classminesolver_1_1_mine_solver_ad88c1f4dbf4b7236e34f251208eb6197}{\_\_check\_square}}(x,\ y):}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00133}00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ self.\mbox{\hyperlink{classminesolver_1_1_mine_solver_af006679c02032d5c1136bb1f66b44f52}{\_\_clear\_square}}(x,\ y):}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00134}00134\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ elim\_count\ +=\ 1}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00135}00135\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Does\ not\ keep\ eliminating\ edges\ if\ no\ more\ edges\ qualify}}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00136}00136\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ elim\_count\ >\ 0:}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00137}00137\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{True}}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00138}00138\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00139}00139\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{False}}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00140}00140\ }
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00141}00141\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00142}\mbox{\hyperlink{classminesolver_1_1_mine_solver_a8c5e90190bc77b686d91964786123efd}{00142}}\ \ \ \ \ \textcolor{keyword}{def\ }\mbox{\hyperlink{classminesolver_1_1_mine_solver_a8c5e90190bc77b686d91964786123efd}{\_\_predict\_edge}}(self):}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00143}00143\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Keeps\ track\ of\ most\ probable\ edge\ coordinate}}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00144}00144\ \ \ \ \ \ \ \ \ min\_numbers\ =\ 9}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00145}00145\ \ \ \ \ \ \ \ \ min\_cells\ =\ []}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00146}00146\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ x\ \textcolor{keywordflow}{in}\ range(self.\mbox{\hyperlink{classminesolver_1_1_mine_solver_a72cfdd40df527d974505288cae60653a}{\_\_game}}.width):}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00147}00147\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ y\ \textcolor{keywordflow}{in}\ range(self.\mbox{\hyperlink{classminesolver_1_1_mine_solver_a72cfdd40df527d974505288cae60653a}{\_\_game}}.height):}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00148}00148\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gui\_cell\ =\ self.\mbox{\hyperlink{classminesolver_1_1_mine_solver_a72cfdd40df527d974505288cae60653a}{\_\_game}}.gui\_map[y][x]}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00149}00149\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Checks\ only\ hidden\ and\ non-\/flagged\ coordinates}}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00150}00150\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ gui\_cell[\textcolor{stringliteral}{"{}bg"{}}]\ ==\ \textcolor{stringliteral}{"{}grey"{}}\ \textcolor{keywordflow}{and}\ gui\_cell[\textcolor{stringliteral}{"{}text"{}}]\ !=\ \textcolor{stringliteral}{"{}⚑"{}}:}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00151}00151\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ numbers\_count\ =\ 0}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00152}00152\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rots\ =\ [[0,\ 1],\ [0,\ -\/1],\ [1,\ 0],\ [-\/1,\ 0],}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00153}00153\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ [1,\ 1],\ [-\/1,\ -\/1],\ [1,\ -\/1],\ [-\/1,\ 1]]}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00154}00154\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ rot\ \textcolor{keywordflow}{in}\ rots:}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00155}00155\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ x\_dir\ =\ x\ +\ rot[0]}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00156}00156\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ y\_dir\ =\ y\ +\ rot[1]}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00157}00157\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ adjacent\_cell\ =\ self.\mbox{\hyperlink{classminesolver_1_1_mine_solver_a72cfdd40df527d974505288cae60653a}{\_\_game}}.gui\_map[y\_dir][x\_dir]}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00158}00158\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (0\ <=\ x\_dir\ <\ self.\mbox{\hyperlink{classminesolver_1_1_mine_solver_a72cfdd40df527d974505288cae60653a}{\_\_game}}.width}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00159}00159\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{and}\ 0\ <=\ y\_dir\ <\ self.\mbox{\hyperlink{classminesolver_1_1_mine_solver_a72cfdd40df527d974505288cae60653a}{\_\_game}}.height):}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00160}00160\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ If\ the\ surrounding\ coordinate\ has\ a\ number\ add\ to\ count}}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00161}00161\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (adjacent\_cell[\textcolor{stringliteral}{"{}text"{}}]\ !=\ \textcolor{stringliteral}{"{}\ "{}}}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00162}00162\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{and}\ adjacent\_cell[\textcolor{stringliteral}{"{}text"{}}]\ !=\ \textcolor{stringliteral}{"{}⚑"{}}):}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00163}00163\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ numbers\_count\ +=\ 1}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00164}00164\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ numbers\_count\ !=\ 0\ \textcolor{keywordflow}{and}\ numbers\_count\ <\ min\_numbers:}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00165}00165\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ min\_numbers\ =\ numbers\_count}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00166}00166\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ min\_cells\ =\ [x,\ y]}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00167}00167\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Reveal\ most\ probable\ coordinate\ (can\ be\ wrong)}}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00168}00168\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ len(min\_cells)\ !=\ 0:}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00169}00169\ \ \ \ \ \ \ \ \ \ \ \ \ min\_x\ =\ min\_cells[0]}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00170}00170\ \ \ \ \ \ \ \ \ \ \ \ \ min\_y\ =\ min\_cells[1]}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00171}00171\ \ \ \ \ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classminesolver_1_1_mine_solver_a72cfdd40df527d974505288cae60653a}{\_\_game}}.gui\_map[min\_y][min\_x].update()}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00172}00172\ \ \ \ \ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classminesolver_1_1_mine_solver_a72cfdd40df527d974505288cae60653a}{\_\_game}}.gui\_map[min\_y][min\_x].event\_generate(\textcolor{stringliteral}{"{}<Button-\/1>"{}})}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00173}00173\ }
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00174}00174\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00175}\mbox{\hyperlink{classminesolver_1_1_mine_solver_a5c4f41f9c8b2f8ee4a02ea0e52c2ed13}{00175}}\ \ \ \ \ \textcolor{keyword}{def\ }\mbox{\hyperlink{classminesolver_1_1_mine_solver_a5c4f41f9c8b2f8ee4a02ea0e52c2ed13}{run\_solver}}(self):}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00176}00176\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ CPU\ time\ capped\ by\ maximum\ iteration\ count\ }}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00177}00177\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ a\ \textcolor{keywordflow}{in}\ range(self.\mbox{\hyperlink{classminesolver_1_1_mine_solver_a07c9c15740844f3f06a4375fe64c2f76}{\_\_max\_iter}}):}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00178}00178\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Just\ for\ visualization}}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00179}00179\ \ \ \ \ \ \ \ \ \ \ \ \ t.sleep(.1)}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00180}00180\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ self.\mbox{\hyperlink{classminesolver_1_1_mine_solver_a72cfdd40df527d974505288cae60653a}{\_\_game}}.game\_over:}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00181}00181\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break}}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00182}00182\ \ \ \ \ \ \ \ \ \ \ \ \ reveal\_count\ =\ (self.\mbox{\hyperlink{classminesolver_1_1_mine_solver_a72cfdd40df527d974505288cae60653a}{\_\_game}}.width\ *\ self.\mbox{\hyperlink{classminesolver_1_1_mine_solver_a72cfdd40df527d974505288cae60653a}{\_\_game}}.height\ -\/}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00183}00183\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classminesolver_1_1_mine_solver_a72cfdd40df527d974505288cae60653a}{\_\_game}}.hidden)}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00184}00184\ \ \ \ \ \ \ \ \ \ \ \ \ reveal\_threshold\ =\ int(self.\mbox{\hyperlink{classminesolver_1_1_mine_solver_a72cfdd40df527d974505288cae60653a}{\_\_game}}.width\ *\ self.\mbox{\hyperlink{classminesolver_1_1_mine_solver_a72cfdd40df527d974505288cae60653a}{\_\_game}}.height\ /\ 10)}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00185}00185\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Pick\ rnd\ coordinates\ until\ at\ least\ 10\%\ of\ the\ map\ is\ revealed\ }}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00186}00186\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ reveal\_count\ <\ reveal\_threshold:}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00187}00187\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classminesolver_1_1_mine_solver_aa27c311a1c5c022254bfaac68bc6b69c}{\_\_pick\_random}}(}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00188}00188\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ 0,\ self.\mbox{\hyperlink{classminesolver_1_1_mine_solver_a72cfdd40df527d974505288cae60653a}{\_\_game}}.width\ -\/\ 1,\ self.\mbox{\hyperlink{classminesolver_1_1_mine_solver_a72cfdd40df527d974505288cae60653a}{\_\_game}}.height\ -\/\ 1)}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00189}00189\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00190}00190\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Flags\ the\ edges,\ if\ not\ then\ eliminates\ the\ edges,}}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00191}00191\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ if\ not\ then\ makes\ a\ prediction}}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00192}00192\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keywordflow}{not}\ self.\mbox{\hyperlink{classminesolver_1_1_mine_solver_a2798998c5fde8ed76e4fb09eedda236b}{\_\_flag\_edges}}():}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00193}00193\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keywordflow}{not}\ self.\mbox{\hyperlink{classminesolver_1_1_mine_solver_a87cf1a03d7d85b3a0f09927084e3e0d8}{\_\_eliminate\_edge}}():}
+\DoxyCodeLine{\Hypertarget{minesolver_8py_source_l00194}00194\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classminesolver_1_1_mine_solver_a8c5e90190bc77b686d91964786123efd}{\_\_predict\_edge}}()}
+
+\end{DoxyCode}
