@@ -1,0 +1,224 @@
+\doxysection{minesolver.\+Mine\+Solver Class Reference}
+\hypertarget{classminesolver_1_1_mine_solver}{}\label{classminesolver_1_1_mine_solver}\index{minesolver.MineSolver@{minesolver.MineSolver}}
+
+
+Contains methods and attributes used for solving pysweepers.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classminesolver_1_1_mine_solver_a9c3b6f1c2ea39a33a6b11d8ba842352c}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, game)
+\item 
+\mbox{\hyperlink{classminesolver_1_1_mine_solver_a5c4f41f9c8b2f8ee4a02ea0e52c2ed13}{run\+\_\+solver}} (self)
+\begin{DoxyCompactList}\small\item\em Runs the solver algorithm. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classminesolver_1_1_mine_solver_aa27c311a1c5c022254bfaac68bc6b69c}{\+\_\+\+\_\+pick\+\_\+random}} (self, x0, y0, x1, y1)
+\begin{DoxyCompactList}\small\item\em Reveals a random coordinate in rectangle determined by the bounding coordinates. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classminesolver_1_1_mine_solver_a2798998c5fde8ed76e4fb09eedda236b}{\+\_\+\+\_\+flag\+\_\+edges}} (self)
+\begin{DoxyCompactList}\small\item\em Flags the mines determined by qualifying edge coordinates. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classminesolver_1_1_mine_solver_af006679c02032d5c1136bb1f66b44f52}{\+\_\+\+\_\+clear\+\_\+square}} (self, x, y)
+\begin{DoxyCompactList}\small\item\em Clears hidden blocks within 3x3 square centered at \mbox{[}x, y\mbox{]}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classminesolver_1_1_mine_solver_ad88c1f4dbf4b7236e34f251208eb6197}{\+\_\+\+\_\+check\+\_\+square}} (self, x, y)
+\begin{DoxyCompactList}\small\item\em Checks if coordinate map number at \mbox{[}x, y\mbox{]} is equal to number of surrounding flags. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classminesolver_1_1_mine_solver_a87cf1a03d7d85b3a0f09927084e3e0d8}{\+\_\+\+\_\+eliminate\+\_\+edge}} (self)
+\begin{DoxyCompactList}\small\item\em Eliminates qualifying edge coordinates. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classminesolver_1_1_mine_solver_a8c5e90190bc77b686d91964786123efd}{\+\_\+\+\_\+predict\+\_\+edge}} (self)
+\begin{DoxyCompactList}\small\item\em Predicts edge coordinate to eliminate. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classminesolver_1_1_mine_solver_a72cfdd40df527d974505288cae60653a}{\+\_\+\+\_\+game}}
+\begin{DoxyCompactList}\small\item\em Pysweepers instance. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classminesolver_1_1_mine_solver_a07c9c15740844f3f06a4375fe64c2f76}{\+\_\+\+\_\+max\+\_\+iter}}
+\begin{DoxyCompactList}\small\item\em Maximum solver iterations. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Contains methods and attributes used for solving pysweepers. 
+
+Definition at line \mbox{\hyperlink{minesolver_8py_source_l00009}{9}} of file \mbox{\hyperlink{minesolver_8py_source}{minesolver.\+py}}.
+
+
+
+\label{doc-constructors}
+\Hypertarget{classminesolver_1_1_mine_solver_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classminesolver_1_1_mine_solver_a9c3b6f1c2ea39a33a6b11d8ba842352c}\index{minesolver.MineSolver@{minesolver.MineSolver}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!minesolver.MineSolver@{minesolver.MineSolver}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily \label{classminesolver_1_1_mine_solver_a9c3b6f1c2ea39a33a6b11d8ba842352c} 
+minesolver.\+Mine\+Solver.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{game}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{minesolver_8py_source_l00010}{10}} of file \mbox{\hyperlink{minesolver_8py_source}{minesolver.\+py}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{classminesolver_1_1_mine_solver_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classminesolver_1_1_mine_solver_ad88c1f4dbf4b7236e34f251208eb6197}\index{minesolver.MineSolver@{minesolver.MineSolver}!\_\_check\_square@{\_\_check\_square}}
+\index{\_\_check\_square@{\_\_check\_square}!minesolver.MineSolver@{minesolver.MineSolver}}
+\doxysubsubsection{\texorpdfstring{\_\_check\_square()}{\_\_check\_square()}}
+{\footnotesize\ttfamily \label{classminesolver_1_1_mine_solver_ad88c1f4dbf4b7236e34f251208eb6197} 
+minesolver.\+Mine\+Solver.\+\_\+\+\_\+check\+\_\+square (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{x}{, }\item[{}]{y}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Checks if coordinate map number at \mbox{[}x, y\mbox{]} is equal to number of surrounding flags. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Cell x coordinate \\
+\hline
+{\em y} & Cell y coordinate \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{minesolver_8py_source_l00104}{104}} of file \mbox{\hyperlink{minesolver_8py_source}{minesolver.\+py}}.
+
+\Hypertarget{classminesolver_1_1_mine_solver_af006679c02032d5c1136bb1f66b44f52}\index{minesolver.MineSolver@{minesolver.MineSolver}!\_\_clear\_square@{\_\_clear\_square}}
+\index{\_\_clear\_square@{\_\_clear\_square}!minesolver.MineSolver@{minesolver.MineSolver}}
+\doxysubsubsection{\texorpdfstring{\_\_clear\_square()}{\_\_clear\_square()}}
+{\footnotesize\ttfamily \label{classminesolver_1_1_mine_solver_af006679c02032d5c1136bb1f66b44f52} 
+minesolver.\+Mine\+Solver.\+\_\+\+\_\+clear\+\_\+square (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{x}{, }\item[{}]{y}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Clears hidden blocks within 3x3 square centered at \mbox{[}x, y\mbox{]}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Cell x coordinate \\
+\hline
+{\em y} & Cell y coordinate \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{minesolver_8py_source_l00079}{79}} of file \mbox{\hyperlink{minesolver_8py_source}{minesolver.\+py}}.
+
+\Hypertarget{classminesolver_1_1_mine_solver_a87cf1a03d7d85b3a0f09927084e3e0d8}\index{minesolver.MineSolver@{minesolver.MineSolver}!\_\_eliminate\_edge@{\_\_eliminate\_edge}}
+\index{\_\_eliminate\_edge@{\_\_eliminate\_edge}!minesolver.MineSolver@{minesolver.MineSolver}}
+\doxysubsubsection{\texorpdfstring{\_\_eliminate\_edge()}{\_\_eliminate\_edge()}}
+{\footnotesize\ttfamily \label{classminesolver_1_1_mine_solver_a87cf1a03d7d85b3a0f09927084e3e0d8} 
+minesolver.\+Mine\+Solver.\+\_\+\+\_\+eliminate\+\_\+edge (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Eliminates qualifying edge coordinates. 
+
+
+
+Definition at line \mbox{\hyperlink{minesolver_8py_source_l00124}{124}} of file \mbox{\hyperlink{minesolver_8py_source}{minesolver.\+py}}.
+
+\Hypertarget{classminesolver_1_1_mine_solver_a2798998c5fde8ed76e4fb09eedda236b}\index{minesolver.MineSolver@{minesolver.MineSolver}!\_\_flag\_edges@{\_\_flag\_edges}}
+\index{\_\_flag\_edges@{\_\_flag\_edges}!minesolver.MineSolver@{minesolver.MineSolver}}
+\doxysubsubsection{\texorpdfstring{\_\_flag\_edges()}{\_\_flag\_edges()}}
+{\footnotesize\ttfamily \label{classminesolver_1_1_mine_solver_a2798998c5fde8ed76e4fb09eedda236b} 
+minesolver.\+Mine\+Solver.\+\_\+\+\_\+flag\+\_\+edges (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Flags the mines determined by qualifying edge coordinates. 
+
+
+
+Definition at line \mbox{\hyperlink{minesolver_8py_source_l00034}{34}} of file \mbox{\hyperlink{minesolver_8py_source}{minesolver.\+py}}.
+
+\Hypertarget{classminesolver_1_1_mine_solver_aa27c311a1c5c022254bfaac68bc6b69c}\index{minesolver.MineSolver@{minesolver.MineSolver}!\_\_pick\_random@{\_\_pick\_random}}
+\index{\_\_pick\_random@{\_\_pick\_random}!minesolver.MineSolver@{minesolver.MineSolver}}
+\doxysubsubsection{\texorpdfstring{\_\_pick\_random()}{\_\_pick\_random()}}
+{\footnotesize\ttfamily \label{classminesolver_1_1_mine_solver_aa27c311a1c5c022254bfaac68bc6b69c} 
+minesolver.\+Mine\+Solver.\+\_\+\+\_\+pick\+\_\+random (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{x0}{, }\item[{}]{y0}{, }\item[{}]{x1}{, }\item[{}]{y1}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Reveals a random coordinate in rectangle determined by the bounding coordinates. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x0} & Bottom left x coordinate \\
+\hline
+{\em y0} & Bottom left y coordinate \\
+\hline
+{\em x1} & Top right x coordinate \\
+\hline
+{\em y1} & Top right y coordinate \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{minesolver_8py_source_l00024}{24}} of file \mbox{\hyperlink{minesolver_8py_source}{minesolver.\+py}}.
+
+\Hypertarget{classminesolver_1_1_mine_solver_a8c5e90190bc77b686d91964786123efd}\index{minesolver.MineSolver@{minesolver.MineSolver}!\_\_predict\_edge@{\_\_predict\_edge}}
+\index{\_\_predict\_edge@{\_\_predict\_edge}!minesolver.MineSolver@{minesolver.MineSolver}}
+\doxysubsubsection{\texorpdfstring{\_\_predict\_edge()}{\_\_predict\_edge()}}
+{\footnotesize\ttfamily \label{classminesolver_1_1_mine_solver_a8c5e90190bc77b686d91964786123efd} 
+minesolver.\+Mine\+Solver.\+\_\+\+\_\+predict\+\_\+edge (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Predicts edge coordinate to eliminate. 
+
+
+
+Definition at line \mbox{\hyperlink{minesolver_8py_source_l00142}{142}} of file \mbox{\hyperlink{minesolver_8py_source}{minesolver.\+py}}.
+
+\Hypertarget{classminesolver_1_1_mine_solver_a5c4f41f9c8b2f8ee4a02ea0e52c2ed13}\index{minesolver.MineSolver@{minesolver.MineSolver}!run\_solver@{run\_solver}}
+\index{run\_solver@{run\_solver}!minesolver.MineSolver@{minesolver.MineSolver}}
+\doxysubsubsection{\texorpdfstring{run\_solver()}{run\_solver()}}
+{\footnotesize\ttfamily \label{classminesolver_1_1_mine_solver_a5c4f41f9c8b2f8ee4a02ea0e52c2ed13} 
+minesolver.\+Mine\+Solver.\+run\+\_\+solver (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+
+
+Runs the solver algorithm. 
+
+
+
+Definition at line \mbox{\hyperlink{minesolver_8py_source_l00175}{175}} of file \mbox{\hyperlink{minesolver_8py_source}{minesolver.\+py}}.
+
+
+
+\label{doc-variable-members}
+\Hypertarget{classminesolver_1_1_mine_solver_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classminesolver_1_1_mine_solver_a72cfdd40df527d974505288cae60653a}\index{minesolver.MineSolver@{minesolver.MineSolver}!\_\_game@{\_\_game}}
+\index{\_\_game@{\_\_game}!minesolver.MineSolver@{minesolver.MineSolver}}
+\doxysubsubsection{\texorpdfstring{\_\_game}{\_\_game}}
+{\footnotesize\ttfamily \label{classminesolver_1_1_mine_solver_a72cfdd40df527d974505288cae60653a} 
+minesolver.\+Mine\+Solver.\+\_\+\+\_\+game\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Pysweepers instance. 
+
+
+
+Definition at line \mbox{\hyperlink{minesolver_8py_source_l00013}{13}} of file \mbox{\hyperlink{minesolver_8py_source}{minesolver.\+py}}.
+
+\Hypertarget{classminesolver_1_1_mine_solver_a07c9c15740844f3f06a4375fe64c2f76}\index{minesolver.MineSolver@{minesolver.MineSolver}!\_\_max\_iter@{\_\_max\_iter}}
+\index{\_\_max\_iter@{\_\_max\_iter}!minesolver.MineSolver@{minesolver.MineSolver}}
+\doxysubsubsection{\texorpdfstring{\_\_max\_iter}{\_\_max\_iter}}
+{\footnotesize\ttfamily \label{classminesolver_1_1_mine_solver_a07c9c15740844f3f06a4375fe64c2f76} 
+minesolver.\+Mine\+Solver.\+\_\+\+\_\+max\+\_\+iter\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Maximum solver iterations. 
+
+
+
+Definition at line \mbox{\hyperlink{minesolver_8py_source_l00016}{16}} of file \mbox{\hyperlink{minesolver_8py_source}{minesolver.\+py}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{minesolver_8py}{minesolver.\+py}}\end{DoxyCompactItemize}

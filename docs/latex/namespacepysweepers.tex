@@ -1,0 +1,197 @@
+\doxysection{pysweepers Namespace Reference}
+\hypertarget{namespacepysweepers}{}\label{namespacepysweepers}\index{pysweepers@{pysweepers}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacepysweepers_a9f94ee489c691e43fd92a2869406c98d}{generate\+\_\+mines}} (width, height, mines)
+\begin{DoxyCompactList}\small\item\em Generates the mines on the map. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacepysweepers_a8ce6737efb1156f8549ff04b202b4163}{generate\+\_\+numbers}} (width, height)
+\item 
+\mbox{\hyperlink{namespacepysweepers_a418059b7d4a56087caf34d3bf6e20d4f}{generate\+\_\+map}} (width, height, mines)
+\item 
+\mbox{\hyperlink{namespacepysweepers_a4575e17d36ddfde5640771eaca43da51}{reset\+\_\+map}} (width, height, mines)
+\item 
+\mbox{\hyperlink{namespacepysweepers_af5042e67e3eabe31718652797a9e8df0}{fill\+\_\+blanks}} (x, y, width, height, fill\+\_\+list)
+\item 
+\mbox{\hyperlink{namespacepysweepers_ab4b36f2d0d92cc7b79c7b4a8a0deb692}{check\+\_\+grid}} (event)
+\item 
+\mbox{\hyperlink{namespacepysweepers_a6585ddc1db940df2762372d8f8f6e061}{flag\+\_\+grid}} (event)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+list \mbox{\hyperlink{namespacepysweepers_a1755bcdd3184bed1f5e26b762975f198}{FULL\+\_\+\+MAP}} = \mbox{[}$\,$\mbox{]}
+\item 
+list \mbox{\hyperlink{namespacepysweepers_afb9853ecdfb24b08e2bb6bf6be918265}{GUI\+\_\+\+MAP}} = \mbox{[}$\,$\mbox{]}
+\item 
+int \mbox{\hyperlink{namespacepysweepers_a31e2bbd3d66956bcdf90f452e29f2f80}{WIDTH}} = 8
+\item 
+int \mbox{\hyperlink{namespacepysweepers_a4bfd22b571b4c79d302ec474cc191a09}{HEIGHT}} = 8
+\item 
+int \mbox{\hyperlink{namespacepysweepers_a7b83876bf3a503d90413d606c3024099}{MINES}} = 10
+\item 
+int \mbox{\hyperlink{namespacepysweepers_afd564df349c866e82eebdc5e07b889c7}{HIDDEN}} = \mbox{\hyperlink{namespacepysweepers_a31e2bbd3d66956bcdf90f452e29f2f80}{WIDTH}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{namespacepysweepers_a4bfd22b571b4c79d302ec474cc191a09}{HEIGHT}}
+\item 
+bool \mbox{\hyperlink{namespacepysweepers_ac3d5737dabee33c030acb14e85e65cc9}{GAME\+\_\+\+OVER}} = False
+\item 
+int \mbox{\hyperlink{namespacepysweepers_a0b7bc308cc30d774148cc7d550098cfb}{MAx\+\_\+\+ITER}} = 100
+\item 
+\mbox{\hyperlink{namespacepysweepers_a9a2a290eb7c8225949529b2016dbbce6}{MASTER}} = tk.\+Tk(class\+Name="{}Mine Sweepers"{})
+\item 
+\mbox{\hyperlink{namespacepysweepers_ad39e0de79f3697dfa961f97a99e0d795}{MAP\+\_\+\+FRAME}} = tk.\+Frame(\mbox{\hyperlink{namespacepysweepers_a9a2a290eb7c8225949529b2016dbbce6}{MASTER}})
+\item 
+\mbox{\hyperlink{namespacepysweepers_a1d156f5463208ecc0d3855c4b149bb96}{STATUS}} = tk.\+Label(\mbox{\hyperlink{namespacepysweepers_a9a2a290eb7c8225949529b2016dbbce6}{MASTER}}, text="{}"{})
+\item 
+\mbox{\hyperlink{namespacepysweepers_a965147a628f949a9bee166873f67e148}{SOLVER}} = tk.\+Button(\mbox{\hyperlink{namespacepysweepers_a9a2a290eb7c8225949529b2016dbbce6}{MASTER}}, command=lambda width=\mbox{\hyperlink{namespacepysweepers_a31e2bbd3d66956bcdf90f452e29f2f80}{WIDTH}}, height=HEIGHT\+: Solve\+Alg(width, height), text="{}Solver"{})
+\item 
+\mbox{\hyperlink{namespacepysweepers_a4bf59a9b17ea68bb5cacc80cdd799c4c}{RESET}}
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{namespacepysweepers_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{namespacepysweepers_ab4b36f2d0d92cc7b79c7b4a8a0deb692}\index{pysweepers@{pysweepers}!check\_grid@{check\_grid}}
+\index{check\_grid@{check\_grid}!pysweepers@{pysweepers}}
+\doxysubsubsection{\texorpdfstring{check\_grid()}{check\_grid()}}
+{\footnotesize\ttfamily \label{namespacepysweepers_ab4b36f2d0d92cc7b79c7b4a8a0deb692} 
+pysweepers.\+check\+\_\+grid (\begin{DoxyParamCaption}\item[{}]{event}{}\end{DoxyParamCaption})}
+
+\Hypertarget{namespacepysweepers_af5042e67e3eabe31718652797a9e8df0}\index{pysweepers@{pysweepers}!fill\_blanks@{fill\_blanks}}
+\index{fill\_blanks@{fill\_blanks}!pysweepers@{pysweepers}}
+\doxysubsubsection{\texorpdfstring{fill\_blanks()}{fill\_blanks()}}
+{\footnotesize\ttfamily \label{namespacepysweepers_af5042e67e3eabe31718652797a9e8df0} 
+pysweepers.\+fill\+\_\+blanks (\begin{DoxyParamCaption}\item[{}]{x}{, }\item[{}]{y}{, }\item[{}]{width}{, }\item[{}]{height}{, }\item[{}]{fill\+\_\+list}{}\end{DoxyParamCaption})}
+
+\Hypertarget{namespacepysweepers_a6585ddc1db940df2762372d8f8f6e061}\index{pysweepers@{pysweepers}!flag\_grid@{flag\_grid}}
+\index{flag\_grid@{flag\_grid}!pysweepers@{pysweepers}}
+\doxysubsubsection{\texorpdfstring{flag\_grid()}{flag\_grid()}}
+{\footnotesize\ttfamily \label{namespacepysweepers_a6585ddc1db940df2762372d8f8f6e061} 
+pysweepers.\+flag\+\_\+grid (\begin{DoxyParamCaption}\item[{}]{event}{}\end{DoxyParamCaption})}
+
+\Hypertarget{namespacepysweepers_a418059b7d4a56087caf34d3bf6e20d4f}\index{pysweepers@{pysweepers}!generate\_map@{generate\_map}}
+\index{generate\_map@{generate\_map}!pysweepers@{pysweepers}}
+\doxysubsubsection{\texorpdfstring{generate\_map()}{generate\_map()}}
+{\footnotesize\ttfamily \label{namespacepysweepers_a418059b7d4a56087caf34d3bf6e20d4f} 
+pysweepers.\+generate\+\_\+map (\begin{DoxyParamCaption}\item[{}]{width}{, }\item[{}]{height}{, }\item[{}]{mines}{}\end{DoxyParamCaption})}
+
+\Hypertarget{namespacepysweepers_a9f94ee489c691e43fd92a2869406c98d}\index{pysweepers@{pysweepers}!generate\_mines@{generate\_mines}}
+\index{generate\_mines@{generate\_mines}!pysweepers@{pysweepers}}
+\doxysubsubsection{\texorpdfstring{generate\_mines()}{generate\_mines()}}
+{\footnotesize\ttfamily \label{namespacepysweepers_a9f94ee489c691e43fd92a2869406c98d} 
+pysweepers.\+generate\+\_\+mines (\begin{DoxyParamCaption}\item[{}]{width}{, }\item[{}]{height}{, }\item[{}]{mines}{}\end{DoxyParamCaption})}
+
+
+
+Generates the mines on the map. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em width} & Map width \\
+\hline
+{\em height} & Map height \\
+\hline
+{\em mines} & Total mine count \\
+\hline
+\end{DoxyParams}
+\Hypertarget{namespacepysweepers_a8ce6737efb1156f8549ff04b202b4163}\index{pysweepers@{pysweepers}!generate\_numbers@{generate\_numbers}}
+\index{generate\_numbers@{generate\_numbers}!pysweepers@{pysweepers}}
+\doxysubsubsection{\texorpdfstring{generate\_numbers()}{generate\_numbers()}}
+{\footnotesize\ttfamily \label{namespacepysweepers_a8ce6737efb1156f8549ff04b202b4163} 
+pysweepers.\+generate\+\_\+numbers (\begin{DoxyParamCaption}\item[{}]{width}{, }\item[{}]{height}{}\end{DoxyParamCaption})}
+
+\Hypertarget{namespacepysweepers_a4575e17d36ddfde5640771eaca43da51}\index{pysweepers@{pysweepers}!reset\_map@{reset\_map}}
+\index{reset\_map@{reset\_map}!pysweepers@{pysweepers}}
+\doxysubsubsection{\texorpdfstring{reset\_map()}{reset\_map()}}
+{\footnotesize\ttfamily \label{namespacepysweepers_a4575e17d36ddfde5640771eaca43da51} 
+pysweepers.\+reset\+\_\+map (\begin{DoxyParamCaption}\item[{}]{width}{, }\item[{}]{height}{, }\item[{}]{mines}{}\end{DoxyParamCaption})}
+
+
+
+\label{doc-var-members}
+\Hypertarget{namespacepysweepers_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{namespacepysweepers_a1755bcdd3184bed1f5e26b762975f198}\index{pysweepers@{pysweepers}!FULL\_MAP@{FULL\_MAP}}
+\index{FULL\_MAP@{FULL\_MAP}!pysweepers@{pysweepers}}
+\doxysubsubsection{\texorpdfstring{FULL\_MAP}{FULL\_MAP}}
+{\footnotesize\ttfamily \label{namespacepysweepers_a1755bcdd3184bed1f5e26b762975f198} 
+list pysweepers.\+FULL\+\_\+\+MAP = \mbox{[}$\,$\mbox{]}}
+
+\Hypertarget{namespacepysweepers_ac3d5737dabee33c030acb14e85e65cc9}\index{pysweepers@{pysweepers}!GAME\_OVER@{GAME\_OVER}}
+\index{GAME\_OVER@{GAME\_OVER}!pysweepers@{pysweepers}}
+\doxysubsubsection{\texorpdfstring{GAME\_OVER}{GAME\_OVER}}
+{\footnotesize\ttfamily \label{namespacepysweepers_ac3d5737dabee33c030acb14e85e65cc9} 
+bool pysweepers.\+GAME\+\_\+\+OVER = False}
+
+\Hypertarget{namespacepysweepers_afb9853ecdfb24b08e2bb6bf6be918265}\index{pysweepers@{pysweepers}!GUI\_MAP@{GUI\_MAP}}
+\index{GUI\_MAP@{GUI\_MAP}!pysweepers@{pysweepers}}
+\doxysubsubsection{\texorpdfstring{GUI\_MAP}{GUI\_MAP}}
+{\footnotesize\ttfamily \label{namespacepysweepers_afb9853ecdfb24b08e2bb6bf6be918265} 
+list pysweepers.\+GUI\+\_\+\+MAP = \mbox{[}$\,$\mbox{]}}
+
+\Hypertarget{namespacepysweepers_a4bfd22b571b4c79d302ec474cc191a09}\index{pysweepers@{pysweepers}!HEIGHT@{HEIGHT}}
+\index{HEIGHT@{HEIGHT}!pysweepers@{pysweepers}}
+\doxysubsubsection{\texorpdfstring{HEIGHT}{HEIGHT}}
+{\footnotesize\ttfamily \label{namespacepysweepers_a4bfd22b571b4c79d302ec474cc191a09} 
+int pysweepers.\+HEIGHT = 8}
+
+\Hypertarget{namespacepysweepers_afd564df349c866e82eebdc5e07b889c7}\index{pysweepers@{pysweepers}!HIDDEN@{HIDDEN}}
+\index{HIDDEN@{HIDDEN}!pysweepers@{pysweepers}}
+\doxysubsubsection{\texorpdfstring{HIDDEN}{HIDDEN}}
+{\footnotesize\ttfamily \label{namespacepysweepers_afd564df349c866e82eebdc5e07b889c7} 
+int pysweepers.\+HIDDEN = \mbox{\hyperlink{namespacepysweepers_a31e2bbd3d66956bcdf90f452e29f2f80}{WIDTH}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{namespacepysweepers_a4bfd22b571b4c79d302ec474cc191a09}{HEIGHT}}}
+
+\Hypertarget{namespacepysweepers_ad39e0de79f3697dfa961f97a99e0d795}\index{pysweepers@{pysweepers}!MAP\_FRAME@{MAP\_FRAME}}
+\index{MAP\_FRAME@{MAP\_FRAME}!pysweepers@{pysweepers}}
+\doxysubsubsection{\texorpdfstring{MAP\_FRAME}{MAP\_FRAME}}
+{\footnotesize\ttfamily \label{namespacepysweepers_ad39e0de79f3697dfa961f97a99e0d795} 
+pysweepers.\+MAP\+\_\+\+FRAME = tk.\+Frame(\mbox{\hyperlink{namespacepysweepers_a9a2a290eb7c8225949529b2016dbbce6}{MASTER}})}
+
+\Hypertarget{namespacepysweepers_a9a2a290eb7c8225949529b2016dbbce6}\index{pysweepers@{pysweepers}!MASTER@{MASTER}}
+\index{MASTER@{MASTER}!pysweepers@{pysweepers}}
+\doxysubsubsection{\texorpdfstring{MASTER}{MASTER}}
+{\footnotesize\ttfamily \label{namespacepysweepers_a9a2a290eb7c8225949529b2016dbbce6} 
+pysweepers.\+MASTER = tk.\+Tk(class\+Name="{}Mine Sweepers"{})}
+
+\Hypertarget{namespacepysweepers_a0b7bc308cc30d774148cc7d550098cfb}\index{pysweepers@{pysweepers}!MAx\_ITER@{MAx\_ITER}}
+\index{MAx\_ITER@{MAx\_ITER}!pysweepers@{pysweepers}}
+\doxysubsubsection{\texorpdfstring{MAx\_ITER}{MAx\_ITER}}
+{\footnotesize\ttfamily \label{namespacepysweepers_a0b7bc308cc30d774148cc7d550098cfb} 
+int pysweepers.\+MAx\+\_\+\+ITER = 100}
+
+\Hypertarget{namespacepysweepers_a7b83876bf3a503d90413d606c3024099}\index{pysweepers@{pysweepers}!MINES@{MINES}}
+\index{MINES@{MINES}!pysweepers@{pysweepers}}
+\doxysubsubsection{\texorpdfstring{MINES}{MINES}}
+{\footnotesize\ttfamily \label{namespacepysweepers_a7b83876bf3a503d90413d606c3024099} 
+int pysweepers.\+MINES = 10}
+
+\Hypertarget{namespacepysweepers_a4bf59a9b17ea68bb5cacc80cdd799c4c}\index{pysweepers@{pysweepers}!RESET@{RESET}}
+\index{RESET@{RESET}!pysweepers@{pysweepers}}
+\doxysubsubsection{\texorpdfstring{RESET}{RESET}}
+{\footnotesize\ttfamily \label{namespacepysweepers_a4bf59a9b17ea68bb5cacc80cdd799c4c} 
+pysweepers.\+RESET}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ =\ \ tk.Button(MASTER,\ command=\textcolor{keyword}{lambda}\ width=WIDTH,\ height=HEIGHT,\ mines=MINES:\ reset\_map(width,\ height,\ mines),}
+\DoxyCodeLine{00002\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ text=\textcolor{stringliteral}{"{}Reset"{}})}
+
+\end{DoxyCode}
+\Hypertarget{namespacepysweepers_a965147a628f949a9bee166873f67e148}\index{pysweepers@{pysweepers}!SOLVER@{SOLVER}}
+\index{SOLVER@{SOLVER}!pysweepers@{pysweepers}}
+\doxysubsubsection{\texorpdfstring{SOLVER}{SOLVER}}
+{\footnotesize\ttfamily \label{namespacepysweepers_a965147a628f949a9bee166873f67e148} 
+pysweepers.\+SOLVER = tk.\+Button(\mbox{\hyperlink{namespacepysweepers_a9a2a290eb7c8225949529b2016dbbce6}{MASTER}}, command=lambda width=\mbox{\hyperlink{namespacepysweepers_a31e2bbd3d66956bcdf90f452e29f2f80}{WIDTH}}, height=HEIGHT\+: Solve\+Alg(width, height), text="{}Solver"{})}
+
+\Hypertarget{namespacepysweepers_a1d156f5463208ecc0d3855c4b149bb96}\index{pysweepers@{pysweepers}!STATUS@{STATUS}}
+\index{STATUS@{STATUS}!pysweepers@{pysweepers}}
+\doxysubsubsection{\texorpdfstring{STATUS}{STATUS}}
+{\footnotesize\ttfamily \label{namespacepysweepers_a1d156f5463208ecc0d3855c4b149bb96} 
+pysweepers.\+STATUS = tk.\+Label(\mbox{\hyperlink{namespacepysweepers_a9a2a290eb7c8225949529b2016dbbce6}{MASTER}}, text="{}"{})}
+
+\Hypertarget{namespacepysweepers_a31e2bbd3d66956bcdf90f452e29f2f80}\index{pysweepers@{pysweepers}!WIDTH@{WIDTH}}
+\index{WIDTH@{WIDTH}!pysweepers@{pysweepers}}
+\doxysubsubsection{\texorpdfstring{WIDTH}{WIDTH}}
+{\footnotesize\ttfamily \label{namespacepysweepers_a31e2bbd3d66956bcdf90f452e29f2f80} 
+int pysweepers.\+WIDTH = 8}
+

@@ -1,0 +1,256 @@
+\doxysection{minesweepers Namespace Reference}
+\hypertarget{namespaceminesweepers}{}\label{namespaceminesweepers}\index{minesweepers@{minesweepers}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespaceminesweepers_a2c13d3ad5741d2106c986cf11eb5730e}{Gen\+Mines}} (Width, Height, Mines)
+\item 
+\mbox{\hyperlink{namespaceminesweepers_ab657cef66a389b4753e030f180111b11}{Gen\+Nums}} (Width, Height)
+\item 
+\mbox{\hyperlink{namespaceminesweepers_a9bf54f601e595ac26615be328231eab3}{Gen\+Map}} (Width, Height, Mines)
+\item 
+\mbox{\hyperlink{namespaceminesweepers_ac5a1628a310fd1edb9e9a17ea312e607}{Reset\+Map}} (Width, Height, Mines)
+\item 
+\mbox{\hyperlink{namespaceminesweepers_a348d5f313fde69b5ca3e1ddd57c0e856}{Get\+Fill}} (X, Y, Width, Height, Fill\+\_\+\+List)
+\item 
+\mbox{\hyperlink{namespaceminesweepers_a6930b6c6995c22eadc37db8125b7925f}{Grid\+Check}} (EVENT)
+\item 
+\mbox{\hyperlink{namespaceminesweepers_a53b3d92237cf5b8a148a8a8659d6efaa}{Grid\+Flag}} (EVENT)
+\item 
+\mbox{\hyperlink{namespaceminesweepers_a06215e947c8dced24720bf38b31c2ddd}{Pick\+Rand}} (X0, Y0, X1, Y1, Width, Height)
+\item 
+\mbox{\hyperlink{namespaceminesweepers_ab2060f44b643065c0ac744d26ed7a650}{Flag\+Edges}} (Width, Height)
+\item 
+\mbox{\hyperlink{namespaceminesweepers_af0ea585df6832fcd4ad14f21951e3433}{Clear\+Square}} (X, Y, Width, Height)
+\item 
+\mbox{\hyperlink{namespaceminesweepers_add992c986f896436b5f596ba26b4816b}{Check\+Square}} (X, Y, Width, Height)
+\item 
+\mbox{\hyperlink{namespaceminesweepers_a6db0bed743360a872915ce4ad608c1e6}{Elim\+Edges}} (Width, Height)
+\item 
+\mbox{\hyperlink{namespaceminesweepers_a5b85100b04060bc7e991491f332ed5d8}{Predict\+Edge}} (Width, Height)
+\item 
+\mbox{\hyperlink{namespaceminesweepers_ad233ccd1ad9f1183bceaeed21b9a5939}{Solve\+Alg}} (Width, Height)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+list \mbox{\hyperlink{namespaceminesweepers_ac8df0ca2f7e186935555d110adc3d92c}{FULL\+\_\+\+MAP}} = \mbox{[}$\,$\mbox{]}
+\item 
+list \mbox{\hyperlink{namespaceminesweepers_a999bd2fe9813e2a4a44341b7b1682a73}{GUI\+\_\+\+MAP}} = \mbox{[}$\,$\mbox{]}
+\item 
+int \mbox{\hyperlink{namespaceminesweepers_a3f87ab64dad2f39a40558a343da8fd70}{WIDTH}} = 8
+\item 
+int \mbox{\hyperlink{namespaceminesweepers_a5121395418e147071c0718ab3455efc4}{HEIGHT}} = 8
+\item 
+int \mbox{\hyperlink{namespaceminesweepers_a814fa86c9a217d3be7c9653291c8ed9f}{MINES}} = 10
+\item 
+int \mbox{\hyperlink{namespaceminesweepers_a220341b258f0196333575065bb67041b}{HIDDEN}} = \mbox{\hyperlink{namespaceminesweepers_a3f87ab64dad2f39a40558a343da8fd70}{WIDTH}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{namespaceminesweepers_a5121395418e147071c0718ab3455efc4}{HEIGHT}}
+\item 
+bool \mbox{\hyperlink{namespaceminesweepers_acb3da8f50b92ca3bf7a36d63d744c3d2}{GAME\+\_\+\+OVER}} = False
+\item 
+int \mbox{\hyperlink{namespaceminesweepers_a233fe98b4b9b6d26a9134b068cba89f8}{MAX\+\_\+\+ITER}} = 100
+\item 
+\mbox{\hyperlink{namespaceminesweepers_a0e9f79bf12deef0c4645c94cafc81f0b}{MASTER}} = Tk(class\+Name="{}Mine Sweepers"{})
+\item 
+\mbox{\hyperlink{namespaceminesweepers_adc4dce477ac144fcb9406bc503087155}{MAP\+\_\+\+FRAME}} = Frame(\mbox{\hyperlink{namespaceminesweepers_a0e9f79bf12deef0c4645c94cafc81f0b}{MASTER}})
+\item 
+\mbox{\hyperlink{namespaceminesweepers_a98e04eaffc18a20ccf6c7a3564e22a0f}{STATUS}} = Label(\mbox{\hyperlink{namespaceminesweepers_a0e9f79bf12deef0c4645c94cafc81f0b}{MASTER}}, text="{}"{})
+\item 
+\mbox{\hyperlink{namespaceminesweepers_a288c2dff3209477a92413ff8846d13d1}{SOLVER}} = Button(\mbox{\hyperlink{namespaceminesweepers_a0e9f79bf12deef0c4645c94cafc81f0b}{MASTER}}, command=lambda Width=\mbox{\hyperlink{namespaceminesweepers_a3f87ab64dad2f39a40558a343da8fd70}{WIDTH}}, Height=HEIGHT\+: \mbox{\hyperlink{namespaceminesweepers_ad233ccd1ad9f1183bceaeed21b9a5939}{Solve\+Alg}}(Width, Height), text="{}Solver"{})
+\item 
+\mbox{\hyperlink{namespaceminesweepers_a2f211c7fd6bb16d31ceebb4670ed1e9f}{RESET}}
+\item 
+int \mbox{\hyperlink{namespaceminesweepers_a8db3ccf3989e6e72d065a2deb2b2c0e4}{SUCCESS}} = 0
+\item 
+int \mbox{\hyperlink{namespaceminesweepers_a5d855e17f2ad94a97b4e62dc3a5924a4}{TOTAL}} = 0
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{namespaceminesweepers_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{namespaceminesweepers_add992c986f896436b5f596ba26b4816b}\index{minesweepers@{minesweepers}!CheckSquare@{CheckSquare}}
+\index{CheckSquare@{CheckSquare}!minesweepers@{minesweepers}}
+\doxysubsubsection{\texorpdfstring{CheckSquare()}{CheckSquare()}}
+{\footnotesize\ttfamily \label{namespaceminesweepers_add992c986f896436b5f596ba26b4816b} 
+minesweepers.\+Check\+Square (\begin{DoxyParamCaption}\item[{}]{X}{, }\item[{}]{Y}{, }\item[{}]{Width}{, }\item[{}]{Height}{}\end{DoxyParamCaption})}
+
+\Hypertarget{namespaceminesweepers_af0ea585df6832fcd4ad14f21951e3433}\index{minesweepers@{minesweepers}!ClearSquare@{ClearSquare}}
+\index{ClearSquare@{ClearSquare}!minesweepers@{minesweepers}}
+\doxysubsubsection{\texorpdfstring{ClearSquare()}{ClearSquare()}}
+{\footnotesize\ttfamily \label{namespaceminesweepers_af0ea585df6832fcd4ad14f21951e3433} 
+minesweepers.\+Clear\+Square (\begin{DoxyParamCaption}\item[{}]{X}{, }\item[{}]{Y}{, }\item[{}]{Width}{, }\item[{}]{Height}{}\end{DoxyParamCaption})}
+
+\Hypertarget{namespaceminesweepers_a6db0bed743360a872915ce4ad608c1e6}\index{minesweepers@{minesweepers}!ElimEdges@{ElimEdges}}
+\index{ElimEdges@{ElimEdges}!minesweepers@{minesweepers}}
+\doxysubsubsection{\texorpdfstring{ElimEdges()}{ElimEdges()}}
+{\footnotesize\ttfamily \label{namespaceminesweepers_a6db0bed743360a872915ce4ad608c1e6} 
+minesweepers.\+Elim\+Edges (\begin{DoxyParamCaption}\item[{}]{Width}{, }\item[{}]{Height}{}\end{DoxyParamCaption})}
+
+\Hypertarget{namespaceminesweepers_ab2060f44b643065c0ac744d26ed7a650}\index{minesweepers@{minesweepers}!FlagEdges@{FlagEdges}}
+\index{FlagEdges@{FlagEdges}!minesweepers@{minesweepers}}
+\doxysubsubsection{\texorpdfstring{FlagEdges()}{FlagEdges()}}
+{\footnotesize\ttfamily \label{namespaceminesweepers_ab2060f44b643065c0ac744d26ed7a650} 
+minesweepers.\+Flag\+Edges (\begin{DoxyParamCaption}\item[{}]{Width}{, }\item[{}]{Height}{}\end{DoxyParamCaption})}
+
+\Hypertarget{namespaceminesweepers_a9bf54f601e595ac26615be328231eab3}\index{minesweepers@{minesweepers}!GenMap@{GenMap}}
+\index{GenMap@{GenMap}!minesweepers@{minesweepers}}
+\doxysubsubsection{\texorpdfstring{GenMap()}{GenMap()}}
+{\footnotesize\ttfamily \label{namespaceminesweepers_a9bf54f601e595ac26615be328231eab3} 
+minesweepers.\+Gen\+Map (\begin{DoxyParamCaption}\item[{}]{Width}{, }\item[{}]{Height}{, }\item[{}]{Mines}{}\end{DoxyParamCaption})}
+
+\Hypertarget{namespaceminesweepers_a2c13d3ad5741d2106c986cf11eb5730e}\index{minesweepers@{minesweepers}!GenMines@{GenMines}}
+\index{GenMines@{GenMines}!minesweepers@{minesweepers}}
+\doxysubsubsection{\texorpdfstring{GenMines()}{GenMines()}}
+{\footnotesize\ttfamily \label{namespaceminesweepers_a2c13d3ad5741d2106c986cf11eb5730e} 
+minesweepers.\+Gen\+Mines (\begin{DoxyParamCaption}\item[{}]{Width}{, }\item[{}]{Height}{, }\item[{}]{Mines}{}\end{DoxyParamCaption})}
+
+\Hypertarget{namespaceminesweepers_ab657cef66a389b4753e030f180111b11}\index{minesweepers@{minesweepers}!GenNums@{GenNums}}
+\index{GenNums@{GenNums}!minesweepers@{minesweepers}}
+\doxysubsubsection{\texorpdfstring{GenNums()}{GenNums()}}
+{\footnotesize\ttfamily \label{namespaceminesweepers_ab657cef66a389b4753e030f180111b11} 
+minesweepers.\+Gen\+Nums (\begin{DoxyParamCaption}\item[{}]{Width}{, }\item[{}]{Height}{}\end{DoxyParamCaption})}
+
+\Hypertarget{namespaceminesweepers_a348d5f313fde69b5ca3e1ddd57c0e856}\index{minesweepers@{minesweepers}!GetFill@{GetFill}}
+\index{GetFill@{GetFill}!minesweepers@{minesweepers}}
+\doxysubsubsection{\texorpdfstring{GetFill()}{GetFill()}}
+{\footnotesize\ttfamily \label{namespaceminesweepers_a348d5f313fde69b5ca3e1ddd57c0e856} 
+minesweepers.\+Get\+Fill (\begin{DoxyParamCaption}\item[{}]{X}{, }\item[{}]{Y}{, }\item[{}]{Width}{, }\item[{}]{Height}{, }\item[{}]{Fill\+\_\+\+List}{}\end{DoxyParamCaption})}
+
+\Hypertarget{namespaceminesweepers_a6930b6c6995c22eadc37db8125b7925f}\index{minesweepers@{minesweepers}!GridCheck@{GridCheck}}
+\index{GridCheck@{GridCheck}!minesweepers@{minesweepers}}
+\doxysubsubsection{\texorpdfstring{GridCheck()}{GridCheck()}}
+{\footnotesize\ttfamily \label{namespaceminesweepers_a6930b6c6995c22eadc37db8125b7925f} 
+minesweepers.\+Grid\+Check (\begin{DoxyParamCaption}\item[{}]{EVENT}{}\end{DoxyParamCaption})}
+
+\Hypertarget{namespaceminesweepers_a53b3d92237cf5b8a148a8a8659d6efaa}\index{minesweepers@{minesweepers}!GridFlag@{GridFlag}}
+\index{GridFlag@{GridFlag}!minesweepers@{minesweepers}}
+\doxysubsubsection{\texorpdfstring{GridFlag()}{GridFlag()}}
+{\footnotesize\ttfamily \label{namespaceminesweepers_a53b3d92237cf5b8a148a8a8659d6efaa} 
+minesweepers.\+Grid\+Flag (\begin{DoxyParamCaption}\item[{}]{EVENT}{}\end{DoxyParamCaption})}
+
+\Hypertarget{namespaceminesweepers_a06215e947c8dced24720bf38b31c2ddd}\index{minesweepers@{minesweepers}!PickRand@{PickRand}}
+\index{PickRand@{PickRand}!minesweepers@{minesweepers}}
+\doxysubsubsection{\texorpdfstring{PickRand()}{PickRand()}}
+{\footnotesize\ttfamily \label{namespaceminesweepers_a06215e947c8dced24720bf38b31c2ddd} 
+minesweepers.\+Pick\+Rand (\begin{DoxyParamCaption}\item[{}]{X0}{, }\item[{}]{Y0}{, }\item[{}]{X1}{, }\item[{}]{Y1}{, }\item[{}]{Width}{, }\item[{}]{Height}{}\end{DoxyParamCaption})}
+
+\Hypertarget{namespaceminesweepers_a5b85100b04060bc7e991491f332ed5d8}\index{minesweepers@{minesweepers}!PredictEdge@{PredictEdge}}
+\index{PredictEdge@{PredictEdge}!minesweepers@{minesweepers}}
+\doxysubsubsection{\texorpdfstring{PredictEdge()}{PredictEdge()}}
+{\footnotesize\ttfamily \label{namespaceminesweepers_a5b85100b04060bc7e991491f332ed5d8} 
+minesweepers.\+Predict\+Edge (\begin{DoxyParamCaption}\item[{}]{Width}{, }\item[{}]{Height}{}\end{DoxyParamCaption})}
+
+\Hypertarget{namespaceminesweepers_ac5a1628a310fd1edb9e9a17ea312e607}\index{minesweepers@{minesweepers}!ResetMap@{ResetMap}}
+\index{ResetMap@{ResetMap}!minesweepers@{minesweepers}}
+\doxysubsubsection{\texorpdfstring{ResetMap()}{ResetMap()}}
+{\footnotesize\ttfamily \label{namespaceminesweepers_ac5a1628a310fd1edb9e9a17ea312e607} 
+minesweepers.\+Reset\+Map (\begin{DoxyParamCaption}\item[{}]{Width}{, }\item[{}]{Height}{, }\item[{}]{Mines}{}\end{DoxyParamCaption})}
+
+\Hypertarget{namespaceminesweepers_ad233ccd1ad9f1183bceaeed21b9a5939}\index{minesweepers@{minesweepers}!SolveAlg@{SolveAlg}}
+\index{SolveAlg@{SolveAlg}!minesweepers@{minesweepers}}
+\doxysubsubsection{\texorpdfstring{SolveAlg()}{SolveAlg()}}
+{\footnotesize\ttfamily \label{namespaceminesweepers_ad233ccd1ad9f1183bceaeed21b9a5939} 
+minesweepers.\+Solve\+Alg (\begin{DoxyParamCaption}\item[{}]{Width}{, }\item[{}]{Height}{}\end{DoxyParamCaption})}
+
+
+
+\label{doc-var-members}
+\Hypertarget{namespaceminesweepers_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{namespaceminesweepers_ac8df0ca2f7e186935555d110adc3d92c}\index{minesweepers@{minesweepers}!FULL\_MAP@{FULL\_MAP}}
+\index{FULL\_MAP@{FULL\_MAP}!minesweepers@{minesweepers}}
+\doxysubsubsection{\texorpdfstring{FULL\_MAP}{FULL\_MAP}}
+{\footnotesize\ttfamily \label{namespaceminesweepers_ac8df0ca2f7e186935555d110adc3d92c} 
+list minesweepers.\+FULL\+\_\+\+MAP = \mbox{[}$\,$\mbox{]}}
+
+\Hypertarget{namespaceminesweepers_acb3da8f50b92ca3bf7a36d63d744c3d2}\index{minesweepers@{minesweepers}!GAME\_OVER@{GAME\_OVER}}
+\index{GAME\_OVER@{GAME\_OVER}!minesweepers@{minesweepers}}
+\doxysubsubsection{\texorpdfstring{GAME\_OVER}{GAME\_OVER}}
+{\footnotesize\ttfamily \label{namespaceminesweepers_acb3da8f50b92ca3bf7a36d63d744c3d2} 
+bool minesweepers.\+GAME\+\_\+\+OVER = False}
+
+\Hypertarget{namespaceminesweepers_a999bd2fe9813e2a4a44341b7b1682a73}\index{minesweepers@{minesweepers}!GUI\_MAP@{GUI\_MAP}}
+\index{GUI\_MAP@{GUI\_MAP}!minesweepers@{minesweepers}}
+\doxysubsubsection{\texorpdfstring{GUI\_MAP}{GUI\_MAP}}
+{\footnotesize\ttfamily \label{namespaceminesweepers_a999bd2fe9813e2a4a44341b7b1682a73} 
+list minesweepers.\+GUI\+\_\+\+MAP = \mbox{[}$\,$\mbox{]}}
+
+\Hypertarget{namespaceminesweepers_a5121395418e147071c0718ab3455efc4}\index{minesweepers@{minesweepers}!HEIGHT@{HEIGHT}}
+\index{HEIGHT@{HEIGHT}!minesweepers@{minesweepers}}
+\doxysubsubsection{\texorpdfstring{HEIGHT}{HEIGHT}}
+{\footnotesize\ttfamily \label{namespaceminesweepers_a5121395418e147071c0718ab3455efc4} 
+int minesweepers.\+HEIGHT = 8}
+
+\Hypertarget{namespaceminesweepers_a220341b258f0196333575065bb67041b}\index{minesweepers@{minesweepers}!HIDDEN@{HIDDEN}}
+\index{HIDDEN@{HIDDEN}!minesweepers@{minesweepers}}
+\doxysubsubsection{\texorpdfstring{HIDDEN}{HIDDEN}}
+{\footnotesize\ttfamily \label{namespaceminesweepers_a220341b258f0196333575065bb67041b} 
+int minesweepers.\+HIDDEN = \mbox{\hyperlink{namespaceminesweepers_a3f87ab64dad2f39a40558a343da8fd70}{WIDTH}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{namespaceminesweepers_a5121395418e147071c0718ab3455efc4}{HEIGHT}}}
+
+\Hypertarget{namespaceminesweepers_adc4dce477ac144fcb9406bc503087155}\index{minesweepers@{minesweepers}!MAP\_FRAME@{MAP\_FRAME}}
+\index{MAP\_FRAME@{MAP\_FRAME}!minesweepers@{minesweepers}}
+\doxysubsubsection{\texorpdfstring{MAP\_FRAME}{MAP\_FRAME}}
+{\footnotesize\ttfamily \label{namespaceminesweepers_adc4dce477ac144fcb9406bc503087155} 
+minesweepers.\+MAP\+\_\+\+FRAME = Frame(\mbox{\hyperlink{namespaceminesweepers_a0e9f79bf12deef0c4645c94cafc81f0b}{MASTER}})}
+
+\Hypertarget{namespaceminesweepers_a0e9f79bf12deef0c4645c94cafc81f0b}\index{minesweepers@{minesweepers}!MASTER@{MASTER}}
+\index{MASTER@{MASTER}!minesweepers@{minesweepers}}
+\doxysubsubsection{\texorpdfstring{MASTER}{MASTER}}
+{\footnotesize\ttfamily \label{namespaceminesweepers_a0e9f79bf12deef0c4645c94cafc81f0b} 
+minesweepers.\+MASTER = Tk(class\+Name="{}Mine Sweepers"{})}
+
+\Hypertarget{namespaceminesweepers_a233fe98b4b9b6d26a9134b068cba89f8}\index{minesweepers@{minesweepers}!MAX\_ITER@{MAX\_ITER}}
+\index{MAX\_ITER@{MAX\_ITER}!minesweepers@{minesweepers}}
+\doxysubsubsection{\texorpdfstring{MAX\_ITER}{MAX\_ITER}}
+{\footnotesize\ttfamily \label{namespaceminesweepers_a233fe98b4b9b6d26a9134b068cba89f8} 
+int minesweepers.\+MAX\+\_\+\+ITER = 100}
+
+\Hypertarget{namespaceminesweepers_a814fa86c9a217d3be7c9653291c8ed9f}\index{minesweepers@{minesweepers}!MINES@{MINES}}
+\index{MINES@{MINES}!minesweepers@{minesweepers}}
+\doxysubsubsection{\texorpdfstring{MINES}{MINES}}
+{\footnotesize\ttfamily \label{namespaceminesweepers_a814fa86c9a217d3be7c9653291c8ed9f} 
+int minesweepers.\+MINES = 10}
+
+\Hypertarget{namespaceminesweepers_a2f211c7fd6bb16d31ceebb4670ed1e9f}\index{minesweepers@{minesweepers}!RESET@{RESET}}
+\index{RESET@{RESET}!minesweepers@{minesweepers}}
+\doxysubsubsection{\texorpdfstring{RESET}{RESET}}
+{\footnotesize\ttfamily \label{namespaceminesweepers_a2f211c7fd6bb16d31ceebb4670ed1e9f} 
+minesweepers.\+RESET}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ =\ \ Button(MASTER,\ command=\textcolor{keyword}{lambda}\ Width=WIDTH,\ Height=HEIGHT,\ Mines=MINES:\ ResetMap(Width,\ Height,\ Mines),}
+\DoxyCodeLine{00002\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ text=\textcolor{stringliteral}{"{}Reset"{}})}
+
+\end{DoxyCode}
+\Hypertarget{namespaceminesweepers_a288c2dff3209477a92413ff8846d13d1}\index{minesweepers@{minesweepers}!SOLVER@{SOLVER}}
+\index{SOLVER@{SOLVER}!minesweepers@{minesweepers}}
+\doxysubsubsection{\texorpdfstring{SOLVER}{SOLVER}}
+{\footnotesize\ttfamily \label{namespaceminesweepers_a288c2dff3209477a92413ff8846d13d1} 
+minesweepers.\+SOLVER = Button(\mbox{\hyperlink{namespaceminesweepers_a0e9f79bf12deef0c4645c94cafc81f0b}{MASTER}}, command=lambda Width=\mbox{\hyperlink{namespaceminesweepers_a3f87ab64dad2f39a40558a343da8fd70}{WIDTH}}, Height=HEIGHT\+: \mbox{\hyperlink{namespaceminesweepers_ad233ccd1ad9f1183bceaeed21b9a5939}{Solve\+Alg}}(Width, Height), text="{}Solver"{})}
+
+\Hypertarget{namespaceminesweepers_a98e04eaffc18a20ccf6c7a3564e22a0f}\index{minesweepers@{minesweepers}!STATUS@{STATUS}}
+\index{STATUS@{STATUS}!minesweepers@{minesweepers}}
+\doxysubsubsection{\texorpdfstring{STATUS}{STATUS}}
+{\footnotesize\ttfamily \label{namespaceminesweepers_a98e04eaffc18a20ccf6c7a3564e22a0f} 
+minesweepers.\+STATUS = Label(\mbox{\hyperlink{namespaceminesweepers_a0e9f79bf12deef0c4645c94cafc81f0b}{MASTER}}, text="{}"{})}
+
+\Hypertarget{namespaceminesweepers_a8db3ccf3989e6e72d065a2deb2b2c0e4}\index{minesweepers@{minesweepers}!SUCCESS@{SUCCESS}}
+\index{SUCCESS@{SUCCESS}!minesweepers@{minesweepers}}
+\doxysubsubsection{\texorpdfstring{SUCCESS}{SUCCESS}}
+{\footnotesize\ttfamily \label{namespaceminesweepers_a8db3ccf3989e6e72d065a2deb2b2c0e4} 
+int minesweepers.\+SUCCESS = 0}
+
+\Hypertarget{namespaceminesweepers_a5d855e17f2ad94a97b4e62dc3a5924a4}\index{minesweepers@{minesweepers}!TOTAL@{TOTAL}}
+\index{TOTAL@{TOTAL}!minesweepers@{minesweepers}}
+\doxysubsubsection{\texorpdfstring{TOTAL}{TOTAL}}
+{\footnotesize\ttfamily \label{namespaceminesweepers_a5d855e17f2ad94a97b4e62dc3a5924a4} 
+int minesweepers.\+TOTAL = 0}
+
+\Hypertarget{namespaceminesweepers_a3f87ab64dad2f39a40558a343da8fd70}\index{minesweepers@{minesweepers}!WIDTH@{WIDTH}}
+\index{WIDTH@{WIDTH}!minesweepers@{minesweepers}}
+\doxysubsubsection{\texorpdfstring{WIDTH}{WIDTH}}
+{\footnotesize\ttfamily \label{namespaceminesweepers_a3f87ab64dad2f39a40558a343da8fd70} 
+int minesweepers.\+WIDTH = 8}
+

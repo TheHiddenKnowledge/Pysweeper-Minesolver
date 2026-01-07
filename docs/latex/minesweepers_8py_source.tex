@@ -1,0 +1,348 @@
+\doxysection{minesweepers.\+py}
+\hypertarget{minesweepers_8py_source}{}\label{minesweepers_8py_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00001}00001\ \textcolor{keyword}{from}\ tkinter\ \textcolor{keyword}{import}\ *}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00002}00002\ \textcolor{keyword}{import}\ random}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00003}00003\ \textcolor{keyword}{import}\ time}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00005}00005\ \textcolor{comment}{\#\ Map\ with\ MINES\ and\ numbers}}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00006}00006\ FULL\_MAP\ =\ []}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00007}00007\ \textcolor{comment}{\#\ Map\ of\ GUI\_MAP\ revealed\ and\ HIDDEN}}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00008}00008\ GUI\_MAP\ =\ []}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00009}00009\ WIDTH\ =\ 8}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00010}00010\ HEIGHT\ =\ 8}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00011}00011\ MINES\ =\ 10}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00012}00012\ HIDDEN\ =\ WIDTH\ *\ HEIGHT}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00013}00013\ GAME\_OVER\ =\ \textcolor{keyword}{False}}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00014}00014\ MAX\_ITER\ =\ 100}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00017}00017\ \textcolor{comment}{\#\ Generates\ the\ mines\ on\ the\ map}}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00018}00018\ \textcolor{keyword}{def\ }GenMines(Width,\ Height,\ Mines):}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00019}00019\ \ \ \ \ mine\_counter\ =\ 0}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00020}00020\ \ \ \ \ mine\_cords\ =\ []}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00021}00021\ \ \ \ \ \textcolor{comment}{\#\ Generate\ Mines\ random\ coordinates}}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00022}00022\ \ \ \ \ \textcolor{keywordflow}{while}\ mine\_counter\ !=\ Mines:}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00023}00023\ \ \ \ \ \ \ \ \ mine\_cord\ =\ [random.randint(0,\ Width\ -\/\ 1),\ random.randint(0,\ Height\ -\/\ 1)]}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00024}00024\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ mine\_cord\ \textcolor{keywordflow}{not}\ \textcolor{keywordflow}{in}\ mine\_cords:}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00025}00025\ \ \ \ \ \ \ \ \ \ \ \ \ mine\_cords.append(mine\_cord)}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00026}00026\ \ \ \ \ \ \ \ \ \ \ \ \ mine\_counter\ +=\ 1}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00027}00027\ \ \ \ \ \textcolor{comment}{\#\ Adding\ Mines\ mines\ to\ map}}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00028}00028\ \ \ \ \ \textcolor{keywordflow}{for}\ mine\_cord\ \textcolor{keywordflow}{in}\ mine\_cords:}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00029}00029\ \ \ \ \ \ \ \ \ x\ =\ mine\_cord[0]}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00030}00030\ \ \ \ \ \ \ \ \ y\ =\ mine\_cord[1]}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00031}00031\ \ \ \ \ \ \ \ \ FULL\_MAP[y][x]\ =\ \textcolor{stringliteral}{"{}*"{}}}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00034}00034\ \textcolor{comment}{\#\ Generates\ the\ numbers\ on\ the\ map}}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00035}00035\ \textcolor{keyword}{def\ }GenNums(Width,\ Height):}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00036}00036\ \ \ \ \ \textcolor{keywordflow}{for}\ x\ \textcolor{keywordflow}{in}\ range(Width):}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00037}00037\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ y\ \textcolor{keywordflow}{in}\ range(Height):}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00038}00038\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ FULL\_MAP[y][x]\ !=\ \textcolor{stringliteral}{"{}*"{}}:}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00039}00039\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mine\_count\ =\ 0}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00040}00040\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Rotation\ array\ for\ NWES\ and\ diagonal\ combinations}}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00041}00041\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rots\ =\ [[0,\ 1],\ [0,\ -\/1],\ [1,\ 0],\ [-\/1,\ 0],\ [1,\ 1],\ [-\/1,\ -\/1],\ [1,\ -\/1],\ [-\/1,\ 1]]}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00042}00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ rot\ \textcolor{keywordflow}{in}\ rots:}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00043}00043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ x\_\ =\ x\ +\ rot[0]}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00044}00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ y\_\ =\ y\ +\ rot[1]}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00045}00045\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ 0\ <=\ x\_\ <\ Width:}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00046}00046\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ 0\ <=\ y\_\ <\ Height:}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00047}00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ For\ each\ rotation\ add\ to\ count\ if\ mine}}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00048}00048\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ FULL\_MAP[y\_][x\_]\ ==\ \textcolor{stringliteral}{"{}*"{}}:}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00049}00049\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mine\_count\ +=\ 1}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00050}00050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Add\ mine\ count\ to\ coordinate\ on\ map}}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00051}00051\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ mine\_count\ >\ 0:}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FULL\_MAP[y][x]\ =\ str(mine\_count)}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00055}00055\ \textcolor{comment}{\#\ Generates\ the\ map\ as\ a\ whole}}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00056}00056\ \textcolor{keyword}{def\ }GenMap(Width,\ Height,\ Mines):}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00057}00057\ \ \ \ \ MAP\_FRAME.grid(row=0,\ column=0,\ columnspan=3,\ sticky=\textcolor{stringliteral}{"{}ew"{}})}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00058}00058\ \ \ \ \ \textcolor{comment}{\#\ Initializing\ map\ GUI\ elements\ and\ map\ data\ structure}}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00059}00059\ \ \ \ \ \textcolor{keywordflow}{for}\ y\ \textcolor{keywordflow}{in}\ range(Height):}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00060}00060\ \ \ \ \ \ \ \ \ full\_row\ =\ []}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00061}00061\ \ \ \ \ \ \ \ \ gui\_row\ =\ []}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00062}00062\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ x\ \textcolor{keywordflow}{in}\ range(Width):}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \ \ \ gui\_cord\ =\ Label(MAP\_FRAME,\ text=\textcolor{stringliteral}{"{}\ "{}},\ bg=\textcolor{stringliteral}{"{}grey"{}},\ borderwidth=2,\ relief=\textcolor{stringliteral}{"{}groove"{}},\ height=2,\ width=5)}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ gui\_cord.bind(\textcolor{stringliteral}{"{}<Button-\/1>"{}},\ GridCheck)}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00065}00065\ \ \ \ \ \ \ \ \ \ \ \ \ gui\_cord.bind(\textcolor{stringliteral}{"{}<Button-\/3>"{}},\ GridFlag)}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00066}00066\ \ \ \ \ \ \ \ \ \ \ \ \ gui\_cord.grid(row=y,\ column=x)}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00067}00067\ \ \ \ \ \ \ \ \ \ \ \ \ full\_row.append(\textcolor{stringliteral}{"{}\ "{}})}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \ \ \ gui\_row.append(gui\_cord)}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00069}00069\ \ \ \ \ \ \ \ \ FULL\_MAP.append(full\_row)}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00070}00070\ \ \ \ \ \ \ \ \ GUI\_MAP.append(gui\_row)}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00071}00071\ \ \ \ \ \textcolor{comment}{\#\ Necessary\ GUI\ initialization}}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00072}00072\ \ \ \ \ STATUS.grid(row=1,\ column=0,\ sticky=\textcolor{stringliteral}{"{}ew"{}})}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00073}00073\ \ \ \ \ STATUS.configure(text=\textcolor{stringliteral}{"{}"{}})}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00074}00074\ \ \ \ \ SOLVER.grid(row=1,\ column=1,\ sticky=\textcolor{stringliteral}{"{}ew"{}})}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00075}00075\ \ \ \ \ RESET.grid(row=1,\ column=2,\ sticky=\textcolor{stringliteral}{"{}ew"{}})}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00076}00076\ \ \ \ \ \textcolor{comment}{\#\ Generating\ map\ elements\ from\ empty\ map}}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00077}00077\ \ \ \ \ GenMines(Width,\ Height,\ Mines)}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00078}00078\ \ \ \ \ GenNums(Width,\ Height)}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00080}00080\ }
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00081}00081\ \textcolor{comment}{\#\ Resets\ the\ map}}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00082}00082\ \textcolor{keyword}{def\ }ResetMap(Width,\ Height,\ Mines):}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00083}00083\ \ \ \ \ \textcolor{keyword}{global}\ FULL\_MAP}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00084}00084\ \ \ \ \ \textcolor{keyword}{global}\ GUI\_MAP}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00085}00085\ \ \ \ \ \textcolor{keyword}{global}\ HIDDEN}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00086}00086\ \ \ \ \ \textcolor{keyword}{global}\ GAME\_OVER}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00087}00087\ \ \ \ \ \textcolor{comment}{\#\ Deleting\ map\ GUI\ elements\ and\ map\ data\ structure}}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00088}00088\ \ \ \ \ FULL\_MAP\ =\ []}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00089}00089\ \ \ \ \ \textcolor{keywordflow}{for}\ gui\_row\ \textcolor{keywordflow}{in}\ GUI\_MAP:}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00090}00090\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ gui\_cord\ \textcolor{keywordflow}{in}\ gui\_row:}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00091}00091\ \ \ \ \ \ \ \ \ \ \ \ \ gui\_cord.destroy()}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00092}00092\ \ \ \ \ GUI\_MAP\ =\ []}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00093}00093\ \ \ \ \ \textcolor{comment}{\#\ Resetting\ game\ STATUS}}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00094}00094\ \ \ \ \ HIDDEN\ =\ Width\ *\ Height}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00095}00095\ \ \ \ \ GAME\_OVER\ =\ \textcolor{keyword}{False}}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00096}00096\ \ \ \ \ \textcolor{comment}{\#\ Generating\ new\ map}}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00097}00097\ \ \ \ \ GenMap(Width,\ Height,\ Mines)}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00098}00098\ }
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00099}00099\ }
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00100}00100\ \textcolor{comment}{\#\ Fill\ method\ for\ numberless\ coordinates}}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00101}00101\ \textcolor{keyword}{def\ }GetFill(X,\ Y,\ Width,\ Height,\ Fill\_List):}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00102}00102\ \ \ \ \ \textcolor{keywordflow}{if}\ [X,\ Y]\ \textcolor{keywordflow}{not}\ \textcolor{keywordflow}{in}\ Fill\_List:}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00103}00103\ \ \ \ \ \ \ \ \ Fill\_List.append([X,\ Y])}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00104}00104\ \ \ \ \ \ \ \ \ rots\ =\ [[0,\ 1],\ [0,\ -\/1],\ [1,\ 0],\ [-\/1,\ 0],\ [1,\ 1],\ [-\/1,\ -\/1],\ [1,\ -\/1],\ [-\/1,\ 1]]}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00105}00105\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ rot\ \textcolor{keywordflow}{in}\ rots:}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00106}00106\ \ \ \ \ \ \ \ \ \ \ \ \ x\_\ =\ X\ +\ rot[0]}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00107}00107\ \ \ \ \ \ \ \ \ \ \ \ \ y\_\ =\ Y\ +\ rot[1]}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00108}00108\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ 0\ <=\ x\_\ <\ Width:}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00109}00109\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ 0\ <=\ y\_\ <\ Height:}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00110}00110\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ If\ rotated\ coordinate\ has\ a\ number,\ add\ to\ fill\ list}}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00111}00111\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ FULL\_MAP[y\_][x\_]\ !=\ \textcolor{stringliteral}{"{}*"{}}\ \textcolor{keywordflow}{and}\ FULL\_MAP[y\_][x\_]\ !=\ \textcolor{stringliteral}{"{}\ "{}}:}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00112}00112\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ [x\_,\ y\_]\ \textcolor{keywordflow}{not}\ \textcolor{keywordflow}{in}\ Fill\_List:}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00113}00113\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ GUI\_MAP[y\_][x\_][\textcolor{stringliteral}{"{}bg"{}}]\ ==\ \textcolor{stringliteral}{"{}grey"{}}:}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00114}00114\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Fill\_List.append([x\_,\ y\_])}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00115}00115\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ If\ rotated\ coordinate\ has\ no\ number,\ perform\ method\ on\ coordinate}}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00116}00116\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{elif}\ FULL\_MAP[y\_][x\_]\ ==\ \textcolor{stringliteral}{"{}\ "{}}:}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00117}00117\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GetFill(x\_,\ y\_,\ Width,\ Height,\ Fill\_List)}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00118}00118\ }
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00119}00119\ }
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00120}00120\ \textcolor{comment}{\#\ Checks\ selected\ coordinate\ on\ left\ click}}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00121}00121\ \textcolor{keyword}{def\ }GridCheck(EVENT):}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00122}00122\ \ \ \ \ \textcolor{keyword}{global}\ GAME\_OVER}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00123}00123\ \ \ \ \ \textcolor{keyword}{global}\ HIDDEN}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00124}00124\ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keywordflow}{not}\ GAME\_OVER:}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00125}00125\ \ \ \ \ \ \ \ \ gui\_cord\ =\ EVENT.widget}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00126}00126\ \ \ \ \ \ \ \ \ x\ =\ gui\_cord.grid\_info()[\textcolor{stringliteral}{"{}column"{}}]}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00127}00127\ \ \ \ \ \ \ \ \ y\ =\ gui\_cord.grid\_info()[\textcolor{stringliteral}{"{}row"{}}]}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00128}00128\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Only\ reveal\ HIDDEN\ or\ non-\/flagged\ coordinates}}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00129}00129\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ gui\_cord[\textcolor{stringliteral}{"{}bg"{}}]\ !=\ \textcolor{stringliteral}{"{}white"{}}\ \textcolor{keywordflow}{and}\ gui\_cord[\textcolor{stringliteral}{"{}text"{}}]\ !=\ \textcolor{stringliteral}{"{}⚑"{}}:}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00130}00130\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ If\ coordinate\ has\ a\ number,\ reveal\ coordinate}}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00131}00131\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ FULL\_MAP[y][x]\ !=\ \textcolor{stringliteral}{"{}*"{}}\ \textcolor{keywordflow}{and}\ FULL\_MAP[y][x]\ !=\ \textcolor{stringliteral}{"{}\ "{}}:}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00132}00132\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gui\_cord.configure(text=FULL\_MAP[y][x],\ bg=\textcolor{stringliteral}{"{}white"{}})}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00133}00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ HIDDEN\ -\/=\ 1}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00134}00134\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ If\ coordinate\ has\ no\ number,\ fill\ area}}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00135}00135\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{elif}\ FULL\_MAP[y][x]\ ==\ \textcolor{stringliteral}{"{}\ "{}}:}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00136}00136\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fill\_list\ =\ []}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00137}00137\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GetFill(x,\ y,\ WIDTH,\ HEIGHT,\ fill\_list)}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00138}00138\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ fill\_cord\ \textcolor{keywordflow}{in}\ fill\_list:}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00139}00139\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ x\_\ =\ fill\_cord[0]}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00140}00140\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ y\_\ =\ fill\_cord[1]}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00141}00141\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GUI\_MAP[y\_][x\_].configure(text=FULL\_MAP[y\_][x\_],\ bg=\textcolor{stringliteral}{"{}white"{}})}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00142}00142\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ HIDDEN\ -\/=\ 1}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00143}00143\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ If\ coordinate\ is\ a\ mine,\ reveal\ mine\ and\ end\ game}}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00144}00144\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{elif}\ FULL\_MAP[y][x]\ ==\ \textcolor{stringliteral}{"{}*"{}}:}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00145}00145\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gui\_cord.configure(text=FULL\_MAP[y][x],\ bg=\textcolor{stringliteral}{"{}red"{}})}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00146}00146\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GAME\_OVER\ =\ \textcolor{keyword}{True}}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00147}00147\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ STATUS.configure(text=\textcolor{stringliteral}{"{}You\ lost!"{}})}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00148}00148\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ If\ all\ HIDDEN\ coordinates\ are\ revealed,\ end\ game}}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00149}00149\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ HIDDEN\ ==\ MINES:}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00150}00150\ \ \ \ \ \ \ \ \ \ \ \ \ GAME\_OVER\ =\ \textcolor{keyword}{True}}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00151}00151\ \ \ \ \ \ \ \ \ \ \ \ \ STATUS.configure(text=\textcolor{stringliteral}{"{}You\ won!"{}})}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00152}00152\ }
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00153}00153\ }
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00154}00154\ \textcolor{comment}{\#\ Flags\ selected\ coordinate\ on\ right\ click}}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00155}00155\ \textcolor{keyword}{def\ }GridFlag(EVENT):}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00156}00156\ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keywordflow}{not}\ GAME\_OVER:}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00157}00157\ \ \ \ \ \ \ \ \ gui\_cord\ =\ EVENT.widget}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00158}00158\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Toggle\ logic\ for\ flagging\ a\ coordinate}}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00159}00159\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ gui\_cord[\textcolor{stringliteral}{"{}bg"{}}]\ ==\ \textcolor{stringliteral}{"{}grey"{}}:}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00160}00160\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ gui\_cord[\textcolor{stringliteral}{"{}text"{}}]\ !=\ \textcolor{stringliteral}{"{}⚑"{}}:}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00161}00161\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gui\_cord.configure(text=\textcolor{stringliteral}{"{}⚑"{}})}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00162}00162\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00163}00163\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gui\_cord.configure(text=\textcolor{stringliteral}{"{}\ "{}})}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00164}00164\ }
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00165}00165\ }
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00166}00166\ \textcolor{comment}{\#\ Reveals\ random\ coordinate\ in\ rectangle\ determined\ by\ bounding\ coordinates}}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00167}00167\ \textcolor{keyword}{def\ }PickRand(X0,\ Y0,\ X1,\ Y1,\ Width,\ Height):}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00168}00168\ \ \ \ \ x\ =\ random.randint(X0,\ X1)}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00169}00169\ \ \ \ \ y\ =\ random.randint(Y0,\ Y1)}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00170}00170\ \ \ \ \ \textcolor{keywordflow}{while}\ 0\ >\ x\ >=\ Width\ \textcolor{keywordflow}{or}\ 0\ >\ y\ >=\ Height:}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00171}00171\ \ \ \ \ \ \ \ \ x\ =\ random.randint(X0,\ X1)}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00172}00172\ \ \ \ \ \ \ \ \ y\ =\ random.randint(Y0,\ Y1)}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00173}00173\ \ \ \ \ GUI\_MAP[y][x].update()}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00174}00174\ \ \ \ \ GUI\_MAP[y][x].event\_generate(\textcolor{stringliteral}{"{}<Button-\/1>"{}})}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00175}00175\ }
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00176}00176\ }
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00177}00177\ \textcolor{comment}{\#\ Flags\ the\ mines\ determined\ by\ qualifying\ edge\ coordinates}}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00178}00178\ \textcolor{keyword}{def\ }FlagEdges(Width,\ Height):}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00179}00179\ \ \ \ \ flag\_count\ =\ 0}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00180}00180\ \ \ \ \ \textcolor{keywordflow}{for}\ x\ \textcolor{keywordflow}{in}\ range(Width):}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00181}00181\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ y\ \textcolor{keywordflow}{in}\ range(Height):}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00182}00182\ \ \ \ \ \ \ \ \ \ \ \ \ gui\_cord\ =\ GUI\_MAP[y][x]}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00183}00183\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ gui\_cord[\textcolor{stringliteral}{"{}text"{}}]\ !=\ \textcolor{stringliteral}{"{}\ "{}}\ \textcolor{keywordflow}{and}\ gui\_cord[\textcolor{stringliteral}{"{}text"{}}]\ !=\ \textcolor{stringliteral}{"{}⚑"{}}:}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00184}00184\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Coordinates\ that\ are\ hidden}}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00185}00185\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ hidden\_cords\ =\ []}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00186}00186\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Coordinates\ that\ are\ flagged\ }}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00187}00187\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ flagged\_cords\ =\ []}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00188}00188\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rots\ =\ [[0,\ 1],\ [0,\ -\/1],\ [1,\ 0],\ [-\/1,\ 0],\ [1,\ 1],\ [-\/1,\ -\/1],\ [1,\ -\/1],\ [-\/1,\ 1]]}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00189}00189\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ rot\ \textcolor{keywordflow}{in}\ rots:}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00190}00190\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ x\_\ =\ x\ +\ rot[0]}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00191}00191\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ y\_\ =\ y\ +\ rot[1]}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00192}00192\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ 0\ <=\ x\_\ <\ Width:}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00193}00193\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ 0\ <=\ y\_\ <\ Height:}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00194}00194\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ GUI\_MAP[y\_][x\_][\textcolor{stringliteral}{"{}bg"{}}]\ ==\ \textcolor{stringliteral}{"{}grey"{}}:}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00195}00195\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Marks\ hidden\ and\ flagged\ coordinates\ }}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00196}00196\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ GUI\_MAP[y\_][x\_][\textcolor{stringliteral}{"{}text"{}}]\ !=\ \textcolor{stringliteral}{"{}⚑"{}}:}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00197}00197\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ hidden\_cords.append(GUI\_MAP[y\_][x\_])}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00198}00198\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00199}00199\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ flagged\_cords.append(GUI\_MAP[y\_][x\_])}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00200}00200\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Flags\ hidden\ coordinates\ only\ if\ the\ hidden\ coordinate\ count\ matches\ the\ number\ on\ the\ map\ }}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00201}00201\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ len(hidden\_cords)\ +\ len(flagged\_cords)\ ==\ int(gui\_cord[\textcolor{stringliteral}{"{}text"{}}]):}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00202}00202\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ len(flagged\_cords)\ !=\ int(gui\_cord[\textcolor{stringliteral}{"{}text"{}}]):}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00203}00203\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ hidden\_cord\ \textcolor{keywordflow}{in}\ hidden\_cords:}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00204}00204\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ hidden\_cord[\textcolor{stringliteral}{"{}text"{}}]\ !=\ \textcolor{stringliteral}{"{}⚑"{}}:}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00205}00205\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ hidden\_cord.update()}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00206}00206\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ hidden\_cord.event\_generate(\textcolor{stringliteral}{"{}<Button-\/3>"{}})}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00207}00207\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ flag\_count\ +=\ 1}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00208}00208\ \ \ \ \ \textcolor{comment}{\#\ Does\ not\ keep\ flagging\ edges\ if\ no\ more\ edges\ qualify\ }}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00209}00209\ \ \ \ \ \textcolor{keywordflow}{if}\ flag\_count\ >\ 0:}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00210}00210\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{True}}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00211}00211\ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00212}00212\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{False}}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00213}00213\ }
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00214}00214\ }
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00215}00215\ \textcolor{comment}{\#\ Clears\ hidden\ blocks\ within\ 3x3\ square\ centered\ at\ [X,\ Y]}}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00216}00216\ \textcolor{keyword}{def\ }ClearSquare(X,\ Y,\ Width,\ Height):}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00217}00217\ \ \ \ \ reveal\_count\ =\ 0}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00218}00218\ \ \ \ \ rots\ =\ [[0,\ 1],\ [0,\ -\/1],\ [1,\ 0],\ [-\/1,\ 0],\ [1,\ 1],\ [-\/1,\ -\/1],\ [1,\ -\/1],\ [-\/1,\ 1]]}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00219}00219\ \ \ \ \ \textcolor{keywordflow}{for}\ rot\ \textcolor{keywordflow}{in}\ rots:}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00220}00220\ \ \ \ \ \ \ \ \ x\_\ =\ X\ +\ rot[0]}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00221}00221\ \ \ \ \ \ \ \ \ y\_\ =\ Y\ +\ rot[1]}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00222}00222\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ 0\ <=\ x\_\ <\ Width:}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00223}00223\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ 0\ <=\ y\_\ <\ Height:}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00224}00224\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gui\_cord\ =\ GUI\_MAP[y\_][x\_]}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00225}00225\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Only\ clears\ hidden\ and\ non-\/flagged\ coordinates\ }}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00226}00226\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ gui\_cord[\textcolor{stringliteral}{"{}bg"{}}]\ ==\ \textcolor{stringliteral}{"{}grey"{}}\ \textcolor{keywordflow}{and}\ gui\_cord[\textcolor{stringliteral}{"{}text"{}}]\ !=\ \textcolor{stringliteral}{"{}⚑"{}}:}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00227}00227\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gui\_cord.update()}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00228}00228\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gui\_cord.event\_generate(\textcolor{stringliteral}{"{}<Button-\/1>"{}})}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00229}00229\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ reveal\_count\ +=\ 1}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00230}00230\ \ \ \ \ \textcolor{keywordflow}{if}\ reveal\_count\ >\ 0:}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00231}00231\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{True}}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00232}00232\ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00233}00233\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{False}}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00234}00234\ }
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00235}00235\ }
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00236}00236\ \textcolor{comment}{\#\ Checks\ if\ coordinate\ map\ number\ at\ [X,\ Y]\ is\ equal\ to\ number\ of\ surrounding\ flags\ }}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00237}00237\ \textcolor{keyword}{def\ }CheckSquare(X,\ Y,\ Width,\ Height):}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00238}00238\ \ \ \ \ flag\_count\ =\ 0}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00239}00239\ \ \ \ \ gui\_cord\ =\ GUI\_MAP[Y][X]}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00240}00240\ \ \ \ \ rots\ =\ [[0,\ 1],\ [0,\ -\/1],\ [1,\ 0],\ [-\/1,\ 0],\ [1,\ 1],\ [-\/1,\ -\/1],\ [1,\ -\/1],\ [-\/1,\ 1]]}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00241}00241\ \ \ \ \ \textcolor{keywordflow}{for}\ rot\ \textcolor{keywordflow}{in}\ rots:}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00242}00242\ \ \ \ \ \ \ \ \ x\_\ =\ X\ +\ rot[0]}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00243}00243\ \ \ \ \ \ \ \ \ y\_\ =\ Y\ +\ rot[1]}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00244}00244\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ 0\ <=\ x\_\ <\ Width:}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00245}00245\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ 0\ <=\ y\_\ <\ Height:}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00246}00246\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Adds\ surrounding\ flags\ to\ flag\ count}}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00247}00247\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ GUI\_MAP[y\_][x\_][\textcolor{stringliteral}{"{}text"{}}]\ ==\ \textcolor{stringliteral}{"{}⚑"{}}:}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00248}00248\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ flag\_count\ +=\ 1}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00249}00249\ \ \ \ \ \textcolor{keywordflow}{if}\ flag\_count\ ==\ int(gui\_cord[\textcolor{stringliteral}{"{}text"{}}]):}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00250}00250\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{True}}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00251}00251\ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00252}00252\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{False}}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00253}00253\ }
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00254}00254\ }
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00255}00255\ \textcolor{comment}{\#\ Eliminates\ qualifying\ edge\ coordinates\ }}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00256}00256\ \textcolor{keyword}{def\ }ElimEdges(Width,\ Height):}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00257}00257\ \ \ \ \ elim\_count\ =\ 0}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00258}00258\ \ \ \ \ \textcolor{keywordflow}{for}\ x\ \textcolor{keywordflow}{in}\ range(Width):}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00259}00259\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ y\ \textcolor{keywordflow}{in}\ range(Height):}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00260}00260\ \ \ \ \ \ \ \ \ \ \ \ \ gui\_cord\ =\ GUI\_MAP[y][x]}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00261}00261\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Checks\ revealed\ coordinates\ with\ numbers}}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00262}00262\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ gui\_cord[\textcolor{stringliteral}{"{}text"{}}]\ !=\ \textcolor{stringliteral}{"{}\ "{}}\ \textcolor{keywordflow}{and}\ gui\_cord[\textcolor{stringliteral}{"{}text"{}}]\ !=\ \textcolor{stringliteral}{"{}⚑"{}}:}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00263}00263\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Clear\ 3x3\ square\ if\ the\ coordinate\ qualifies}}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00264}00264\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ CheckSquare(x,\ y,\ Width,\ Height):}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00265}00265\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ClearSquare(x,\ y,\ Width,\ Height):}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00266}00266\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ elim\_count\ +=\ 1}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00267}00267\ \ \ \ \ \textcolor{comment}{\#\ Does\ not\ keep\ eliminating\ edges\ if\ no\ more\ edges\ qualify\ \ }}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00268}00268\ \ \ \ \ \textcolor{keywordflow}{if}\ elim\_count\ >\ 0:}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00269}00269\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{True}}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00270}00270\ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00271}00271\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{False}}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00272}00272\ }
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00273}00273\ }
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00274}00274\ \textcolor{comment}{\#\ Predicts\ edge\ coordinate\ to\ eliminate}}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00275}00275\ \textcolor{keyword}{def\ }PredictEdge(Width,\ Height):}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00276}00276\ \ \ \ \ \textcolor{comment}{\#\ Keeps\ track\ of\ most\ probable\ edge\ coordinate}}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00277}00277\ \ \ \ \ min\_numbers\ =\ 9}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00278}00278\ \ \ \ \ min\_cords\ =\ []}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00279}00279\ \ \ \ \ \textcolor{keywordflow}{for}\ x\ \textcolor{keywordflow}{in}\ range(Width):}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00280}00280\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ y\ \textcolor{keywordflow}{in}\ range(Height):}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00281}00281\ \ \ \ \ \ \ \ \ \ \ \ \ gui\_cord\ =\ GUI\_MAP[y][x]}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00282}00282\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Checks\ only\ hidden\ and\ non-\/flagged\ coordinates}}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00283}00283\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ gui\_cord[\textcolor{stringliteral}{"{}bg"{}}]\ ==\ \textcolor{stringliteral}{"{}grey"{}}\ \textcolor{keywordflow}{and}\ gui\_cord[\textcolor{stringliteral}{"{}text"{}}]\ !=\ \textcolor{stringliteral}{"{}⚑"{}}:}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00284}00284\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ numbers\_count\ =\ 0}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00285}00285\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rots\ =\ [[0,\ 1],\ [0,\ -\/1],\ [1,\ 0],\ [-\/1,\ 0],\ [1,\ 1],\ [-\/1,\ -\/1],\ [1,\ -\/1],\ [-\/1,\ 1]]}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00286}00286\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ rot\ \textcolor{keywordflow}{in}\ rots:}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00287}00287\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ x\_\ =\ x\ +\ rot[0]}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00288}00288\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ y\_\ =\ y\ +\ rot[1]}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00289}00289\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ 0\ <=\ x\_\ <\ Width:}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00290}00290\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ 0\ <=\ y\_\ <\ Height:}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00291}00291\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ If\ the\ surrounding\ coordinate\ has\ a\ number\ add\ to\ count}}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00292}00292\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ GUI\_MAP[y\_][x\_][\textcolor{stringliteral}{"{}text"{}}]\ !=\ \textcolor{stringliteral}{"{}\ "{}}\ \textcolor{keywordflow}{and}\ GUI\_MAP[y\_][x\_][\textcolor{stringliteral}{"{}text"{}}]\ !=\ \textcolor{stringliteral}{"{}⚑"{}}:}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00293}00293\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ numbers\_count\ +=\ 1}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00294}00294\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ numbers\_count\ !=\ 0\ \textcolor{keywordflow}{and}\ numbers\_count\ <\ min\_numbers:}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00295}00295\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ min\_numbers\ =\ numbers\_count}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00296}00296\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ min\_cords\ =\ [x,\ y]}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00297}00297\ \ \ \ \ \textcolor{comment}{\#\ Reveal\ most\ probable\ coordinate\ (can\ be\ wrong)}}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00298}00298\ \ \ \ \ \textcolor{keywordflow}{if}\ len(min\_cords)\ !=\ 0:}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00299}00299\ \ \ \ \ \ \ \ \ min\_x\ =\ min\_cords[0]}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00300}00300\ \ \ \ \ \ \ \ \ min\_y\ =\ min\_cords[1]}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00301}00301\ \ \ \ \ \ \ \ \ GUI\_MAP[min\_y][min\_x].update()}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00302}00302\ \ \ \ \ \ \ \ \ GUI\_MAP[min\_y][min\_x].event\_generate(\textcolor{stringliteral}{"{}<Button-\/1>"{}})}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00303}00303\ }
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00304}00304\ }
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00305}00305\ \textcolor{comment}{\#\ Runs\ the\ solver\ algorithm\ }}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00306}00306\ \textcolor{keyword}{def\ }SolveAlg(Width,\ Height):}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00307}00307\ \ \ \ \ \textcolor{comment}{\#\ CPU\ time\ capped\ by\ maximum\ iteration\ count\ }}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00308}00308\ \ \ \ \ \textcolor{keywordflow}{for}\ iter\ \textcolor{keywordflow}{in}\ range(MAX\_ITER):}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00309}00309\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Just\ for\ visualization}}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00310}00310\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ time.sleep(.1)}}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00311}00311\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ GAME\_OVER:}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00312}00312\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break}}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00313}00313\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Pick\ random\ coordinates\ until\ at\ least\ 10\%\ of\ the\ map\ is\ revealed\ }}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00314}00314\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ Width\ *\ Height\ -\/\ HIDDEN\ <\ int(Width\ *\ Height\ /\ 10):}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00315}00315\ \ \ \ \ \ \ \ \ \ \ \ \ PickRand(0,\ 0,\ Width\ -\/\ 1,\ Height\ -\/\ 1,\ Width,\ Height)}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00316}00316\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00317}00317\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Flags\ the\ edges,\ if\ not\ then\ eliminates\ the\ edges,\ if\ not\ then\ makes\ a\ prediction}}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00318}00318\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keywordflow}{not}\ FlagEdges(Width,\ Height):}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00319}00319\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keywordflow}{not}\ ElimEdges(Width,\ Height):}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00320}00320\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PredictEdge(Width,\ Height)}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00321}00321\ }
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00322}00322\ }
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00323}00323\ MASTER\ =\ Tk(className=\textcolor{stringliteral}{"{}Mine\ Sweepers"{}})}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00324}00324\ MAP\_FRAME\ =\ Frame(MASTER)}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00325}00325\ STATUS\ =\ Label(MASTER,\ text=\textcolor{stringliteral}{"{}"{}})}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00326}00326\ SOLVER\ =\ Button(MASTER,\ command=\textcolor{keyword}{lambda}\ Width=WIDTH,\ Height=HEIGHT:\ SolveAlg(Width,\ Height),\ text=\textcolor{stringliteral}{"{}Solver"{}})}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00327}00327\ RESET\ =\ Button(MASTER,\ command=\textcolor{keyword}{lambda}\ Width=WIDTH,\ Height=HEIGHT,\ Mines=MINES:\ ResetMap(Width,\ Height,\ Mines),}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00328}00328\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ text=\textcolor{stringliteral}{"{}Reset"{}})}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00329}00329\ SUCCESS\ =\ 0}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00330}00330\ TOTAL\ =\ 0}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00331}00331\ \textcolor{keywordflow}{for}\ a\ \textcolor{keywordflow}{in}\ range(16):}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00332}00332\ \ \ \ \ MINES\ =\ a\ +\ 3}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00333}00333\ \ \ \ \ ResetMap(WIDTH,\ HEIGHT,\ MINES)}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00334}00334\ \ \ \ \ \textcolor{keywordflow}{for}\ b\ \textcolor{keywordflow}{in}\ range(200):}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00335}00335\ \ \ \ \ \ \ \ \ TOTAL\ +=\ 1}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00336}00336\ \ \ \ \ \ \ \ \ SolveAlg(WIDTH,\ HEIGHT)}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00337}00337\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ STATUS[\textcolor{stringliteral}{"{}text"{}}]\ ==\ \textcolor{stringliteral}{"{}You\ won!"{}}:}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00338}00338\ \ \ \ \ \ \ \ \ \ \ \ \ SUCCESS\ +=\ 1}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00339}00339\ \ \ \ \ \ \ \ \ ResetMap(WIDTH,\ HEIGHT,\ MINES)}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00340}00340\ \ \ \ \ print(\textcolor{stringliteral}{"{}Mines:\ "{}}\ +\ str(MINES)\ +\ \textcolor{stringliteral}{"{}\ "{}}\ +\ \textcolor{stringliteral}{"{}Rate:\ "{}}\ +\ str(SUCCESS\ /\ TOTAL))}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00341}00341\ \ \ \ \ SUCCESS\ =\ 0}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00342}00342\ \ \ \ \ TOTAL\ =\ 0}
+\DoxyCodeLine{\Hypertarget{minesweepers_8py_source_l00343}00343\ mainloop()}
+
+\end{DoxyCode}
