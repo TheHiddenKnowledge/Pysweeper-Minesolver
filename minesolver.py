@@ -7,9 +7,9 @@ import time as t
 ## @class MineSolver
 # @brief Contains methods and attributes used for solving pysweepers.
 class MineSolver:
-    ## @param game Pysweepers game instance
+    ## @param game Pysweeper game instance
     def __init__(self, game):
-        ## @brief Pysweepers instance
+        ## @brief Pysweeper instance
         # @hideinitializer
         self.__game = game
         ## @brief Maximum solver iterations
