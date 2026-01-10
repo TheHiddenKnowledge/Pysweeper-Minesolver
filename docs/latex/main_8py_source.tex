@@ -1,18 +1,25 @@
 \doxysection{main.\+py}
 \hypertarget{main_8py_source}{}\label{main_8py_source}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00001}00001\ \textcolor{keyword}{import}\ pysweepers}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00002}00002\ \textcolor{keyword}{import}\ minesolver}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00004}00004\ GAME\ =\ \mbox{\hyperlink{classpysweepers_1_1_py_sweepers}{pysweepers.PySweepers}}(10,\ 10,\ 10)}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00006}00006\ SOLVER\ =\ \mbox{\hyperlink{classminesolver_1_1_mine_solver}{minesolver.MineSolver}}(GAME)}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00008}00008\ won\ =\ 0}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00009}00009\ lost\ =\ 0}
 \DoxyCodeLine{\Hypertarget{main_8py_source_l00010}00010\ }
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00011}00011\ \textcolor{keyword}{import}\ pysweepers}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00012}00012\ \textcolor{keyword}{import}\ minesolver}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00013}00013\ \textcolor{keyword}{import}\ tkinter\ \textcolor{keyword}{as}\ tk}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00014}00014\ }
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00015}00015\ GAME\ =\ \mbox{\hyperlink{classpysweepers_1_1_py_sweepers}{pysweepers.PySweepers}}(8,\ 8\ ,\ 6)}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00016}00016\ }
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00017}00017\ SOLVER\ =\ \mbox{\hyperlink{classminesolver_1_1_mine_solver}{minesolver.MineSolver}}(GAME)}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00018}00018\ }
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00019}00019\ SOLVER.run\_solver()}
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00020}00020\ }
-\DoxyCodeLine{\Hypertarget{main_8py_source_l00021}00021\ GAME.run\_game()}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00011}00011\ \textcolor{keywordflow}{for}\ a\ \textcolor{keywordflow}{in}\ range(100):}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00012}00012\ \ \ \ \ SOLVER.run\_solver(\textcolor{keyword}{False})}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00013}00013\ \ \ \ \ \textcolor{keywordflow}{if}\ GAME.game\_status\ ==\ \textcolor{stringliteral}{"{}won"{}}:}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00014}00014\ \ \ \ \ \ \ \ \ won\ +=\ 1}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00015}00015\ \ \ \ \ \textcolor{keywordflow}{elif}\ GAME.game\_status\ ==\ \textcolor{stringliteral}{"{}lost"{}}:}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00016}00016\ \ \ \ \ \ \ \ \ lost\ +=\ 1}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00017}00017\ \ \ \ \ GAME.reset\_map()}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00018}00018\ print(won/(won+lost))}
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{main_8py_source_l00020}00020\ GAME.run\_game()}
 
 \end{DoxyCode}

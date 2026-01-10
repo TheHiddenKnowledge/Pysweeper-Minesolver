@@ -10,7 +10,7 @@ Contains methods and attributes used for solving pysweepers.
 \item 
 \mbox{\hyperlink{classminesolver_1_1_mine_solver_a9c3b6f1c2ea39a33a6b11d8ba842352c}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, game)
 \item 
-\mbox{\hyperlink{classminesolver_1_1_mine_solver_a5c4f41f9c8b2f8ee4a02ea0e52c2ed13}{run\+\_\+solver}} (self)
+\mbox{\hyperlink{classminesolver_1_1_mine_solver_ab37b10f4b287cdba75358bc9db0de59b}{run\+\_\+solver}} (self, slow\+\_\+down)
 \begin{DoxyCompactList}\small\item\em Runs the solver algorithm. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Private Member Functions}
 \begin{DoxyCompactItemize}
@@ -53,8 +53,13 @@ Definition at line \mbox{\hyperlink{minesolver_8py_source_l00009}{9}} of file \m
 minesolver.\+Mine\+Solver.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{game}{}\end{DoxyParamCaption})}
 
 
+\begin{DoxyParams}{Parameters}
+{\em game} & Pysweepers game instance \\
+\hline
+\end{DoxyParams}
 
-Definition at line \mbox{\hyperlink{minesolver_8py_source_l00010}{10}} of file \mbox{\hyperlink{minesolver_8py_source}{minesolver.\+py}}.
+
+Definition at line \mbox{\hyperlink{minesolver_8py_source_l00011}{11}} of file \mbox{\hyperlink{minesolver_8py_source}{minesolver.\+py}}.
 
 
 
@@ -80,7 +85,7 @@ Checks if coordinate map number at \mbox{[}x, y\mbox{]} is equal to number of su
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{minesolver_8py_source_l00104}{104}} of file \mbox{\hyperlink{minesolver_8py_source}{minesolver.\+py}}.
+Definition at line \mbox{\hyperlink{minesolver_8py_source_l00105}{105}} of file \mbox{\hyperlink{minesolver_8py_source}{minesolver.\+py}}.
 
 \Hypertarget{classminesolver_1_1_mine_solver_af006679c02032d5c1136bb1f66b44f52}\index{minesolver.MineSolver@{minesolver.MineSolver}!\_\_clear\_square@{\_\_clear\_square}}
 \index{\_\_clear\_square@{\_\_clear\_square}!minesolver.MineSolver@{minesolver.MineSolver}}
@@ -101,7 +106,7 @@ Clears hidden blocks within 3x3 square centered at \mbox{[}x, y\mbox{]}.
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{minesolver_8py_source_l00079}{79}} of file \mbox{\hyperlink{minesolver_8py_source}{minesolver.\+py}}.
+Definition at line \mbox{\hyperlink{minesolver_8py_source_l00080}{80}} of file \mbox{\hyperlink{minesolver_8py_source}{minesolver.\+py}}.
 
 \Hypertarget{classminesolver_1_1_mine_solver_a87cf1a03d7d85b3a0f09927084e3e0d8}\index{minesolver.MineSolver@{minesolver.MineSolver}!\_\_eliminate\_edge@{\_\_eliminate\_edge}}
 \index{\_\_eliminate\_edge@{\_\_eliminate\_edge}!minesolver.MineSolver@{minesolver.MineSolver}}
@@ -115,7 +120,7 @@ Eliminates qualifying edge coordinates.
 
 
 
-Definition at line \mbox{\hyperlink{minesolver_8py_source_l00124}{124}} of file \mbox{\hyperlink{minesolver_8py_source}{minesolver.\+py}}.
+Definition at line \mbox{\hyperlink{minesolver_8py_source_l00125}{125}} of file \mbox{\hyperlink{minesolver_8py_source}{minesolver.\+py}}.
 
 \Hypertarget{classminesolver_1_1_mine_solver_a2798998c5fde8ed76e4fb09eedda236b}\index{minesolver.MineSolver@{minesolver.MineSolver}!\_\_flag\_edges@{\_\_flag\_edges}}
 \index{\_\_flag\_edges@{\_\_flag\_edges}!minesolver.MineSolver@{minesolver.MineSolver}}
@@ -129,7 +134,7 @@ Flags the mines determined by qualifying edge coordinates.
 
 
 
-Definition at line \mbox{\hyperlink{minesolver_8py_source_l00034}{34}} of file \mbox{\hyperlink{minesolver_8py_source}{minesolver.\+py}}.
+Definition at line \mbox{\hyperlink{minesolver_8py_source_l00035}{35}} of file \mbox{\hyperlink{minesolver_8py_source}{minesolver.\+py}}.
 
 \Hypertarget{classminesolver_1_1_mine_solver_aa27c311a1c5c022254bfaac68bc6b69c}\index{minesolver.MineSolver@{minesolver.MineSolver}!\_\_pick\_random@{\_\_pick\_random}}
 \index{\_\_pick\_random@{\_\_pick\_random}!minesolver.MineSolver@{minesolver.MineSolver}}
@@ -154,7 +159,7 @@ Reveals a random coordinate in rectangle determined by the bounding coordinates.
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{minesolver_8py_source_l00024}{24}} of file \mbox{\hyperlink{minesolver_8py_source}{minesolver.\+py}}.
+Definition at line \mbox{\hyperlink{minesolver_8py_source_l00025}{25}} of file \mbox{\hyperlink{minesolver_8py_source}{minesolver.\+py}}.
 
 \Hypertarget{classminesolver_1_1_mine_solver_a8c5e90190bc77b686d91964786123efd}\index{minesolver.MineSolver@{minesolver.MineSolver}!\_\_predict\_edge@{\_\_predict\_edge}}
 \index{\_\_predict\_edge@{\_\_predict\_edge}!minesolver.MineSolver@{minesolver.MineSolver}}
@@ -168,21 +173,26 @@ Predicts edge coordinate to eliminate.
 
 
 
-Definition at line \mbox{\hyperlink{minesolver_8py_source_l00142}{142}} of file \mbox{\hyperlink{minesolver_8py_source}{minesolver.\+py}}.
+Definition at line \mbox{\hyperlink{minesolver_8py_source_l00143}{143}} of file \mbox{\hyperlink{minesolver_8py_source}{minesolver.\+py}}.
 
-\Hypertarget{classminesolver_1_1_mine_solver_a5c4f41f9c8b2f8ee4a02ea0e52c2ed13}\index{minesolver.MineSolver@{minesolver.MineSolver}!run\_solver@{run\_solver}}
+\Hypertarget{classminesolver_1_1_mine_solver_ab37b10f4b287cdba75358bc9db0de59b}\index{minesolver.MineSolver@{minesolver.MineSolver}!run\_solver@{run\_solver}}
 \index{run\_solver@{run\_solver}!minesolver.MineSolver@{minesolver.MineSolver}}
 \doxysubsubsection{\texorpdfstring{run\_solver()}{run\_solver()}}
-{\footnotesize\ttfamily \label{classminesolver_1_1_mine_solver_a5c4f41f9c8b2f8ee4a02ea0e52c2ed13} 
-minesolver.\+Mine\+Solver.\+run\+\_\+solver (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classminesolver_1_1_mine_solver_ab37b10f4b287cdba75358bc9db0de59b} 
+minesolver.\+Mine\+Solver.\+run\+\_\+solver (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{slow\+\_\+down}{}\end{DoxyParamCaption})}
 
 
 
 Runs the solver algorithm. 
 
 
+\begin{DoxyParams}{Parameters}
+{\em slow\+\_\+down} & Slows down the simulation for visualization if true \\
+\hline
+\end{DoxyParams}
 
-Definition at line \mbox{\hyperlink{minesolver_8py_source_l00175}{175}} of file \mbox{\hyperlink{minesolver_8py_source}{minesolver.\+py}}.
+
+Definition at line \mbox{\hyperlink{minesolver_8py_source_l00177}{177}} of file \mbox{\hyperlink{minesolver_8py_source}{minesolver.\+py}}.
 
 
 
@@ -201,7 +211,7 @@ Pysweepers instance.
 
 
 
-Definition at line \mbox{\hyperlink{minesolver_8py_source_l00013}{13}} of file \mbox{\hyperlink{minesolver_8py_source}{minesolver.\+py}}.
+Definition at line \mbox{\hyperlink{minesolver_8py_source_l00014}{14}} of file \mbox{\hyperlink{minesolver_8py_source}{minesolver.\+py}}.
 
 \Hypertarget{classminesolver_1_1_mine_solver_a07c9c15740844f3f06a4375fe64c2f76}\index{minesolver.MineSolver@{minesolver.MineSolver}!\_\_max\_iter@{\_\_max\_iter}}
 \index{\_\_max\_iter@{\_\_max\_iter}!minesolver.MineSolver@{minesolver.MineSolver}}
@@ -215,7 +225,7 @@ Maximum solver iterations.
 
 
 
-Definition at line \mbox{\hyperlink{minesolver_8py_source_l00016}{16}} of file \mbox{\hyperlink{minesolver_8py_source}{minesolver.\+py}}.
+Definition at line \mbox{\hyperlink{minesolver_8py_source_l00017}{17}} of file \mbox{\hyperlink{minesolver_8py_source}{minesolver.\+py}}.
 
 
 

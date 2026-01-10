@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['status_5flabel_0',['status_label',['../classpysweepers_1_1_py_sweepers.html#a34250399edde3b5a7e1385fbb1bcf14d',1,'pysweepers::PySweepers']]]
+  ['width_0',['width',['../classpysweepers_1_1_py_sweepers.html#a06f14dd776088aa1ef948115bc5ccd55',1,'pysweepers::PySweepers']]]
 ];
