@@ -1,7 +1,7 @@
-import pysweepers
+import pysweeper
 import minesolver
 
-GAME = pysweepers.PySweepers(10, 10, 10)
+GAME = pysweeper.PySweeper(10, 10, 10)
 
 SOLVER = minesolver.MineSolver(GAME)
 

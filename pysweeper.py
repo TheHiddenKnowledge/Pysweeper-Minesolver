@@ -8,7 +8,7 @@
 # @version 1.0 Initial Release.
 # @version 1.1 Revised code Base.
 
-## @file pysweepers.py
+## @file pysweeper.py
 # @brief Implements a fully functional version of minesweepers using tkinter.
 
 import tkinter as tk
@@ -18,7 +18,7 @@ from tkinter import ttk
 
 ## @class PySweepers
 # @brief Contains methods and attributes used for running pysweepers.
-class PySweepers:
+class PySweeper:
     ## @param width Map width
     # @param height Map height
     # @param mines Mine count
