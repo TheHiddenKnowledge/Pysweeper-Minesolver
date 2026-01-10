@@ -98,7 +98,12 @@ $(function(){initNavTree('classpysweepers_1_1_py_sweepers.html','','classpysweep
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aec5ee60ce5f712d4a741feacd3cbdb1a" id="r_aec5ee60ce5f712d4a741feacd3cbdb1a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aec5ee60ce5f712d4a741feacd3cbdb1a">__init__</a> (self, <a class="el" href="#a06f14dd776088aa1ef948115bc5ccd55">width</a>, <a class="el" href="#a420e161081aad270ea29d01e3e3ec425">height</a>, mines)</td></tr>
+<tr class="memitem:aef6ff813c7db72e5f0810eaadd6adaf8" id="r_aef6ff813c7db72e5f0810eaadd6adaf8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aef6ff813c7db72e5f0810eaadd6adaf8">resize_map</a> (self, <a class="el" href="#a06f14dd776088aa1ef948115bc5ccd55">width</a>, <a class="el" href="#a420e161081aad270ea29d01e3e3ec425">height</a>, mines)</td></tr>
+<tr class="memdesc:aef6ff813c7db72e5f0810eaadd6adaf8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resizes the map.  <br /></td></tr>
+<tr class="memitem:aebd91701b127aca2dfcfc5c228325875" id="r_aebd91701b127aca2dfcfc5c228325875"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aebd91701b127aca2dfcfc5c228325875">reset_map</a> (self)</td></tr>
+<tr class="memdesc:aebd91701b127aca2dfcfc5c228325875"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the map.  <br /></td></tr>
 <tr class="memitem:a9d8065be6c630e6ef075990494bff045" id="r_a9d8065be6c630e6ef075990494bff045"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9d8065be6c630e6ef075990494bff045">run_game</a> (self)</td></tr>
+<tr class="memdesc:a9d8065be6c630e6ef075990494bff045"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runs the game instance (must be present at bottom of code).  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -110,23 +115,21 @@ Public Attributes</h2></td></tr>
 <tr class="memdesc:a3c2e749fb7524de32b0cfb5b0a547ead"><td class="mdescLeft">&#160;</td><td class="mdescRight">Total hidden cells.  <br /></td></tr>
 <tr class="memitem:ad4010f6a7a692201577c03e3cecf4ef2" id="r_ad4010f6a7a692201577c03e3cecf4ef2"><td class="memItemLeft" align="right" valign="top">list&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad4010f6a7a692201577c03e3cecf4ef2">gui_map</a></td></tr>
 <tr class="memdesc:ad4010f6a7a692201577c03e3cecf4ef2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Array of cell GUI elements.  <br /></td></tr>
-<tr class="memitem:a5b59dd77fda98c67f0ac127205527ef5" id="r_a5b59dd77fda98c67f0ac127205527ef5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5b59dd77fda98c67f0ac127205527ef5">game_over</a></td></tr>
-<tr class="memdesc:a5b59dd77fda98c67f0ac127205527ef5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Boolean used for ending the game.  <br /></td></tr>
+<tr class="memitem:a1107e2b5eaa9ec6912897c399b04e972" id="r_a1107e2b5eaa9ec6912897c399b04e972"><td class="memItemLeft" align="right" valign="top">str&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1107e2b5eaa9ec6912897c399b04e972">game_status</a></td></tr>
+<tr class="memdesc:a1107e2b5eaa9ec6912897c399b04e972"><td class="mdescLeft">&#160;</td><td class="mdescRight">Game status.  <br /></td></tr>
 <tr class="memitem:a34250399edde3b5a7e1385fbb1bcf14d" id="r_a34250399edde3b5a7e1385fbb1bcf14d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a34250399edde3b5a7e1385fbb1bcf14d">status_label</a></td></tr>
 <tr class="memdesc:a34250399edde3b5a7e1385fbb1bcf14d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Status label GUI element.  <br /></td></tr>
-<tr class="memitem:a8e48ef468d5c2ca480688fab9b69c3e1" id="r_a8e48ef468d5c2ca480688fab9b69c3e1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8e48ef468d5c2ca480688fab9b69c3e1">reset_button</a></td></tr>
-<tr class="memdesc:a8e48ef468d5c2ca480688fab9b69c3e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset button GUI element.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pri-methods" class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
+<tr class="memitem:af761eebee593cbfdab6c9588317b4ae2" id="r_af761eebee593cbfdab6c9588317b4ae2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af761eebee593cbfdab6c9588317b4ae2">__create_resize_popup</a> (self)</td></tr>
+<tr class="memdesc:af761eebee593cbfdab6c9588317b4ae2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a popup window to resize the game map.  <br /></td></tr>
 <tr class="memitem:a0843dfd3467f541b4f465ee1293056b1" id="r_a0843dfd3467f541b4f465ee1293056b1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0843dfd3467f541b4f465ee1293056b1">__generate_mines</a> (self)</td></tr>
-<tr class="memdesc:a0843dfd3467f541b4f465ee1293056b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates the mines on the map.  <br /></td></tr>
+<tr class="memdesc:a0843dfd3467f541b4f465ee1293056b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates the mines on the map data structure.  <br /></td></tr>
 <tr class="memitem:a6e4c7add5880b89e49592f689b48ec94" id="r_a6e4c7add5880b89e49592f689b48ec94"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6e4c7add5880b89e49592f689b48ec94">__generate_numbers</a> (self)</td></tr>
-<tr class="memdesc:a6e4c7add5880b89e49592f689b48ec94"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates the numbers on the map.  <br /></td></tr>
-<tr class="memitem:a643c4c456b897836e210168150f29d51" id="r_a643c4c456b897836e210168150f29d51"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a643c4c456b897836e210168150f29d51">__generate_map</a> (self)</td></tr>
-<tr class="memdesc:a643c4c456b897836e210168150f29d51"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates the map as a whole.  <br /></td></tr>
-<tr class="memitem:a36e86bbf1609c57d48ef46d3617c341f" id="r_a36e86bbf1609c57d48ef46d3617c341f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a36e86bbf1609c57d48ef46d3617c341f">__reset_map</a> (self)</td></tr>
-<tr class="memdesc:a36e86bbf1609c57d48ef46d3617c341f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the map.  <br /></td></tr>
+<tr class="memdesc:a6e4c7add5880b89e49592f689b48ec94"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates the numbers on the map data structure.  <br /></td></tr>
+<tr class="memitem:a36af6d476ee42a6932b63e398ad2597c" id="r_a36af6d476ee42a6932b63e398ad2597c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a36af6d476ee42a6932b63e398ad2597c">__generate_map</a> (self, is_resized)</td></tr>
+<tr class="memdesc:a36af6d476ee42a6932b63e398ad2597c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates the GUI map and map data structure.  <br /></td></tr>
 <tr class="memitem:a1e3e40be29677810590c577bc3f825ec" id="r_a1e3e40be29677810590c577bc3f825ec"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1e3e40be29677810590c577bc3f825ec">__fill_blanks</a> (self, x, y, fill_list)</td></tr>
 <tr class="memdesc:a1e3e40be29677810590c577bc3f825ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fill method for numberless coordinates.  <br /></td></tr>
 <tr class="memitem:a819114a9e46b308b8117e8b371a338fd" id="r_a819114a9e46b308b8117e8b371a338fd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a819114a9e46b308b8117e8b371a338fd">__check_grid</a> (self, event)</td></tr>
@@ -146,7 +149,7 @@ Private Attributes</h2></td></tr>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Contains methods and attributes used for running pysweepers. </p>
 
-<p class="definition">Definition at line <a class="el" href="pysweepers_8py_source.html#l00009">9</a> of file <a class="el" href="pysweepers_8py_source.html">pysweepers.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pysweepers_8py_source.html#l00021">21</a> of file <a class="el" href="pysweepers_8py_source.html">pysweepers.py</a>.</p>
 </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aec5ee60ce5f712d4a741feacd3cbdb1a" name="aec5ee60ce5f712d4a741feacd3cbdb1a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aec5ee60ce5f712d4a741feacd3cbdb1a">&#9670;&#160;</a></span>__init__()</h2>
@@ -185,7 +188,7 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pysweepers_8py_source.html#l00013">13</a> of file <a class="el" href="pysweepers_8py_source.html">pysweepers.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pysweepers_8py_source.html#l00025">25</a> of file <a class="el" href="pysweepers_8py_source.html">pysweepers.py</a>.</p>
 
 </div>
 </div>
@@ -225,7 +228,36 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pysweepers_8py_source.html#l00154">154</a> of file <a class="el" href="pysweepers_8py_source.html">pysweepers.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pysweepers_8py_source.html#l00226">226</a> of file <a class="el" href="pysweepers_8py_source.html">pysweepers.py</a>.</p>
+
+</div>
+</div>
+<a id="af761eebee593cbfdab6c9588317b4ae2" name="af761eebee593cbfdab6c9588317b4ae2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af761eebee593cbfdab6c9588317b4ae2">&#9670;&#160;</a></span>__create_resize_popup()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">pysweepers.PySweepers.__create_resize_popup </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Creates a popup window to resize the game map. </p>
+
+<p class="definition">Definition at line <a class="el" href="pysweepers_8py_source.html#l00068">68</a> of file <a class="el" href="pysweepers_8py_source.html">pysweepers.py</a>.</p>
 
 </div>
 </div>
@@ -271,12 +303,12 @@ Private Attributes</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">x</td><td>Cell x coordinate </td></tr>
     <tr><td class="paramname">y</td><td>Cell y coordinate </td></tr>
-    <tr><td class="paramname">fill_list</td><td>List of grids to fill </td></tr>
+    <tr><td class="paramname">fill_list</td><td>List of cells to fill </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pysweepers_8py_source.html#l00131">131</a> of file <a class="el" href="pysweepers_8py_source.html">pysweepers.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pysweepers_8py_source.html#l00203">203</a> of file <a class="el" href="pysweepers_8py_source.html">pysweepers.py</a>.</p>
 
 </div>
 </div>
@@ -315,12 +347,12 @@ Private Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="pysweepers_8py_source.html#l00187">187</a> of file <a class="el" href="pysweepers_8py_source.html">pysweepers.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pysweepers_8py_source.html#l00259">259</a> of file <a class="el" href="pysweepers_8py_source.html">pysweepers.py</a>.</p>
 
 </div>
 </div>
-<a id="a643c4c456b897836e210168150f29d51" name="a643c4c456b897836e210168150f29d51"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a643c4c456b897836e210168150f29d51">&#9670;&#160;</a></span>__generate_map()</h2>
+<a id="a36af6d476ee42a6932b63e398ad2597c" name="a36af6d476ee42a6932b63e398ad2597c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a36af6d476ee42a6932b63e398ad2597c">&#9670;&#160;</a></span>__generate_map()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -331,8 +363,12 @@ Private Attributes</h2></td></tr>
         <tr>
           <td class="memname">pysweepers.PySweepers.__generate_map </td>
           <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span></td><td>)</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>is_resized</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -342,9 +378,15 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Generates the map as a whole. </p>
+<p>Generates the GUI map and map data structure. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">is_resized</td><td>Boolean variable for determining if the map is resized </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="definition">Definition at line <a class="el" href="pysweepers_8py_source.html#l00091">91</a> of file <a class="el" href="pysweepers_8py_source.html">pysweepers.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pysweepers_8py_source.html#l00152">152</a> of file <a class="el" href="pysweepers_8py_source.html">pysweepers.py</a>.</p>
 
 </div>
 </div>
@@ -371,9 +413,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Generates the mines on the map. </p>
+<p>Generates the mines on the map data structure. </p>
 
-<p class="definition">Definition at line <a class="el" href="pysweepers_8py_source.html#l00055">55</a> of file <a class="el" href="pysweepers_8py_source.html">pysweepers.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pysweepers_8py_source.html#l00115">115</a> of file <a class="el" href="pysweepers_8py_source.html">pysweepers.py</a>.</p>
 
 </div>
 </div>
@@ -400,38 +442,73 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Generates the numbers on the map. </p>
+<p>Generates the numbers on the map data structure. </p>
 
-<p class="definition">Definition at line <a class="el" href="pysweepers_8py_source.html#l00070">70</a> of file <a class="el" href="pysweepers_8py_source.html">pysweepers.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pysweepers_8py_source.html#l00130">130</a> of file <a class="el" href="pysweepers_8py_source.html">pysweepers.py</a>.</p>
 
 </div>
 </div>
-<a id="a36e86bbf1609c57d48ef46d3617c341f" name="a36e86bbf1609c57d48ef46d3617c341f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a36e86bbf1609c57d48ef46d3617c341f">&#9670;&#160;</a></span>__reset_map()</h2>
+<a id="aebd91701b127aca2dfcfc5c228325875" name="aebd91701b127aca2dfcfc5c228325875"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aebd91701b127aca2dfcfc5c228325875">&#9670;&#160;</a></span>reset_map()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">pysweepers.PySweepers.__reset_map </td>
+          <td class="memname">pysweepers.PySweepers.reset_map </td>
           <td>(</td>
           <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Resets the map. </p>
 
-<p class="definition">Definition at line <a class="el" href="pysweepers_8py_source.html#l00114">114</a> of file <a class="el" href="pysweepers_8py_source.html">pysweepers.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pysweepers_8py_source.html#l00189">189</a> of file <a class="el" href="pysweepers_8py_source.html">pysweepers.py</a>.</p>
+
+</div>
+</div>
+<a id="aef6ff813c7db72e5f0810eaadd6adaf8" name="aef6ff813c7db72e5f0810eaadd6adaf8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef6ff813c7db72e5f0810eaadd6adaf8">&#9670;&#160;</a></span>resize_map()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">pysweepers.PySweepers.resize_map </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>width</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>height</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>mines</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Resizes the map. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">width</td><td>Map width </td></tr>
+    <tr><td class="paramname">height</td><td>Map height </td></tr>
+    <tr><td class="paramname">mines</td><td>Mine count </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="pysweepers_8py_source.html#l00097">97</a> of file <a class="el" href="pysweepers_8py_source.html">pysweepers.py</a>.</p>
 
 </div>
 </div>
@@ -450,7 +527,9 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="pysweepers_8py_source.html#l00198">198</a> of file <a class="el" href="pysweepers_8py_source.html">pysweepers.py</a>.</p>
+<p>Runs the game instance (must be present at bottom of code). </p>
+
+<p class="definition">Definition at line <a class="el" href="pysweepers_8py_source.html#l00270">270</a> of file <a class="el" href="pysweepers_8py_source.html">pysweepers.py</a>.</p>
 
 </div>
 </div>
@@ -477,7 +556,7 @@ Private Attributes</h2></td></tr>
 
 <p>Array containing full game map. </p>
 
-<p class="definition">Definition at line <a class="el" href="pysweepers_8py_source.html#l00028">28</a> of file <a class="el" href="pysweepers_8py_source.html">pysweepers.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pysweepers_8py_source.html#l00040">40</a> of file <a class="el" href="pysweepers_8py_source.html">pysweepers.py</a>.</p>
 
 </div>
 </div>
@@ -503,7 +582,7 @@ Private Attributes</h2></td></tr>
 
 <p>Frame used to contain the cells. </p>
 
-<p class="definition">Definition at line <a class="el" href="pysweepers_8py_source.html#l00039">39</a> of file <a class="el" href="pysweepers_8py_source.html">pysweepers.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pysweepers_8py_source.html#l00052">52</a> of file <a class="el" href="pysweepers_8py_source.html">pysweepers.py</a>.</p>
 
 </div>
 </div>
@@ -529,25 +608,25 @@ Private Attributes</h2></td></tr>
 
 <p>Mine count. </p>
 
-<p class="definition">Definition at line <a class="el" href="pysweepers_8py_source.html#l00022">22</a> of file <a class="el" href="pysweepers_8py_source.html">pysweepers.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pysweepers_8py_source.html#l00034">34</a> of file <a class="el" href="pysweepers_8py_source.html">pysweepers.py</a>.</p>
 
 </div>
 </div>
-<a id="a5b59dd77fda98c67f0ac127205527ef5" name="a5b59dd77fda98c67f0ac127205527ef5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5b59dd77fda98c67f0ac127205527ef5">&#9670;&#160;</a></span>game_over</h2>
+<a id="a1107e2b5eaa9ec6912897c399b04e972" name="a1107e2b5eaa9ec6912897c399b04e972"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1107e2b5eaa9ec6912897c399b04e972">&#9670;&#160;</a></span>game_status</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool pysweepers.PySweepers.game_over</td>
+          <td class="memname">str pysweepers.PySweepers.game_status</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Boolean used for ending the game. </p>
+<p>Game status. </p>
 
-<p class="definition">Definition at line <a class="el" href="pysweepers_8py_source.html#l00034">34</a> of file <a class="el" href="pysweepers_8py_source.html">pysweepers.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pysweepers_8py_source.html#l00046">46</a> of file <a class="el" href="pysweepers_8py_source.html">pysweepers.py</a>.</p>
 
 </div>
 </div>
@@ -565,7 +644,7 @@ Private Attributes</h2></td></tr>
 
 <p>Array of cell GUI elements. </p>
 
-<p class="definition">Definition at line <a class="el" href="pysweepers_8py_source.html#l00031">31</a> of file <a class="el" href="pysweepers_8py_source.html">pysweepers.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pysweepers_8py_source.html#l00043">43</a> of file <a class="el" href="pysweepers_8py_source.html">pysweepers.py</a>.</p>
 
 </div>
 </div>
@@ -583,7 +662,7 @@ Private Attributes</h2></td></tr>
 
 <p>Map height. </p>
 
-<p class="definition">Definition at line <a class="el" href="pysweepers_8py_source.html#l00019">19</a> of file <a class="el" href="pysweepers_8py_source.html">pysweepers.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pysweepers_8py_source.html#l00031">31</a> of file <a class="el" href="pysweepers_8py_source.html">pysweepers.py</a>.</p>
 
 </div>
 </div>
@@ -601,25 +680,7 @@ Private Attributes</h2></td></tr>
 
 <p>Total hidden cells. </p>
 
-<p class="definition">Definition at line <a class="el" href="pysweepers_8py_source.html#l00025">25</a> of file <a class="el" href="pysweepers_8py_source.html">pysweepers.py</a>.</p>
-
-</div>
-</div>
-<a id="a8e48ef468d5c2ca480688fab9b69c3e1" name="a8e48ef468d5c2ca480688fab9b69c3e1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8e48ef468d5c2ca480688fab9b69c3e1">&#9670;&#160;</a></span>reset_button</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">pysweepers.PySweepers.reset_button</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Reset button GUI element. </p>
-
-<p class="definition">Definition at line <a class="el" href="pysweepers_8py_source.html#l00048">48</a> of file <a class="el" href="pysweepers_8py_source.html">pysweepers.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pysweepers_8py_source.html#l00037">37</a> of file <a class="el" href="pysweepers_8py_source.html">pysweepers.py</a>.</p>
 
 </div>
 </div>
@@ -637,7 +698,7 @@ Private Attributes</h2></td></tr>
 
 <p>Status label GUI element. </p>
 
-<p class="definition">Definition at line <a class="el" href="pysweepers_8py_source.html#l00043">43</a> of file <a class="el" href="pysweepers_8py_source.html">pysweepers.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pysweepers_8py_source.html#l00056">56</a> of file <a class="el" href="pysweepers_8py_source.html">pysweepers.py</a>.</p>
 
 </div>
 </div>
@@ -655,7 +716,7 @@ Private Attributes</h2></td></tr>
 
 <p>Map width. </p>
 
-<p class="definition">Definition at line <a class="el" href="pysweepers_8py_source.html#l00016">16</a> of file <a class="el" href="pysweepers_8py_source.html">pysweepers.py</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pysweepers_8py_source.html#l00028">28</a> of file <a class="el" href="pysweepers_8py_source.html">pysweepers.py</a>.</p>
 
 </div>
 </div>

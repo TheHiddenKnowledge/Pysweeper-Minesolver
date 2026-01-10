@@ -1,21 +1,20 @@
-## @mainpage
-# This project aims to create a simple minesweepers game using Tkinter,
-# as well as a solver for the game.
-# @par Latest Release:
-# V1.1 - 1/3/2026
-# @par Created by: I. Finney
-# @par Revision History:
-# @version 1.0 Initial Release.
-# @version 1.1 Revised code Base.
-
-import pysweepers
+import pysweeper
 import minesolver
-import tkinter as tk
 
-GAME = pysweepers.PySweepers(8, 8 , 6)
+GAME = pysweeper.PySweeper(10, 10, 10)
 
 SOLVER = minesolver.MineSolver(GAME)
 
-SOLVER.run_solver()
+won = 0
+lost = 0
+
+for a in range(100):
+    SOLVER.run_solver(False)
+    if GAME.game_status == "won":
+        won += 1
+    elif GAME.game_status == "lost":
+        lost += 1
+    GAME.reset_map()
+print(won/(won+lost))
 
 GAME.run_game()

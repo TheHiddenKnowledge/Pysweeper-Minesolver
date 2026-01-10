@@ -7,6 +7,7 @@ import time as t
 ## @class MineSolver
 # @brief Contains methods and attributes used for solving pysweepers.
 class MineSolver:
+    ## @param game Pysweepers game instance
     def __init__(self, game):
         ## @brief Pysweepers instance
         # @hideinitializer
@@ -154,10 +155,10 @@ class MineSolver:
                     for rot in rots:
                         x_dir = x + rot[0]
                         y_dir = y + rot[1]
-                        adjacent_cell = self.__game.gui_map[y_dir][x_dir]
                         if (0 <= x_dir < self.__game.width
                                 and 0 <= y_dir < self.__game.height):
-                            # If the surrounding coordinate has a number add to count
+                            adjacent_cell = self.__game.gui_map[y_dir][x_dir]
+                            # If the surrounding coordinate has a number
                             if (adjacent_cell["text"] != " "
                                     and adjacent_cell["text"] != "⚑"):
                                 numbers_count += 1
@@ -172,18 +173,22 @@ class MineSolver:
             self.__game.gui_map[min_y][min_x].event_generate("<Button-1>")
 
     ## @brief Runs the solver algorithm.
-    def run_solver(self):
-        # CPU time capped by maximum iteration count 
+    # @param slow_down Slows down the simulation for visualization if true
+    def run_solver(self, slow_down):
+        # Previous hidden value
+        prev_hidden = self.__game.hidden
+        # Boolean used to turn off random coordinate selection
+        is_random = True
+        # Solver capped by maximum iteration count
         for a in range(self.__max_iter):
             # Just for visualization
-            t.sleep(.1)
-            if self.__game.game_over:
+            if slow_down:
+                t.sleep(1)
+            if self.__game.game_status != "running":
                 break
-            reveal_count = (self.__game.width * self.__game.height -
-                              self.__game.hidden)
-            reveal_threshold = int(self.__game.width * self.__game.height / 10)
+            prev_hidden = self.__game.hidden
             # Pick rnd coordinates until at least 10% of the map is revealed 
-            if reveal_count < reveal_threshold:
+            if is_random:
                 self.__pick_random(
                     0, 0, self.__game.width - 1, self.__game.height - 1)
             else:
@@ -192,3 +197,7 @@ class MineSolver:
                 if not self.__flag_edges():
                     if not self.__eliminate_edge():
                         self.__predict_edge()
+            # Disables random selection if the last selection removed
+            # multiple cells
+            if prev_hidden - self.__game.hidden > 1:
+                is_random = False

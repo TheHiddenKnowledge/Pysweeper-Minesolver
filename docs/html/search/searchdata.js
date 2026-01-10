@@ -4,7 +4,7 @@ var indexSectionsWithContent =
   1: "mp",
   2: "mp",
   3: "_r",
-  4: "_ghrsw",
+  4: "_ghsw",
   5: "ms"
 };
 
