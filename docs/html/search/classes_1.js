@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['pysweepers_0',['PySweepers',['../classpysweepers_1_1_py_sweepers.html',1,'pysweepers']]]
+  ['pysweeper_0',['PySweeper',['../classpysweeper_1_1_py_sweeper.html',1,'pysweeper']]]
 ];

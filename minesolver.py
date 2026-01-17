@@ -8,6 +8,7 @@ import time as t
 # @brief Contains methods and attributes used for solving pysweepers.
 class MineSolver:
     ## @param game Pysweeper game instance
+    # @return MineSolver object
     def __init__(self, game):
         ## @brief Pysweeper instance
         # @hideinitializer
@@ -22,6 +23,7 @@ class MineSolver:
     # @param y0 Bottom left y coordinate
     # @param x1 Top right x coordinate
     # @param y1 Top right y coordinate
+    # @return None
     def __pick_random(self, x0, y0, x1, y1):
         x = rnd.randint(x0, x1)
         y = rnd.randint(y0, y1)
@@ -32,6 +34,7 @@ class MineSolver:
         self.__game.gui_map[y][x].event_generate("<Button-1>")
 
     ## @brief Flags the mines determined by qualifying edge coordinates.
+    # @return None
     def __flag_edges(self):
         flag_count = 0
         for x in range(self.__game.width):
@@ -77,6 +80,7 @@ class MineSolver:
     ## @brief Clears hidden blocks within 3x3 square centered at [x, y].
     # @param x Cell x coordinate
     # @param y Cell y coordinate
+    # @return None
     def __clear_square(self, x, y):
         reveal_count = 0
         rots = [[0, 1], [0, -1], [1, 0], [-1, 0],
@@ -102,6 +106,7 @@ class MineSolver:
     # is equal to number of surrounding flags.
     # @param x Cell x coordinate
     # @param y Cell y coordinate
+    # @return None
     def __check_square(self, x, y):
         flag_count = 0
         gui_cell = self.__game.gui_map[y][x]
@@ -122,6 +127,7 @@ class MineSolver:
             return False
 
     ## @brief Eliminates qualifying edge coordinates.
+    # @return None
     def __eliminate_edge(self):
         elim_count = 0
         for x in range(self.__game.width):
@@ -140,6 +146,7 @@ class MineSolver:
             return False
 
     ## @brief Predicts edge coordinate to eliminate.
+    # @return None
     def __predict_edge(self):
         # Keeps track of most probable edge coordinate
         min_numbers = 9
@@ -174,6 +181,7 @@ class MineSolver:
 
     ## @brief Runs the solver algorithm.
     # @param slow_down Slows down the simulation for visualization if true
+    # @return None
     def run_solver(self, slow_down):
         # Previous hidden value
         prev_hidden = self.__game.hidden

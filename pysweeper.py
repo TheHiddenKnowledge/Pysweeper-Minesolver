@@ -6,7 +6,7 @@
 # @par Created by: I. Finney
 # @par Revision History:
 # @version 1.0 Initial Release.
-# @version 1.1 Revised code Base.
+# @version 1.1 Revised code base.
 
 ## @file pysweeper.py
 # @brief Implements a fully functional version of minesweepers using tkinter.
@@ -16,12 +16,13 @@ import random as rnd
 from tkinter import ttk
 
 
-## @class PySweepers
+## @class PySweeper
 # @brief Contains methods and attributes used for running pysweepers.
 class PySweeper:
     ## @param width Map width
     # @param height Map height
     # @param mines Mine count
+    # @return PySweeper object
     def __init__(self, width, height, mines):
         ## @brief Map width
         # @hideinitializer
@@ -65,6 +66,7 @@ class PySweeper:
         self.reset_map()
 
     ## @brief Creates a popup window to resize the game map.
+    # @return None
     def __create_resize_popup(self):
         popup = tk.Toplevel()
         popup.title("Resize")
@@ -94,6 +96,7 @@ class PySweeper:
     # @param width Map width
     # @param height Map height
     # @param mines Mine count
+    # @return None
     def resize_map(self, width, height, mines):
         # Handling string instances of the arguments
         if isinstance(width, str):
@@ -112,6 +115,7 @@ class PySweeper:
             self.reset_map()
 
     ## @brief Generates the mines on the map data structure.
+    # @return None
     def __generate_mines(self):
         mine_counter = 0
         mine_cells = []
@@ -127,6 +131,7 @@ class PySweeper:
             self.__map[mine_cell[1]][mine_cell[0]] = "*"
 
     ## @brief Generates the numbers on the map data structure.
+    # @return None
     def __generate_numbers(self):
         for x in range(self.width):
             for y in range(self.height):
@@ -149,6 +154,7 @@ class PySweeper:
 
     ## @brief Generates the GUI map and map data structure.
     # @param is_resized Boolean variable for determining if the map is resized
+    # @return None
     def __generate_map(self, is_resized):
         # Initializing map GUI elements and map data structure
         if is_resized:
@@ -186,6 +192,7 @@ class PySweeper:
         self.__generate_numbers()
 
     ## @brief Resets the map.
+    # @return None
     def reset_map(self):
         # Generating new map
         is_resized = (len(self.__map) != self.height
@@ -200,6 +207,7 @@ class PySweeper:
     # @param x Cell x coordinate
     # @param y Cell y coordinate
     # @param fill_list List of cells to fill
+    # @return None
     def __fill_blanks(self, x, y, fill_list):
         if [x, y] not in fill_list:
             fill_list.append([x, y])
@@ -223,6 +231,7 @@ class PySweeper:
 
     ## @brief Checks selected coordinate on left click.
     # @param event Tkinter event variable
+    # @return None
     def __check_grid(self, event):
         if self.game_status == "running":
             gui_cell = event.widget
@@ -256,6 +265,7 @@ class PySweeper:
 
     ## @brief Flags selected coordinate on right click.
     # @param event Tkinter event variable
+    # @return None
     def __flag_grid(self, event):
         if self.game_status == "running":
             gui_cell = event.widget
@@ -267,5 +277,6 @@ class PySweeper:
                     gui_cell.configure(text=" ")
 
     ## @brief Runs the game instance (must be present at bottom of code)
+    # @return None
     def run_game(self):
         tk.mainloop()

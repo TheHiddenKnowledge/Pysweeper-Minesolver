@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['height_0',['height',['../classpysweepers_1_1_py_sweepers.html#a420e161081aad270ea29d01e3e3ec425',1,'pysweepers::PySweepers']]],
-  ['hidden_1',['hidden',['../classpysweepers_1_1_py_sweepers.html#a3c2e749fb7524de32b0cfb5b0a547ead',1,'pysweepers::PySweepers']]]
+  ['height_0',['height',['../classpysweeper_1_1_py_sweeper.html#aeaaeea8fee11d6363c12855576dffa03',1,'pysweeper::PySweeper']]],
+  ['hidden_1',['hidden',['../classpysweeper_1_1_py_sweeper.html#ad002c521275c2680bb1dbfb7af44a8ed',1,'pysweeper::PySweeper']]]
 ];

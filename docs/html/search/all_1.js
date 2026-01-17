@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['game_5fstatus_0',['game_status',['../classpysweepers_1_1_py_sweepers.html#a1107e2b5eaa9ec6912897c399b04e972',1,'pysweepers::PySweepers']]],
-  ['gui_5fmap_1',['gui_map',['../classpysweepers_1_1_py_sweepers.html#ad4010f6a7a692201577c03e3cecf4ef2',1,'pysweepers::PySweepers']]]
+  ['game_5fstatus_0',['game_status',['../classpysweeper_1_1_py_sweeper.html#a46ab5c5a0c3f16892839940434e23b82',1,'pysweeper::PySweeper']]],
+  ['gui_5fmap_1',['gui_map',['../classpysweeper_1_1_py_sweeper.html#a5801f8d2c54bb6372c227d154019c3e8',1,'pysweeper::PySweeper']]]
 ];
