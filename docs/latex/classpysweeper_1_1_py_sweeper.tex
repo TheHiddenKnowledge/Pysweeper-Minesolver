@@ -1,0 +1,437 @@
+\doxysection{pysweeper.\+Py\+Sweeper Class Reference}
+\hypertarget{classpysweeper_1_1_py_sweeper}{}\label{classpysweeper_1_1_py_sweeper}\index{pysweeper.PySweeper@{pysweeper.PySweeper}}
+
+
+Contains methods and attributes used for running pysweepers.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_ac39f8cb6895097706eda4df341a55031}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, \mbox{\hyperlink{classpysweeper_1_1_py_sweeper_af4ed6c7db1b92dfcd7d1f9dd9883c39a}{width}}, \mbox{\hyperlink{classpysweeper_1_1_py_sweeper_aeaaeea8fee11d6363c12855576dffa03}{height}}, mines)
+\item 
+\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_a34c2fd80583fe79348184265001e8864}{resize\+\_\+map}} (self, \mbox{\hyperlink{classpysweeper_1_1_py_sweeper_af4ed6c7db1b92dfcd7d1f9dd9883c39a}{width}}, \mbox{\hyperlink{classpysweeper_1_1_py_sweeper_aeaaeea8fee11d6363c12855576dffa03}{height}}, mines)
+\begin{DoxyCompactList}\small\item\em Resizes the map. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_a5e23394ebeec6d950cce3904738a3376}{reset\+\_\+map}} (self)
+\begin{DoxyCompactList}\small\item\em Resets the map. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_a1f2630efbb62108b04a79cd9a3ff03d5}{run\+\_\+game}} (self)
+\begin{DoxyCompactList}\small\item\em Runs the game instance (must be present at bottom of code). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_af4ed6c7db1b92dfcd7d1f9dd9883c39a}{width}}
+\begin{DoxyCompactList}\small\item\em Map width. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_aeaaeea8fee11d6363c12855576dffa03}{height}}
+\begin{DoxyCompactList}\small\item\em Map height. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_ad002c521275c2680bb1dbfb7af44a8ed}{hidden}}
+\begin{DoxyCompactList}\small\item\em Total hidden cells. \end{DoxyCompactList}\item 
+list \mbox{\hyperlink{classpysweeper_1_1_py_sweeper_a5801f8d2c54bb6372c227d154019c3e8}{gui\+\_\+map}}
+\begin{DoxyCompactList}\small\item\em Array of cell GUI elements. \end{DoxyCompactList}\item 
+str \mbox{\hyperlink{classpysweeper_1_1_py_sweeper_a46ab5c5a0c3f16892839940434e23b82}{game\+\_\+status}}
+\begin{DoxyCompactList}\small\item\em Game status. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_a76522ed13e51a2a86c7bf719cfa6ed3f}{status\+\_\+label}}
+\begin{DoxyCompactList}\small\item\em Status label GUI element. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_aa1357fd6b7b1681032cc805aa475c31c}{\+\_\+\+\_\+create\+\_\+resize\+\_\+popup}} (self)
+\begin{DoxyCompactList}\small\item\em Creates a popup window to resize the game map. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_a385f291bc8f931669b6f17b6925f5993}{\+\_\+\+\_\+generate\+\_\+mines}} (self)
+\begin{DoxyCompactList}\small\item\em Generates the mines on the map data structure. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_a3976d18571f6bebf13150b047b4f6515}{\+\_\+\+\_\+generate\+\_\+numbers}} (self)
+\begin{DoxyCompactList}\small\item\em Generates the numbers on the map data structure. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_a4b8e5b19b2a57e378f26b5d6346c5ed3}{\+\_\+\+\_\+generate\+\_\+map}} (self, is\+\_\+resized)
+\begin{DoxyCompactList}\small\item\em Generates the GUI map and map data structure. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_a403eae7fe304b9e6e440076cf1efec6c}{\+\_\+\+\_\+fill\+\_\+blanks}} (self, x, y, fill\+\_\+list)
+\begin{DoxyCompactList}\small\item\em Fill method for numberless coordinates. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_a1981e51865d9ea6ced9957f67e82e7fe}{\+\_\+\+\_\+check\+\_\+grid}} (self, event)
+\begin{DoxyCompactList}\small\item\em Checks selected coordinate on left click. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_a0fe05ad6a06fdead7cf54b24f852508b}{\+\_\+\+\_\+flag\+\_\+grid}} (self, event)
+\begin{DoxyCompactList}\small\item\em Flags selected coordinate on right click. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_a90183644c79861266d29ba70b15e8b54}{\+\_\+\+\_\+mines}}
+\begin{DoxyCompactList}\small\item\em Mine count. \end{DoxyCompactList}\item 
+list \mbox{\hyperlink{classpysweeper_1_1_py_sweeper_ac27ff788106af122bb58e98958299f49}{\+\_\+\+\_\+map}}
+\begin{DoxyCompactList}\small\item\em Array containing full game map. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_a0c66243d6a3db9f6c5ebc9621b43b149}{\+\_\+\+\_\+map\+\_\+frame}}
+\begin{DoxyCompactList}\small\item\em Frame used to contain the cells. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Contains methods and attributes used for running pysweepers. 
+
+Definition at line \mbox{\hyperlink{pysweeper_8py_source_l00021}{21}} of file \mbox{\hyperlink{pysweeper_8py_source}{pysweeper.\+py}}.
+
+
+
+\label{doc-constructors}
+\Hypertarget{classpysweeper_1_1_py_sweeper_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classpysweeper_1_1_py_sweeper_ac39f8cb6895097706eda4df341a55031}\index{pysweeper.PySweeper@{pysweeper.PySweeper}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!pysweeper.PySweeper@{pysweeper.PySweeper}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily \label{classpysweeper_1_1_py_sweeper_ac39f8cb6895097706eda4df341a55031} 
+pysweeper.\+Py\+Sweeper.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{width}{, }\item[{}]{height}{, }\item[{}]{mines}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em width} & Map width \\
+\hline
+{\em height} & Map height \\
+\hline
+{\em mines} & Mine count \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{classpysweeper_1_1_py_sweeper}{Py\+Sweeper} object 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{pysweeper_8py_source_l00026}{26}} of file \mbox{\hyperlink{pysweeper_8py_source}{pysweeper.\+py}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{classpysweeper_1_1_py_sweeper_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classpysweeper_1_1_py_sweeper_a1981e51865d9ea6ced9957f67e82e7fe}\index{pysweeper.PySweeper@{pysweeper.PySweeper}!\_\_check\_grid@{\_\_check\_grid}}
+\index{\_\_check\_grid@{\_\_check\_grid}!pysweeper.PySweeper@{pysweeper.PySweeper}}
+\doxysubsubsection{\texorpdfstring{\_\_check\_grid()}{\_\_check\_grid()}}
+{\footnotesize\ttfamily \label{classpysweeper_1_1_py_sweeper_a1981e51865d9ea6ced9957f67e82e7fe} 
+pysweeper.\+Py\+Sweeper.\+\_\+\+\_\+check\+\_\+grid (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{event}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Checks selected coordinate on left click. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em event} & Tkinter event variable \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{pysweeper_8py_source_l00235}{235}} of file \mbox{\hyperlink{pysweeper_8py_source}{pysweeper.\+py}}.
+
+\Hypertarget{classpysweeper_1_1_py_sweeper_aa1357fd6b7b1681032cc805aa475c31c}\index{pysweeper.PySweeper@{pysweeper.PySweeper}!\_\_create\_resize\_popup@{\_\_create\_resize\_popup}}
+\index{\_\_create\_resize\_popup@{\_\_create\_resize\_popup}!pysweeper.PySweeper@{pysweeper.PySweeper}}
+\doxysubsubsection{\texorpdfstring{\_\_create\_resize\_popup()}{\_\_create\_resize\_popup()}}
+{\footnotesize\ttfamily \label{classpysweeper_1_1_py_sweeper_aa1357fd6b7b1681032cc805aa475c31c} 
+pysweeper.\+Py\+Sweeper.\+\_\+\+\_\+create\+\_\+resize\+\_\+popup (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Creates a popup window to resize the game map. 
+
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{pysweeper_8py_source_l00070}{70}} of file \mbox{\hyperlink{pysweeper_8py_source}{pysweeper.\+py}}.
+
+\Hypertarget{classpysweeper_1_1_py_sweeper_a403eae7fe304b9e6e440076cf1efec6c}\index{pysweeper.PySweeper@{pysweeper.PySweeper}!\_\_fill\_blanks@{\_\_fill\_blanks}}
+\index{\_\_fill\_blanks@{\_\_fill\_blanks}!pysweeper.PySweeper@{pysweeper.PySweeper}}
+\doxysubsubsection{\texorpdfstring{\_\_fill\_blanks()}{\_\_fill\_blanks()}}
+{\footnotesize\ttfamily \label{classpysweeper_1_1_py_sweeper_a403eae7fe304b9e6e440076cf1efec6c} 
+pysweeper.\+Py\+Sweeper.\+\_\+\+\_\+fill\+\_\+blanks (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{x}{, }\item[{}]{y}{, }\item[{}]{fill\+\_\+list}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Fill method for numberless coordinates. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Cell x coordinate \\
+\hline
+{\em y} & Cell y coordinate \\
+\hline
+{\em fill\+\_\+list} & List of cells to fill \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{pysweeper_8py_source_l00211}{211}} of file \mbox{\hyperlink{pysweeper_8py_source}{pysweeper.\+py}}.
+
+\Hypertarget{classpysweeper_1_1_py_sweeper_a0fe05ad6a06fdead7cf54b24f852508b}\index{pysweeper.PySweeper@{pysweeper.PySweeper}!\_\_flag\_grid@{\_\_flag\_grid}}
+\index{\_\_flag\_grid@{\_\_flag\_grid}!pysweeper.PySweeper@{pysweeper.PySweeper}}
+\doxysubsubsection{\texorpdfstring{\_\_flag\_grid()}{\_\_flag\_grid()}}
+{\footnotesize\ttfamily \label{classpysweeper_1_1_py_sweeper_a0fe05ad6a06fdead7cf54b24f852508b} 
+pysweeper.\+Py\+Sweeper.\+\_\+\+\_\+flag\+\_\+grid (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{event}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Flags selected coordinate on right click. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em event} & Tkinter event variable \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{pysweeper_8py_source_l00269}{269}} of file \mbox{\hyperlink{pysweeper_8py_source}{pysweeper.\+py}}.
+
+\Hypertarget{classpysweeper_1_1_py_sweeper_a4b8e5b19b2a57e378f26b5d6346c5ed3}\index{pysweeper.PySweeper@{pysweeper.PySweeper}!\_\_generate\_map@{\_\_generate\_map}}
+\index{\_\_generate\_map@{\_\_generate\_map}!pysweeper.PySweeper@{pysweeper.PySweeper}}
+\doxysubsubsection{\texorpdfstring{\_\_generate\_map()}{\_\_generate\_map()}}
+{\footnotesize\ttfamily \label{classpysweeper_1_1_py_sweeper_a4b8e5b19b2a57e378f26b5d6346c5ed3} 
+pysweeper.\+Py\+Sweeper.\+\_\+\+\_\+generate\+\_\+map (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{is\+\_\+resized}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Generates the GUI map and map data structure. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em is\+\_\+resized} & Boolean variable for determining if the map is resized \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{pysweeper_8py_source_l00158}{158}} of file \mbox{\hyperlink{pysweeper_8py_source}{pysweeper.\+py}}.
+
+\Hypertarget{classpysweeper_1_1_py_sweeper_a385f291bc8f931669b6f17b6925f5993}\index{pysweeper.PySweeper@{pysweeper.PySweeper}!\_\_generate\_mines@{\_\_generate\_mines}}
+\index{\_\_generate\_mines@{\_\_generate\_mines}!pysweeper.PySweeper@{pysweeper.PySweeper}}
+\doxysubsubsection{\texorpdfstring{\_\_generate\_mines()}{\_\_generate\_mines()}}
+{\footnotesize\ttfamily \label{classpysweeper_1_1_py_sweeper_a385f291bc8f931669b6f17b6925f5993} 
+pysweeper.\+Py\+Sweeper.\+\_\+\+\_\+generate\+\_\+mines (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Generates the mines on the map data structure. 
+
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{pysweeper_8py_source_l00119}{119}} of file \mbox{\hyperlink{pysweeper_8py_source}{pysweeper.\+py}}.
+
+\Hypertarget{classpysweeper_1_1_py_sweeper_a3976d18571f6bebf13150b047b4f6515}\index{pysweeper.PySweeper@{pysweeper.PySweeper}!\_\_generate\_numbers@{\_\_generate\_numbers}}
+\index{\_\_generate\_numbers@{\_\_generate\_numbers}!pysweeper.PySweeper@{pysweeper.PySweeper}}
+\doxysubsubsection{\texorpdfstring{\_\_generate\_numbers()}{\_\_generate\_numbers()}}
+{\footnotesize\ttfamily \label{classpysweeper_1_1_py_sweeper_a3976d18571f6bebf13150b047b4f6515} 
+pysweeper.\+Py\+Sweeper.\+\_\+\+\_\+generate\+\_\+numbers (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Generates the numbers on the map data structure. 
+
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{pysweeper_8py_source_l00135}{135}} of file \mbox{\hyperlink{pysweeper_8py_source}{pysweeper.\+py}}.
+
+\Hypertarget{classpysweeper_1_1_py_sweeper_a5e23394ebeec6d950cce3904738a3376}\index{pysweeper.PySweeper@{pysweeper.PySweeper}!reset\_map@{reset\_map}}
+\index{reset\_map@{reset\_map}!pysweeper.PySweeper@{pysweeper.PySweeper}}
+\doxysubsubsection{\texorpdfstring{reset\_map()}{reset\_map()}}
+{\footnotesize\ttfamily \label{classpysweeper_1_1_py_sweeper_a5e23394ebeec6d950cce3904738a3376} 
+pysweeper.\+Py\+Sweeper.\+reset\+\_\+map (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+
+
+Resets the map. 
+
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{pysweeper_8py_source_l00196}{196}} of file \mbox{\hyperlink{pysweeper_8py_source}{pysweeper.\+py}}.
+
+\Hypertarget{classpysweeper_1_1_py_sweeper_a34c2fd80583fe79348184265001e8864}\index{pysweeper.PySweeper@{pysweeper.PySweeper}!resize\_map@{resize\_map}}
+\index{resize\_map@{resize\_map}!pysweeper.PySweeper@{pysweeper.PySweeper}}
+\doxysubsubsection{\texorpdfstring{resize\_map()}{resize\_map()}}
+{\footnotesize\ttfamily \label{classpysweeper_1_1_py_sweeper_a34c2fd80583fe79348184265001e8864} 
+pysweeper.\+Py\+Sweeper.\+resize\+\_\+map (\begin{DoxyParamCaption}\item[{}]{self}{, }\item[{}]{width}{, }\item[{}]{height}{, }\item[{}]{mines}{}\end{DoxyParamCaption})}
+
+
+
+Resizes the map. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em width} & Map width \\
+\hline
+{\em height} & Map height \\
+\hline
+{\em mines} & Mine count \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{pysweeper_8py_source_l00100}{100}} of file \mbox{\hyperlink{pysweeper_8py_source}{pysweeper.\+py}}.
+
+\Hypertarget{classpysweeper_1_1_py_sweeper_a1f2630efbb62108b04a79cd9a3ff03d5}\index{pysweeper.PySweeper@{pysweeper.PySweeper}!run\_game@{run\_game}}
+\index{run\_game@{run\_game}!pysweeper.PySweeper@{pysweeper.PySweeper}}
+\doxysubsubsection{\texorpdfstring{run\_game()}{run\_game()}}
+{\footnotesize\ttfamily \label{classpysweeper_1_1_py_sweeper_a1f2630efbb62108b04a79cd9a3ff03d5} 
+pysweeper.\+Py\+Sweeper.\+run\+\_\+game (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+
+
+Runs the game instance (must be present at bottom of code). 
+
+\begin{DoxyReturn}{Returns}
+None 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{pysweeper_8py_source_l00281}{281}} of file \mbox{\hyperlink{pysweeper_8py_source}{pysweeper.\+py}}.
+
+
+
+\label{doc-variable-members}
+\Hypertarget{classpysweeper_1_1_py_sweeper_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classpysweeper_1_1_py_sweeper_ac27ff788106af122bb58e98958299f49}\index{pysweeper.PySweeper@{pysweeper.PySweeper}!\_\_map@{\_\_map}}
+\index{\_\_map@{\_\_map}!pysweeper.PySweeper@{pysweeper.PySweeper}}
+\doxysubsubsection{\texorpdfstring{\_\_map}{\_\_map}}
+{\footnotesize\ttfamily \label{classpysweeper_1_1_py_sweeper_ac27ff788106af122bb58e98958299f49} 
+list pysweeper.\+Py\+Sweeper.\+\_\+\+\_\+map\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Array containing full game map. 
+
+
+
+Definition at line \mbox{\hyperlink{pysweeper_8py_source_l00041}{41}} of file \mbox{\hyperlink{pysweeper_8py_source}{pysweeper.\+py}}.
+
+\Hypertarget{classpysweeper_1_1_py_sweeper_a0c66243d6a3db9f6c5ebc9621b43b149}\index{pysweeper.PySweeper@{pysweeper.PySweeper}!\_\_map\_frame@{\_\_map\_frame}}
+\index{\_\_map\_frame@{\_\_map\_frame}!pysweeper.PySweeper@{pysweeper.PySweeper}}
+\doxysubsubsection{\texorpdfstring{\_\_map\_frame}{\_\_map\_frame}}
+{\footnotesize\ttfamily \label{classpysweeper_1_1_py_sweeper_a0c66243d6a3db9f6c5ebc9621b43b149} 
+pysweeper.\+Py\+Sweeper.\+\_\+\+\_\+map\+\_\+frame\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Frame used to contain the cells. 
+
+
+
+Definition at line \mbox{\hyperlink{pysweeper_8py_source_l00053}{53}} of file \mbox{\hyperlink{pysweeper_8py_source}{pysweeper.\+py}}.
+
+\Hypertarget{classpysweeper_1_1_py_sweeper_a90183644c79861266d29ba70b15e8b54}\index{pysweeper.PySweeper@{pysweeper.PySweeper}!\_\_mines@{\_\_mines}}
+\index{\_\_mines@{\_\_mines}!pysweeper.PySweeper@{pysweeper.PySweeper}}
+\doxysubsubsection{\texorpdfstring{\_\_mines}{\_\_mines}}
+{\footnotesize\ttfamily \label{classpysweeper_1_1_py_sweeper_a90183644c79861266d29ba70b15e8b54} 
+pysweeper.\+Py\+Sweeper.\+\_\+\+\_\+mines\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Mine count. 
+
+
+
+Definition at line \mbox{\hyperlink{pysweeper_8py_source_l00035}{35}} of file \mbox{\hyperlink{pysweeper_8py_source}{pysweeper.\+py}}.
+
+\Hypertarget{classpysweeper_1_1_py_sweeper_a46ab5c5a0c3f16892839940434e23b82}\index{pysweeper.PySweeper@{pysweeper.PySweeper}!game\_status@{game\_status}}
+\index{game\_status@{game\_status}!pysweeper.PySweeper@{pysweeper.PySweeper}}
+\doxysubsubsection{\texorpdfstring{game\_status}{game\_status}}
+{\footnotesize\ttfamily \label{classpysweeper_1_1_py_sweeper_a46ab5c5a0c3f16892839940434e23b82} 
+str pysweeper.\+Py\+Sweeper.\+game\+\_\+status}
+
+
+
+Game status. 
+
+
+
+Definition at line \mbox{\hyperlink{pysweeper_8py_source_l00047}{47}} of file \mbox{\hyperlink{pysweeper_8py_source}{pysweeper.\+py}}.
+
+\Hypertarget{classpysweeper_1_1_py_sweeper_a5801f8d2c54bb6372c227d154019c3e8}\index{pysweeper.PySweeper@{pysweeper.PySweeper}!gui\_map@{gui\_map}}
+\index{gui\_map@{gui\_map}!pysweeper.PySweeper@{pysweeper.PySweeper}}
+\doxysubsubsection{\texorpdfstring{gui\_map}{gui\_map}}
+{\footnotesize\ttfamily \label{classpysweeper_1_1_py_sweeper_a5801f8d2c54bb6372c227d154019c3e8} 
+list pysweeper.\+Py\+Sweeper.\+gui\+\_\+map}
+
+
+
+Array of cell GUI elements. 
+
+
+
+Definition at line \mbox{\hyperlink{pysweeper_8py_source_l00044}{44}} of file \mbox{\hyperlink{pysweeper_8py_source}{pysweeper.\+py}}.
+
+\Hypertarget{classpysweeper_1_1_py_sweeper_aeaaeea8fee11d6363c12855576dffa03}\index{pysweeper.PySweeper@{pysweeper.PySweeper}!height@{height}}
+\index{height@{height}!pysweeper.PySweeper@{pysweeper.PySweeper}}
+\doxysubsubsection{\texorpdfstring{height}{height}}
+{\footnotesize\ttfamily \label{classpysweeper_1_1_py_sweeper_aeaaeea8fee11d6363c12855576dffa03} 
+pysweeper.\+Py\+Sweeper.\+height}
+
+
+
+Map height. 
+
+
+
+Definition at line \mbox{\hyperlink{pysweeper_8py_source_l00032}{32}} of file \mbox{\hyperlink{pysweeper_8py_source}{pysweeper.\+py}}.
+
+\Hypertarget{classpysweeper_1_1_py_sweeper_ad002c521275c2680bb1dbfb7af44a8ed}\index{pysweeper.PySweeper@{pysweeper.PySweeper}!hidden@{hidden}}
+\index{hidden@{hidden}!pysweeper.PySweeper@{pysweeper.PySweeper}}
+\doxysubsubsection{\texorpdfstring{hidden}{hidden}}
+{\footnotesize\ttfamily \label{classpysweeper_1_1_py_sweeper_ad002c521275c2680bb1dbfb7af44a8ed} 
+pysweeper.\+Py\+Sweeper.\+hidden}
+
+
+
+Total hidden cells. 
+
+
+
+Definition at line \mbox{\hyperlink{pysweeper_8py_source_l00038}{38}} of file \mbox{\hyperlink{pysweeper_8py_source}{pysweeper.\+py}}.
+
+\Hypertarget{classpysweeper_1_1_py_sweeper_a76522ed13e51a2a86c7bf719cfa6ed3f}\index{pysweeper.PySweeper@{pysweeper.PySweeper}!status\_label@{status\_label}}
+\index{status\_label@{status\_label}!pysweeper.PySweeper@{pysweeper.PySweeper}}
+\doxysubsubsection{\texorpdfstring{status\_label}{status\_label}}
+{\footnotesize\ttfamily \label{classpysweeper_1_1_py_sweeper_a76522ed13e51a2a86c7bf719cfa6ed3f} 
+pysweeper.\+Py\+Sweeper.\+status\+\_\+label}
+
+
+
+Status label GUI element. 
+
+
+
+Definition at line \mbox{\hyperlink{pysweeper_8py_source_l00057}{57}} of file \mbox{\hyperlink{pysweeper_8py_source}{pysweeper.\+py}}.
+
+\Hypertarget{classpysweeper_1_1_py_sweeper_af4ed6c7db1b92dfcd7d1f9dd9883c39a}\index{pysweeper.PySweeper@{pysweeper.PySweeper}!width@{width}}
+\index{width@{width}!pysweeper.PySweeper@{pysweeper.PySweeper}}
+\doxysubsubsection{\texorpdfstring{width}{width}}
+{\footnotesize\ttfamily \label{classpysweeper_1_1_py_sweeper_af4ed6c7db1b92dfcd7d1f9dd9883c39a} 
+pysweeper.\+Py\+Sweeper.\+width}
+
+
+
+Map width. 
+
+
+
+Definition at line \mbox{\hyperlink{pysweeper_8py_source_l00029}{29}} of file \mbox{\hyperlink{pysweeper_8py_source}{pysweeper.\+py}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{pysweeper_8py}{pysweeper.\+py}}\end{DoxyCompactItemize}

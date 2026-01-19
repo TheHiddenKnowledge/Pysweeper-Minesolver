@@ -1,0 +1,246 @@
+\doxysection{pysweeper.\+py}
+\hypertarget{pysweeper_8py_source}{}\label{pysweeper_8py_source}\mbox{\hyperlink{pysweeper_8py}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00014}00014\ \textcolor{keyword}{import}\ tkinter\ \textcolor{keyword}{as}\ tk}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00015}00015\ \textcolor{keyword}{import}\ random\ \textcolor{keyword}{as}\ rnd}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00016}00016\ \textcolor{keyword}{from}\ tkinter\ \textcolor{keyword}{import}\ ttk}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00021}\mbox{\hyperlink{classpysweeper_1_1_py_sweeper}{00021}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classpysweeper_1_1_py_sweeper}{PySweeper}}:}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00022}00022\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00026}\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_ac39f8cb6895097706eda4df341a55031}{00026}}\ \ \ \ \ \textcolor{keyword}{def\ }\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_ac39f8cb6895097706eda4df341a55031}{\_\_init\_\_}}(self,\ width,\ height,\ mines):}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00027}00027\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00029}\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_af4ed6c7db1b92dfcd7d1f9dd9883c39a}{00029}}\ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_af4ed6c7db1b92dfcd7d1f9dd9883c39a}{width}}\ =\ width}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00030}00030\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00032}\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_aeaaeea8fee11d6363c12855576dffa03}{00032}}\ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_aeaaeea8fee11d6363c12855576dffa03}{height}}\ =\ height}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00033}00033\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00035}\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_a90183644c79861266d29ba70b15e8b54}{00035}}\ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_a90183644c79861266d29ba70b15e8b54}{\_\_mines}}\ =\ mines}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00036}00036\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00038}\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_ad002c521275c2680bb1dbfb7af44a8ed}{00038}}\ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_ad002c521275c2680bb1dbfb7af44a8ed}{hidden}}\ =\ width\ *\ height}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00039}00039\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00041}\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_ac27ff788106af122bb58e98958299f49}{00041}}\ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_ac27ff788106af122bb58e98958299f49}{\_\_map}}\ =\ [[]]}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00042}00042\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00044}\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_a5801f8d2c54bb6372c227d154019c3e8}{00044}}\ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_a5801f8d2c54bb6372c227d154019c3e8}{gui\_map}}\ =\ [[]]}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00045}00045\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00047}\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_a46ab5c5a0c3f16892839940434e23b82}{00047}}\ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_a46ab5c5a0c3f16892839940434e23b82}{game\_status}}\ =\ \textcolor{stringliteral}{"{}running"{}}}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00048}00048\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Initializing\ GUI}}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00049}00049\ \ \ \ \ \ \ \ \ master\ =\ tk.Tk(className=\textcolor{stringliteral}{"{}Py\ Sweepers"{}})}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00050}00050\ \ \ \ \ \ \ \ \ ttk.Style().theme\_use(\textcolor{stringliteral}{"{}winnative"{}})}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00051}00051\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00053}\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_a0c66243d6a3db9f6c5ebc9621b43b149}{00053}}\ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_a0c66243d6a3db9f6c5ebc9621b43b149}{\_\_map\_frame}}\ =\ tk.Frame(master)}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00054}00054\ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_a0c66243d6a3db9f6c5ebc9621b43b149}{\_\_map\_frame}}.grid(row=0,\ column=0,\ columnspan=3,\ sticky=\textcolor{stringliteral}{"{}ew"{}})}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00055}00055\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00057}\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_a76522ed13e51a2a86c7bf719cfa6ed3f}{00057}}\ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_a76522ed13e51a2a86c7bf719cfa6ed3f}{status\_label}}\ =\ tk.Label(master,\ text=\textcolor{stringliteral}{"{}"{}})}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00058}00058\ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_a76522ed13e51a2a86c7bf719cfa6ed3f}{status\_label}}.grid(row=1,\ column=0,\ sticky=\textcolor{stringliteral}{"{}ew"{}})}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00059}00059\ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_a76522ed13e51a2a86c7bf719cfa6ed3f}{status\_label}}.configure(text=\textcolor{stringliteral}{"{}"{}})}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00060}00060\ \ \ \ \ \ \ \ \ resize\_button\ =\ tk.Button(master,\ command=\textcolor{keyword}{lambda}:}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00061}00061\ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_aa1357fd6b7b1681032cc805aa475c31c}{\_\_create\_resize\_popup}}(),\ text=\textcolor{stringliteral}{"{}Resize"{}})}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00062}00062\ \ \ \ \ \ \ \ \ resize\_button.grid(row=1,\ column=1,\ sticky=\textcolor{stringliteral}{"{}ew"{}})}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00063}00063\ \ \ \ \ \ \ \ \ reset\_button\ =\ tk.Button(master,\ command=\textcolor{keyword}{lambda}:}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00064}00064\ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_a5e23394ebeec6d950cce3904738a3376}{reset\_map}}(),\ text=\textcolor{stringliteral}{"{}Reset"{}})}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00065}00065\ \ \ \ \ \ \ \ \ reset\_button.grid(row=1,\ column=2,\ sticky=\textcolor{stringliteral}{"{}ew"{}})}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00066}00066\ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_a5e23394ebeec6d950cce3904738a3376}{reset\_map}}()}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00068}00068\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00070}\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_aa1357fd6b7b1681032cc805aa475c31c}{00070}}\ \ \ \ \ \textcolor{keyword}{def\ }\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_aa1357fd6b7b1681032cc805aa475c31c}{\_\_create\_resize\_popup}}(self):}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00071}00071\ \ \ \ \ \ \ \ \ popup\ =\ tk.Toplevel()}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00072}00072\ \ \ \ \ \ \ \ \ popup.title(\textcolor{stringliteral}{"{}Resize"{}})}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00073}00073\ \ \ \ \ \ \ \ \ int\_check\ =\ popup.register(\textcolor{keyword}{lambda}\ text\ :\ text\ ==\ \textcolor{stringliteral}{"{}"{}}\ \textcolor{keywordflow}{or}\ text.isdigit())}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00074}00074\ \ \ \ \ \ \ \ \ width\_label\ =\ tk.Label(popup,\ text=\textcolor{stringliteral}{"{}Width"{}},\ width=20)}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00075}00075\ \ \ \ \ \ \ \ \ width\_label.grid(row=0,\ column=0,\ sticky=\textcolor{stringliteral}{"{}ew"{}})}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00076}00076\ \ \ \ \ \ \ \ \ width\_entry\ =\ tk.Entry(popup,\ width=20,\ validate=\textcolor{stringliteral}{"{}all"{}},}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00077}00077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ validatecommand=(int\_check,\ \textcolor{stringliteral}{"{}\%P"{}}))}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00078}00078\ \ \ \ \ \ \ \ \ width\_entry.grid(row=0,\ column=1,\ sticky=\textcolor{stringliteral}{"{}ew"{}})}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00079}00079\ \ \ \ \ \ \ \ \ height\_label\ =\ tk.Label(popup,\ text=\textcolor{stringliteral}{"{}Height"{}},\ width=20)}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00080}00080\ \ \ \ \ \ \ \ \ height\_label.grid(row=1,\ column=0,\ sticky=\textcolor{stringliteral}{"{}ew"{}})}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00081}00081\ \ \ \ \ \ \ \ \ height\_entry\ =\ tk.Entry(popup,\ width=20,\ validate=\textcolor{stringliteral}{"{}all"{}},}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00082}00082\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ validatecommand=(int\_check,\ \textcolor{stringliteral}{"{}\%P"{}}))}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00083}00083\ \ \ \ \ \ \ \ \ height\_entry.grid(row=1,\ column=1,\ sticky=\textcolor{stringliteral}{"{}ew"{}})}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00084}00084\ \ \ \ \ \ \ \ \ mines\_label\ =\ tk.Label(popup,\ text=\textcolor{stringliteral}{"{}Mines"{}},\ width=20)}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00085}00085\ \ \ \ \ \ \ \ \ mines\_label.grid(row=2,\ column=0,\ sticky=\textcolor{stringliteral}{"{}ew"{}})}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00086}00086\ \ \ \ \ \ \ \ \ mines\_entry\ =\ tk.Entry(popup,\ width=20,\ validate=\textcolor{stringliteral}{"{}all"{}},}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00087}00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ validatecommand=(int\_check,\ \textcolor{stringliteral}{"{}\%P"{}}))}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00088}00088\ \ \ \ \ \ \ \ \ mines\_entry.grid(row=2,\ column=1,\ sticky=\textcolor{stringliteral}{"{}ew"{}})}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00089}00089\ \ \ \ \ \ \ \ \ resize\_button\ =\ tk.Button(popup,\ text=\textcolor{stringliteral}{"{}Resize\ Map"{}},\ command=\textcolor{keyword}{lambda}:}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00090}00090\ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_a34c2fd80583fe79348184265001e8864}{resize\_map}}(width\_entry.get(),}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00091}00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ height\_entry.get(),}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00092}00092\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mines\_entry.get()))}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00093}00093\ \ \ \ \ \ \ \ \ resize\_button.grid(row=3,\ column=0,\ columnspan=2,\ sticky=\textcolor{stringliteral}{"{}ew"{}})}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00094}00094\ }
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00095}00095\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00100}\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_a34c2fd80583fe79348184265001e8864}{00100}}\ \ \ \ \ \textcolor{keyword}{def\ }\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_a34c2fd80583fe79348184265001e8864}{resize\_map}}(self,\ width,\ height,\ mines):}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00101}00101\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Handling\ string\ instances\ of\ the\ arguments}}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00102}00102\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ isinstance(width,\ str):}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00103}00103\ \ \ \ \ \ \ \ \ \ \ \ \ width\ =\ 0\ \textcolor{keywordflow}{if}\ width\ ==\ \textcolor{stringliteral}{"{}"{}}\ \textcolor{keywordflow}{else}\ int(width)}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00104}00104\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ isinstance(height,\ str):}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00105}00105\ \ \ \ \ \ \ \ \ \ \ \ \ height\ =\ 0\ \textcolor{keywordflow}{if}\ height\ ==\ \textcolor{stringliteral}{"{}"{}}\ \textcolor{keywordflow}{else}\ int(height)}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00106}00106\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ isinstance(mines,\ str):}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00107}00107\ \ \ \ \ \ \ \ \ \ \ \ \ mines\ =\ 0\ \textcolor{keywordflow}{if}\ mines\ ==\ \textcolor{stringliteral}{"{}"{}}\ \textcolor{keywordflow}{else}\ int(mines)}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00108}00108\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Only\ resizes\ map\ if\ the\ width,\ height,\ and\ mine\ count\ are\ within}}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00109}00109\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ the\ allowable\ ranges}}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00110}00110\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (5\ <=\ width\ <=\ 20\ \textcolor{keywordflow}{and}\ 5\ <=\ height\ <=\ 20}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00111}00111\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{and}\ mines\ <\ width\ *\ height):}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00112}00112\ \ \ \ \ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_af4ed6c7db1b92dfcd7d1f9dd9883c39a}{width}}\ =\ width}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00113}00113\ \ \ \ \ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_aeaaeea8fee11d6363c12855576dffa03}{height}}\ =\ height}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00114}00114\ \ \ \ \ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_a90183644c79861266d29ba70b15e8b54}{\_\_mines}}\ =\ mines}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00115}00115\ \ \ \ \ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_a5e23394ebeec6d950cce3904738a3376}{reset\_map}}()}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00116}00116\ }
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00117}00117\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00119}\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_a385f291bc8f931669b6f17b6925f5993}{00119}}\ \ \ \ \ \textcolor{keyword}{def\ }\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_a385f291bc8f931669b6f17b6925f5993}{\_\_generate\_mines}}(self):}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00120}00120\ \ \ \ \ \ \ \ \ mine\_counter\ =\ 0}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00121}00121\ \ \ \ \ \ \ \ \ mine\_cells\ =\ []}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00122}00122\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Generate\ mine\ random\ coordinates}}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00123}00123\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ mine\_counter\ !=\ self.\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_a90183644c79861266d29ba70b15e8b54}{\_\_mines}}:}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00124}00124\ \ \ \ \ \ \ \ \ \ \ \ \ mine\_cell\ =\ [rnd.randint(0,\ self.\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_af4ed6c7db1b92dfcd7d1f9dd9883c39a}{width}}\ -\/\ 1),}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00125}00125\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rnd.randint(0,\ self.\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_aeaaeea8fee11d6363c12855576dffa03}{height}}\ -\/\ 1)]}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00126}00126\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ mine\_cell\ \textcolor{keywordflow}{not}\ \textcolor{keywordflow}{in}\ mine\_cells:}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00127}00127\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mine\_cells.append(mine\_cell)}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00128}00128\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mine\_counter\ +=\ 1}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00129}00129\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Adding\ mines\ to\ map}}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00130}00130\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ mine\_cell\ \textcolor{keywordflow}{in}\ mine\_cells:}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00131}00131\ \ \ \ \ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_ac27ff788106af122bb58e98958299f49}{\_\_map}}[mine\_cell[1]][mine\_cell[0]]\ =\ \textcolor{stringliteral}{"{}*"{}}}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00132}00132\ }
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00133}00133\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00135}\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_a3976d18571f6bebf13150b047b4f6515}{00135}}\ \ \ \ \ \textcolor{keyword}{def\ }\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_a3976d18571f6bebf13150b047b4f6515}{\_\_generate\_numbers}}(self):}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00136}00136\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ x\ \textcolor{keywordflow}{in}\ range(self.\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_af4ed6c7db1b92dfcd7d1f9dd9883c39a}{width}}):}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00137}00137\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ y\ \textcolor{keywordflow}{in}\ range(self.\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_aeaaeea8fee11d6363c12855576dffa03}{height}}):}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00138}00138\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ self.\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_ac27ff788106af122bb58e98958299f49}{\_\_map}}[y][x]\ !=\ \textcolor{stringliteral}{"{}*"{}}:}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00139}00139\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mine\_count\ =\ 0}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00140}00140\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Rotation\ array\ for\ NWES\ and\ diagonal\ combinations}}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00141}00141\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rots\ =\ [[0,\ 1],\ [0,\ -\/1],\ [1,\ 0],\ [-\/1,\ 0],}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00142}00142\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ [1,\ 1],\ [-\/1,\ -\/1],\ [1,\ -\/1],\ [-\/1,\ 1]]}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00143}00143\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ rot\ \textcolor{keywordflow}{in}\ rots:}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00144}00144\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ x\_dir\ =\ x\ +\ rot[0]}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00145}00145\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ y\_dir\ =\ y\ +\ rot[1]}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00146}00146\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ 0\ <=\ x\_dir\ <\ self.\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_af4ed6c7db1b92dfcd7d1f9dd9883c39a}{width}}:}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00147}00147\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ 0\ <=\ y\_dir\ <\ self.\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_aeaaeea8fee11d6363c12855576dffa03}{height}}:}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00148}00148\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ For\ each\ rotation\ add\ to\ count\ if\ mine}}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00149}00149\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ self.\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_ac27ff788106af122bb58e98958299f49}{\_\_map}}[y\_dir][x\_dir]\ ==\ \textcolor{stringliteral}{"{}*"{}}:}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00150}00150\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mine\_count\ +=\ 1}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00151}00151\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Add\ mine\ count\ to\ coordinate\ on\ map}}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00152}00152\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ mine\_count\ >\ 0:}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00153}00153\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_ac27ff788106af122bb58e98958299f49}{\_\_map}}[y][x]\ =\ str(mine\_count)}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00154}00154\ }
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00155}00155\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00158}\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_a4b8e5b19b2a57e378f26b5d6346c5ed3}{00158}}\ \ \ \ \ \textcolor{keyword}{def\ }\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_a4b8e5b19b2a57e378f26b5d6346c5ed3}{\_\_generate\_map}}(self,\ is\_resized):}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00159}00159\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Initializing\ map\ GUI\ elements\ and\ map\ data\ structure}}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00160}00160\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ is\_resized:}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00161}00161\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Resetting\ map\ data\ structure}}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00162}00162\ \ \ \ \ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_ac27ff788106af122bb58e98958299f49}{\_\_map}}\ =\ []}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00163}00163\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Resetting\ map\ GUI\ elements}}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00164}00164\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ gui\_map\_row\ \textcolor{keywordflow}{in}\ self.\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_a5801f8d2c54bb6372c227d154019c3e8}{gui\_map}}:}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00165}00165\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ gui\_cell\ \textcolor{keywordflow}{in}\ gui\_map\_row:}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00166}00166\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gui\_cell.destroy()}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00167}00167\ \ \ \ \ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_a5801f8d2c54bb6372c227d154019c3e8}{gui\_map}}\ =\ []}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00168}00168\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ y\ \textcolor{keywordflow}{in}\ range(self.\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_aeaaeea8fee11d6363c12855576dffa03}{height}}):}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00169}00169\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ map\_row\ =\ []}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00170}00170\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gui\_map\_row\ =\ []}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00171}00171\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ x\ \textcolor{keywordflow}{in}\ range(self.\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_af4ed6c7db1b92dfcd7d1f9dd9883c39a}{width}}):}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00172}00172\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gui\_cell\ =\ tk.Label(self.\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_a0c66243d6a3db9f6c5ebc9621b43b149}{\_\_map\_frame}},\ text=\textcolor{stringliteral}{"{}\ "{}},\ bg=\textcolor{stringliteral}{"{}grey"{}},}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00173}00173\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ borderwidth=2,\ relief=\textcolor{stringliteral}{"{}groove"{}},}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00174}00174\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ height=2,\ width=5)}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00175}00175\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00176}00176\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gui\_cell.bind(\textcolor{stringliteral}{"{}<Button-\/1>"{}},\ self.\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_a1981e51865d9ea6ced9957f67e82e7fe}{\_\_check\_grid}})}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00177}00177\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gui\_cell.bind(\textcolor{stringliteral}{"{}<Button-\/3>"{}},\ self.\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_a0fe05ad6a06fdead7cf54b24f852508b}{\_\_flag\_grid}})}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00178}00178\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00179}00179\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gui\_cell.grid(row=y,\ column=x)}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00180}00180\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ map\_row.append(\textcolor{stringliteral}{"{}\ "{}})}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00181}00181\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gui\_map\_row.append(gui\_cell)}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00182}00182\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_ac27ff788106af122bb58e98958299f49}{\_\_map}}.append(map\_row)}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00183}00183\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_a5801f8d2c54bb6372c227d154019c3e8}{gui\_map}}.append(gui\_map\_row)}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00184}00184\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00185}00185\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ y\ \textcolor{keywordflow}{in}\ range(self.\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_aeaaeea8fee11d6363c12855576dffa03}{height}}):}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00186}00186\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ x\ \textcolor{keywordflow}{in}\ range(self.\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_af4ed6c7db1b92dfcd7d1f9dd9883c39a}{width}}):}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00187}00187\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_ac27ff788106af122bb58e98958299f49}{\_\_map}}[y][x]\ =\ \textcolor{stringliteral}{"{}\ "{}}}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00188}00188\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gui\_cell\ =\ self.\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_a5801f8d2c54bb6372c227d154019c3e8}{gui\_map}}[y][x]}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00189}00189\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gui\_cell.configure(text=\textcolor{stringliteral}{"{}\ "{}},\ bg=\textcolor{stringliteral}{"{}grey"{}})}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00190}00190\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Generating\ map\ elements\ from\ empty\ map}}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00191}00191\ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_a385f291bc8f931669b6f17b6925f5993}{\_\_generate\_mines}}()}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00192}00192\ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_a3976d18571f6bebf13150b047b4f6515}{\_\_generate\_numbers}}()}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00193}00193\ }
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00194}00194\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00196}\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_a5e23394ebeec6d950cce3904738a3376}{00196}}\ \ \ \ \ \textcolor{keyword}{def\ }\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_a5e23394ebeec6d950cce3904738a3376}{reset\_map}}(self):}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00197}00197\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Generating\ new\ map}}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00198}00198\ \ \ \ \ \ \ \ \ is\_resized\ =\ (len(self.\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_ac27ff788106af122bb58e98958299f49}{\_\_map}})\ !=\ self.\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_aeaaeea8fee11d6363c12855576dffa03}{height}}}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00199}00199\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{or}\ len(self.\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_ac27ff788106af122bb58e98958299f49}{\_\_map}}[0])\ !=\ self.\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_af4ed6c7db1b92dfcd7d1f9dd9883c39a}{width}})}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00200}00200\ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_a4b8e5b19b2a57e378f26b5d6346c5ed3}{\_\_generate\_map}}(is\_resized)}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00201}00201\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Resetting\ game\ variables}}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00202}00202\ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_ad002c521275c2680bb1dbfb7af44a8ed}{hidden}}\ =\ self.\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_af4ed6c7db1b92dfcd7d1f9dd9883c39a}{width}}\ *\ self.\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_aeaaeea8fee11d6363c12855576dffa03}{height}}}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00203}00203\ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_a46ab5c5a0c3f16892839940434e23b82}{game\_status}}\ =\ \textcolor{stringliteral}{"{}running"{}}}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00204}00204\ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_a76522ed13e51a2a86c7bf719cfa6ed3f}{status\_label}}.configure(text=\textcolor{stringliteral}{"{}"{}})}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00205}00205\ }
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00206}00206\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00211}\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_a403eae7fe304b9e6e440076cf1efec6c}{00211}}\ \ \ \ \ \textcolor{keyword}{def\ }\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_a403eae7fe304b9e6e440076cf1efec6c}{\_\_fill\_blanks}}(self,\ x,\ y,\ fill\_list):}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00212}00212\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ [x,\ y]\ \textcolor{keywordflow}{not}\ \textcolor{keywordflow}{in}\ fill\_list:}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00213}00213\ \ \ \ \ \ \ \ \ \ \ \ \ fill\_list.append([x,\ y])}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00214}00214\ \ \ \ \ \ \ \ \ \ \ \ \ rots\ =\ [[0,\ 1],\ [0,\ -\/1],\ [1,\ 0],\ [-\/1,\ 0],}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00215}00215\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ [1,\ 1],\ [-\/1,\ -\/1],\ [1,\ -\/1],\ [-\/1,\ 1]]}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00216}00216\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ rot\ \textcolor{keywordflow}{in}\ rots:}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00217}00217\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ x\_dir\ =\ x\ +\ rot[0]}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00218}00218\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ y\_dir\ =\ y\ +\ rot[1]}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00219}00219\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ 0\ <=\ x\_dir\ <\ self.\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_af4ed6c7db1b92dfcd7d1f9dd9883c39a}{width}}:}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00220}00220\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ 0\ <=\ y\_dir\ <\ self.\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_aeaaeea8fee11d6363c12855576dffa03}{height}}:}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00221}00221\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ If\ rotated\ coordinate\ has\ a\ number,\ add\ to\ fill\ list}}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00222}00222\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (self.\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_ac27ff788106af122bb58e98958299f49}{\_\_map}}[y\_dir][x\_dir]\ !=\ \textcolor{stringliteral}{"{}*"{}}}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00223}00223\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{and}\ self.\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_ac27ff788106af122bb58e98958299f49}{\_\_map}}[y\_dir][x\_dir]\ !=\ \textcolor{stringliteral}{"{}\ "{}}):}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00224}00224\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ [x\_dir,\ y\_dir]\ \textcolor{keywordflow}{not}\ \textcolor{keywordflow}{in}\ fill\_list:}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00225}00225\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ self.\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_a5801f8d2c54bb6372c227d154019c3e8}{gui\_map}}[y\_dir][x\_dir][\textcolor{stringliteral}{"{}bg"{}}]\ ==\ \textcolor{stringliteral}{"{}grey"{}}:}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00226}00226\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fill\_list.append([x\_dir,\ y\_dir])}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00227}00227\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ If\ rotated\ coordinate\ has\ no\ number,}}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00228}00228\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ perform\ method\ on\ coordinate}}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00229}00229\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{elif}\ self.\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_ac27ff788106af122bb58e98958299f49}{\_\_map}}[y\_dir][x\_dir]\ ==\ \textcolor{stringliteral}{"{}\ "{}}:}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00230}00230\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_a403eae7fe304b9e6e440076cf1efec6c}{\_\_fill\_blanks}}(x\_dir,\ y\_dir,\ fill\_list)}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00231}00231\ }
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00232}00232\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00235}\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_a1981e51865d9ea6ced9957f67e82e7fe}{00235}}\ \ \ \ \ \textcolor{keyword}{def\ }\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_a1981e51865d9ea6ced9957f67e82e7fe}{\_\_check\_grid}}(self,\ event):}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00236}00236\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ self.\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_a46ab5c5a0c3f16892839940434e23b82}{game\_status}}\ ==\ \textcolor{stringliteral}{"{}running"{}}:}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00237}00237\ \ \ \ \ \ \ \ \ \ \ \ \ gui\_cell\ =\ event.widget}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00238}00238\ \ \ \ \ \ \ \ \ \ \ \ \ x\ =\ gui\_cell.grid\_info()[\textcolor{stringliteral}{"{}column"{}}]}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00239}00239\ \ \ \ \ \ \ \ \ \ \ \ \ y\ =\ gui\_cell.grid\_info()[\textcolor{stringliteral}{"{}row"{}}]}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00240}00240\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Only\ reveal\ hidden\ or\ non-\/flagged\ coordinates}}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00241}00241\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ gui\_cell[\textcolor{stringliteral}{"{}bg"{}}]\ !=\ \textcolor{stringliteral}{"{}white"{}}\ \textcolor{keywordflow}{and}\ gui\_cell[\textcolor{stringliteral}{"{}text"{}}]\ !=\ \textcolor{stringliteral}{"{}⚑"{}}:}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00242}00242\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ If\ coordinate\ has\ a\ number,\ reveal\ coordinate}}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00243}00243\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ self.\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_ac27ff788106af122bb58e98958299f49}{\_\_map}}[y][x]\ !=\ \textcolor{stringliteral}{"{}*"{}}\ \textcolor{keywordflow}{and}\ self.\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_ac27ff788106af122bb58e98958299f49}{\_\_map}}[y][x]\ !=\ \textcolor{stringliteral}{"{}\ "{}}:}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00244}00244\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gui\_cell.configure(text=self.\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_ac27ff788106af122bb58e98958299f49}{\_\_map}}[y][x],\ bg=\textcolor{stringliteral}{"{}white"{}})}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00245}00245\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_ad002c521275c2680bb1dbfb7af44a8ed}{hidden}}\ -\/=\ 1}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00246}00246\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ If\ coordinate\ has\ no\ number,\ fill\ area}}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00247}00247\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{elif}\ self.\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_ac27ff788106af122bb58e98958299f49}{\_\_map}}[y][x]\ ==\ \textcolor{stringliteral}{"{}\ "{}}:}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00248}00248\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fill\_list\ =\ []}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00249}00249\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_a403eae7fe304b9e6e440076cf1efec6c}{\_\_fill\_blanks}}(x,\ y,\ fill\_list)}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00250}00250\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ fill\_cord\ \textcolor{keywordflow}{in}\ fill\_list:}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00251}00251\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ x\_dir\ =\ fill\_cord[0]}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00252}00252\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ y\_dir\ =\ fill\_cord[1]}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00253}00253\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_a5801f8d2c54bb6372c227d154019c3e8}{gui\_map}}[y\_dir][x\_dir].configure(}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00254}00254\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ text=self.\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_ac27ff788106af122bb58e98958299f49}{\_\_map}}[y\_dir][x\_dir],\ bg=\textcolor{stringliteral}{"{}white"{}})}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00255}00255\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_ad002c521275c2680bb1dbfb7af44a8ed}{hidden}}\ -\/=\ 1}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00256}00256\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ If\ coordinate\ is\ a\ mine,\ reveal\ mine\ and\ end\ game}}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00257}00257\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{elif}\ self.\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_ac27ff788106af122bb58e98958299f49}{\_\_map}}[y][x]\ ==\ \textcolor{stringliteral}{"{}*"{}}:}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00258}00258\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gui\_cell.configure(text=self.\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_ac27ff788106af122bb58e98958299f49}{\_\_map}}[y][x],\ bg=\textcolor{stringliteral}{"{}red"{}})}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00259}00259\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_a46ab5c5a0c3f16892839940434e23b82}{game\_status}}\ =\ \textcolor{stringliteral}{"{}lost"{}}}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00260}00260\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_a76522ed13e51a2a86c7bf719cfa6ed3f}{status\_label}}.configure(text=\textcolor{stringliteral}{"{}You\ lost!"{}})}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00261}00261\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ If\ all\ hidden\ coordinates\ are\ revealed,\ end\ game}}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00262}00262\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ self.\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_ad002c521275c2680bb1dbfb7af44a8ed}{hidden}}\ ==\ self.\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_a90183644c79861266d29ba70b15e8b54}{\_\_mines}}:}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00263}00263\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_a46ab5c5a0c3f16892839940434e23b82}{game\_status}}\ =\ \textcolor{stringliteral}{"{}won"{}}}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00264}00264\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ self.\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_a76522ed13e51a2a86c7bf719cfa6ed3f}{status\_label}}.configure(text=\textcolor{stringliteral}{"{}You\ won!"{}})}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00265}00265\ }
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00266}00266\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00269}\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_a0fe05ad6a06fdead7cf54b24f852508b}{00269}}\ \ \ \ \ \textcolor{keyword}{def\ }\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_a0fe05ad6a06fdead7cf54b24f852508b}{\_\_flag\_grid}}(self,\ event):}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00270}00270\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ self.\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_a46ab5c5a0c3f16892839940434e23b82}{game\_status}}\ ==\ \textcolor{stringliteral}{"{}running"{}}:}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00271}00271\ \ \ \ \ \ \ \ \ \ \ \ \ gui\_cell\ =\ event.widget}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00272}00272\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Toggle\ logic\ for\ flagging\ a\ coordinate}}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00273}00273\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ gui\_cell[\textcolor{stringliteral}{"{}bg"{}}]\ ==\ \textcolor{stringliteral}{"{}grey"{}}:}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00274}00274\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ gui\_cell[\textcolor{stringliteral}{"{}text"{}}]\ !=\ \textcolor{stringliteral}{"{}⚑"{}}:}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00275}00275\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gui\_cell.configure(text=\textcolor{stringliteral}{"{}⚑"{}})}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00276}00276\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00277}00277\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gui\_cell.configure(text=\textcolor{stringliteral}{"{}\ "{}})}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00278}00278\ }
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00279}00279\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00281}\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_a1f2630efbb62108b04a79cd9a3ff03d5}{00281}}\ \ \ \ \ \textcolor{keyword}{def\ }\mbox{\hyperlink{classpysweeper_1_1_py_sweeper_a1f2630efbb62108b04a79cd9a3ff03d5}{run\_game}}(self):}
+\DoxyCodeLine{\Hypertarget{pysweeper_8py_source_l00282}00282\ \ \ \ \ \ \ \ \ tk.mainloop()}
+
+\end{DoxyCode}
